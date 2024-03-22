@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnitySingleton;
 
 namespace Core
@@ -9,10 +6,11 @@ namespace Core
     {
         public enum PlayerType
         {
+            UnConquered,
             Blue,
             Red,
             Green,
-            Yellow
+            Yellow,
         }
 
         public enum TowerType
@@ -21,6 +19,13 @@ namespace Core
             Brute,
             Archery,
             Fort
+        }
+
+        public enum Tier
+        {
+            Tier1 = 1,
+            Tier2 = 2,
+            Tier3 = 3,
         }
     }
 }
