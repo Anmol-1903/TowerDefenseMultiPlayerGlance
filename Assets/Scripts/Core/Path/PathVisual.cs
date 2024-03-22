@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using PathOwner = Core.GameEnums.PlayerType;
+using PathOwner = Core.GameEnums.OwnershipType;
 
 namespace Core.PathHandler
 {

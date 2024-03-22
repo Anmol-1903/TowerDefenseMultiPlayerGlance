@@ -6,10 +6,9 @@ namespace Core.PathHandler
     public class Path : MonoBehaviour
     {
         private LineRenderer lineRenderer;
-        [field: SerializeField] public string ID { get; private set; }
+        [field: SerializeField, Disable] public string ID { get; private set; }
 
-        [field: SerializeField] public TowerBase towerPathOwner { get; private set; }
-        [SerializeField] private LayerMask towerLayer;
+        [field: SerializeField, Disable] public TowerBase TowerPathOwner { get; private set; }
 
         //[SerializeField] private int pathCleanerInterval = 10;
 
@@ -30,7 +29,7 @@ namespace Core.PathHandler
             lineRenderer.SetPosition(0, start);
             lineRenderer.SetPosition(1, end);
             GenerateCollider(start, end);
-            towerPathOwner = pathCreatorTower;
+            TowerPathOwner = pathCreatorTower;
         }
 
         private void GenerateCollider(Vector3 from, Vector3 to)

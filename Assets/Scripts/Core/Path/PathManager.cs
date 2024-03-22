@@ -8,22 +8,20 @@ namespace Core.PathHandler
 {
     public class PathManager : MonoSingleton<PathManager>
     {
-        [SerializeField, PrefabObjectOnly] private Path pathRendererPrefab;
+        [SerializeField, PrefabObjectOnly, NotNull] private Path pathRendererPrefab;
+        [SerializeField] private float yOffset;
 
         private LineRenderer hintLine;
         private ObjectPool<Path> lineRendersPool;
 
-        private List<Path> playerLineRenderers;
-
         [SerializeField, InLineEditor] private Material validMaterial;
         [SerializeField, InLineEditor] private Material inValidMaterial;
-        [SerializeField] private PathVisual[] pathMaterial;
+        [SerializeField, LabelByChild("owner")] private PathVisual[] pathMaterial;
 
         protected override void OnInitialized()
         {
             lineRendersPool = new(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
             transform.position = Vector3.zero;
-            playerLineRenderers = new();
         }
 
         private void OnEnable()
@@ -92,8 +90,7 @@ namespace Core.PathHandler
                     break;
                 }
             }
-            path.DrawPath(true, to, from, tower, pathMat);
-            playerLineRenderers.Add(path);
+            path.DrawPath(true, new(to.x, yOffset, to.z), new(from.x, yOffset, from.z), tower, pathMat);
             return path;
         }
 
@@ -105,10 +102,6 @@ namespace Core.PathHandler
         public Path RemovePath(Path path)
         {
             lineRendersPool.Release(path);
-            if (playerLineRenderers.Contains(path))
-            {
-                playerLineRenderers.Remove(path);
-            }
             return path;
         }
 

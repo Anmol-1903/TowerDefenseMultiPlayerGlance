@@ -4,7 +4,7 @@ namespace Core
 {
     public class GameEnums : Singleton<GameEnums>
     {
-        public enum PlayerType
+        public enum OwnershipType
         {
             UnConquered,
             Blue,

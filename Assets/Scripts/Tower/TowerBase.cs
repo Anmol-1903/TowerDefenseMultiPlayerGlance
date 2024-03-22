@@ -2,12 +2,15 @@ using UnityEngine;
 using Core;
 using System.Collections.Generic;
 using Util;
+using UnityEditor.MemoryProfiler;
+using UnityEngine.Events;
+using Core.PathHandler;
 
 namespace Tower
 {
     public abstract class TowerBase : MonoBehaviour
     {
-        [field: SerializeField] public GameEnums.PlayerType TowerOwner { get; protected set; }
+        [field: SerializeField] public GameEnums.OwnershipType TowerOwner { get; protected set; }
 
         [field: SerializeField, Disable, BeginGroup("Readonly Settings")] public string TowerID { get; protected set; }
         [field: SerializeField, Disable, EndGroup] public GameEnums.TowerType TowerType { get; protected set; }
@@ -23,6 +26,10 @@ namespace Tower
         [SerializeField, DisableInPlayMode] protected int maxPaths = 3;
         [field: SerializeField, Disable] public bool CanCreateConnections { get; protected set; }
         [field: SerializeField, LabelByChild("Name"), Disable, EndGroup] public List<TowerConnection> Connections { get; protected set; }
+
+        [field: SerializeField, BeginGroup("Events")] public UnityEvent OnTowerUpgrade_Level { get; protected set; }
+        [field: SerializeField] public UnityEvent OnTowerDowngrade_Level { get; protected set; }
+        [field: SerializeField, EndGroup] public UnityEvent<GameEnums.Tier> OnTowerTierChanged { get; protected set; }
 
         protected virtual void Awake()
         {
@@ -43,11 +50,52 @@ namespace Tower
             }
         }
 
+        public Path ConnectTo(TowerBase tower)
+        {
+            if (CanCreateConnections)
+            {
+                if (FindTowerInConnection(tower) != -1) //! Tower already connected
+                    return null;
+
+                //! Tower is not connected yet
+                Path path = PathManager.Instance.CreatePath(transform.position, tower.transform.position, this);
+                Connections.Add(new(tower, path));
+                if (tower.TowerOwner == TowerOwner)
+                {
+                    int selfIndexInOtherTower = tower.FindTowerInConnection(this);
+                    if (selfIndexInOtherTower != -1)
+                    {
+                        tower.DisconnectTower(tower.Connections[selfIndexInOtherTower].Tower);
+                    }
+                }
+                return path;
+            }
+            return null;
+        }
+
+        public bool DisconnectTower(TowerBase tower)
+        {
+            bool isDisconnected = false;
+            int index = FindTowerInConnection(tower);
+            if (index != -1)
+            {
+                Path path = Connections[index].TowerPath;
+                Connections.RemoveAt(index);
+                PathManager.Instance.RemovePath(path);
+            }
+
+            return isDisconnected;
+        }
+
+        private int FindTowerInConnection(TowerBase tower)
+        {
+            return Connections.FindIndex(connection => connection.Tower.TowerID == tower.TowerID);
+        }
+
         protected virtual void ConnectionCheckUpdate()
         {
             CanCreateConnections = usedPaths < maxPaths;
             maxPaths = (int)TowerTier;
-            "Checking Connection".Log(this);
         }
     }
 }

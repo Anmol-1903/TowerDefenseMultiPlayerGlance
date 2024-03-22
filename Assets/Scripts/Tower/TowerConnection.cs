@@ -1,3 +1,4 @@
+using Core.PathHandler;
 using System;
 using UnityEngine;
 
@@ -7,14 +8,14 @@ namespace Tower
     public struct TowerConnection
     {
         public string Name;
-        public LineRenderer Path;
+        public Path TowerPath;
         public TowerBase Tower;
 
-        public TowerConnection(TowerBase tower, LineRenderer path)
+        public TowerConnection(TowerBase tower, Path path)
         {
             Name = tower.name;
             Tower = tower;
-            Path = path;
+            TowerPath = path;
         }
     }
 }
