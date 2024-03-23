@@ -6,5 +6,5 @@ public abstract class TroopBase : MonoBehaviour
     [field: SerializeField, Disable] public TroopOwner Owner { get; protected set; }
 
     [SerializeField] protected int health;
-    [SerializeField] protected int level;
+    [field: SerializeField] public int Level { get; protected set; }
 }

@@ -26,6 +26,14 @@ namespace Troop
             SoldierPool.Clear();
         }
 
+        public void SpawnSoldierTroop()
+        {
+        }
+
+        public void SpawnBruteTroop()
+        {
+        }
+
         private SoldierTroop CreateSoldierPool()
         {
             return Instantiate(soldierPrefab);

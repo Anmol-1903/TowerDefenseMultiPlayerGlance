@@ -1,26 +1,26 @@
 using UnityEngine;
-using Core;
 using System.Collections.Generic;
-using Util;
-using UnityEditor.MemoryProfiler;
 using UnityEngine.Events;
 using Core.PathHandler;
+using OwnershipType = Core.GameEnums.OwnershipType;
+using Tier = Core.GameEnums.Tier;
+using TowerType = Core.GameEnums.TowerType;
 
 namespace Tower
 {
     public abstract class TowerBase : MonoBehaviour
     {
-        [field: SerializeField] public GameEnums.OwnershipType TowerOwner { get; protected set; }
+        [field: SerializeField] public OwnershipType TowerOwner { get; protected set; }
 
         [field: SerializeField, Disable, BeginGroup("Readonly Settings")] public string TowerID { get; protected set; }
-        [field: SerializeField, Disable, EndGroup] public GameEnums.TowerType TowerType { get; protected set; }
+        [field: SerializeField, Disable, EndGroup] public TowerType TowerType { get; protected set; }
 
         [field: SerializeField, ProgressBar("Tower Level", minValue: 0, maxValue: 64, HexColor = "#76ABAE", IsInteractable = true), BeginGroup("Level Settings")] public int Level { get; protected set; }
 
         [SpaceArea]
         [SerializeField, DisableInPlayMode, BeginHorizontalGroup(labelToWidthRatio: 0.2f),] protected int maxLevel = 64;
 
-        [field: SerializeField, EndHorizontalGroup, EndGroup] public GameEnums.Tier TowerTier { get; protected set; }
+        [field: SerializeField, EndHorizontalGroup, EndGroup] public Tier TowerTier { get; protected set; }
 
         [SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] protected int usedPaths = 0;
         [SerializeField, DisableInPlayMode] protected int maxPaths = 3;
@@ -29,7 +29,7 @@ namespace Tower
 
         [field: SerializeField, BeginGroup("Events")] public UnityEvent OnTowerUpgrade_Level { get; protected set; }
         [field: SerializeField] public UnityEvent OnTowerDowngrade_Level { get; protected set; }
-        [field: SerializeField, EndGroup] public UnityEvent<GameEnums.Tier> OnTowerTierChanged { get; protected set; }
+        [field: SerializeField, EndGroup] public UnityEvent<Tier, bool> OnTowerTierChanged { get; protected set; }
 
         protected virtual void Awake()
         {
@@ -47,6 +47,10 @@ namespace Tower
             if (Level <= 0)
             {
                 Level = 0;
+            }
+            if (Level >= maxLevel)
+            {
+                Level = maxLevel;
             }
         }
 
@@ -85,6 +89,67 @@ namespace Tower
             }
 
             return isDisconnected;
+        }
+
+        public void UpdateTowerLevel(TroopBase incomingTroop)
+        {
+            bool isUpgrading = false;
+            if (incomingTroop.Owner == TowerOwner)
+            {
+                //! fellow Troop
+                isUpgrading = true;
+                Level += incomingTroop.Level;
+                OnTowerUpgrade_Level?.Invoke();
+            }
+            else
+            {
+                //! !Enemy Attack
+                isUpgrading = false;
+                Level -= incomingTroop.Level;
+                OnTowerDowngrade_Level?.Invoke();
+                if (Level <= 0)
+                {
+                    TowerOwner = incomingTroop.Owner;
+                    if (Connections != null && Connections.Count > 0)
+                    {
+                        foreach (var con in Connections)
+                        {
+                            DisconnectTower(con.Tower);
+                        }
+                    }
+                }
+            }
+            if (Level == 0)
+            {
+                TowerTier = Tier.Tier1;
+                OnTowerTierChanged?.Invoke(Tier.Tier1, isUpgrading);
+            }
+            else if (Level == 10)
+            {
+                TowerTier = Tier.Tier2;
+                OnTowerTierChanged?.Invoke(Tier.Tier2, isUpgrading);
+            }
+            else if (Level == 30)
+            {
+                TowerTier = Tier.Tier3;
+                OnTowerTierChanged?.Invoke(Tier.Tier3, isUpgrading);
+            }
+        }
+
+        public void UpdateTowerLevel(int amt)
+        {
+            if (amt == 0) return;
+
+            if (amt > 0)
+            {
+                OnTowerUpgrade_Level?.Invoke();
+            }
+            else
+            {
+                OnTowerUpgrade_Level?.Invoke();
+            }
+
+            Level += amt;
         }
 
         private int FindTowerInConnection(TowerBase tower)

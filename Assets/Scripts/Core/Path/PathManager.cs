@@ -22,10 +22,6 @@ namespace Core.PathHandler
         {
             lineRendersPool = new(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
             transform.position = Vector3.zero;
-        }
-
-        private void OnEnable()
-        {
             hintLine = transform.GetComponentInChildren<LineRenderer>();
             hintLine.transform.position = Vector3.zero;
         }

@@ -8,30 +8,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PixelRect:
-    serializedVersion: 2
-    x: -166
-    y: 250
-    width: 986
-    height: 560
-  m_ShowMode: 0
-  m_Title: Package Manager
-  m_RootView: {fileID: 4}
-  m_MinSize: {x: 800, y: 271}
-  m_MaxSize: {x: 4000, y: 4021}
-  m_Maximized: 0
---- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -43,62 +19,12 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Project
-  m_RootView: {fileID: 9}
+  m_Title: Git for Unity
+  m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
---- !u!114 &3
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: PackageManagerWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 986
-    height: 560
-  m_MinSize: {x: 800, y: 271}
-  m_MaxSize: {x: 4000, y: 4021}
-  m_ActualView: {fileID: 16}
-  m_Panes:
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &4
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 3}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 986
-    height: 560
-  m_MinSize: {x: 800, y: 271}
-  m_MaxSize: {x: 4000, y: 4021}
-  vertical: 0
-  controlID: 580
---- !u!114 &5
+--- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,12 +45,12 @@ MonoBehaviour:
     height: 661
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 21}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &6
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 15}
-  - {fileID: 5}
+  - {fileID: 12}
+  - {fileID: 2}
   m_Position:
     serializedVersion: 2
     x: 978
@@ -148,8 +74,8 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 196
---- !u!114 &7
+  controlID: 82
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,14 +94,14 @@ MonoBehaviour:
     y: 358
     width: 978
     height: 629
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 22}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &8
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,8 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 13}
-  - {fileID: 7}
+  - {fileID: 10}
+  - {fileID: 4}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -199,8 +125,8 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 142
---- !u!114 &9
+  controlID: 25
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,9 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 10}
-  - {fileID: 11}
-  - {fileID: 12}
+  - {fileID: 7}
+  - {fileID: 8}
+  - {fileID: 9}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -228,7 +154,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &10
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +176,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &11
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,9 +189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 8}
-  - {fileID: 6}
-  - {fileID: 14}
+  - {fileID: 5}
+  - {fileID: 3}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -275,8 +201,8 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 234
---- !u!114 &12
+  controlID: 134
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +223,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &13
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,7 +233,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -316,15 +242,15 @@ MonoBehaviour:
     y: 0
     width: 978
     height: 358
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 23}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &14
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,15 +269,15 @@ MonoBehaviour:
     y: 0
     width: 465
     height: 987
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 13}
   m_Panes:
-  - {fileID: 20}
-  - {fileID: 17}
+  - {fileID: 16}
+  - {fileID: 13}
   m_Selected: 1
   m_LastSelected: 0
---- !u!114 &15
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -372,47 +298,12 @@ MonoBehaviour:
     height: 326
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &16
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 13953, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 800, y: 250}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Package Manager
-    m_Image: {fileID: -2824328813065806953, guid: 0000000000000000d000000000000000,
-      type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: -166
-    y: 250
-    width: 986
-    height: 539
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
---- !u!114 &17
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,13 +337,13 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  progressMessageClearTime: 583.6158847
+  progressMessageClearTime: -1
   notificationClearTime: -1
-  timeSinceLastRotation: 581.383594
+  timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
   currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 1
+  repositoryProgressHasUpdate: 0
   appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
@@ -636,13 +527,20 @@ MonoBehaviour:
       assets:
         keys:
         - 00000000000000001000000000000000
+        - f0642e624e474924a9a00afc648fc056
+        - 99c9720ab356a0642a771bea13969a05
         - db95578ed663b564ba50df152ae80062
         - 6eafa3e2aebe37b43bbd2578673282e9
-        - 30c6fcc7474603442950cc5a6c43c4f2
+        - ed2c0aa9cac5c4f4d9694396cedfbbf0
+        - caea55c74d1df2c4f9df536542e67c50
+        - d93dc5d6f18e5914092951b252d68f1b
+        - c529607cf54568443ace475eafc93895
         - 12fb3183da9774f4c9cfea68d2c7f75f
         - d28fdae9a63b10c4eb8cba7c0275d58a
-        - 709f11a7f3c4041caa4ef136ea32d874
-        - e1260c1148f6143b28bae5ace5e9c5d1
+        - e5bb00dd36f96494ea663f23725f81d5
+        - 97be5dff20891f54392dd6824d2c007f
+        - 0dbd3c597d447e940a4a11d3aca60b29
+        - 22a693d517d519a40ac49fae3d5ebe42
         values:
         - path: Assets
           label: Assets
@@ -662,6 +560,42 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity
+          label: SampleScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\SampleScene.unity
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+            projectPath: Assets\Scenes\SampleScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
         - path: Assets\Scripts
           label: Scripts
           level: 1
@@ -698,11 +632,11 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Scripts\Core\GameEnums.cs
-          label: GameEnums.cs
+        - path: Assets\Scripts\Core\Input
+          label: Input
           level: 3
-          isFolder: 0
-          isContainer: 1
+          isFolder: 1
+          isContainer: 0
           isCollapsed: 0
           isHidden: 0
           isActive: 0
@@ -710,12 +644,66 @@ MonoBehaviour:
           checkState: 0
           isLocked: 0
           gitStatusEntry:
-            path: Assets\Scripts\Core\GameEnums.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
-            projectPath: Assets\Scripts\Core\GameEnums.cs
+            path: 
+            fullPath: 
+            projectPath: 
             originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input\InputManager.cs
+          label: InputManager.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Core\Input\InputManager.cs
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+            projectPath: Assets\Scripts\Core\Input\InputManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Core\Path
+          label: Path
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathManager.cs
+          label: PathManager.cs
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Core\Path\PathManager.cs
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+            projectPath: Assets\Scripts\Core\Path\PathManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
         - path: Assets\Scripts\Tower
           label: Tower
           level: 2
@@ -738,7 +726,7 @@ MonoBehaviour:
           label: TowerBase.cs
           level: 3
           isFolder: 0
-          isContainer: 1
+          isContainer: 0
           isCollapsed: 0
           isHidden: 0
           isActive: 0
@@ -750,11 +738,29 @@ MonoBehaviour:
             fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
             projectPath: Assets\Scripts\Tower\TowerBase.cs
             originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Tower\TowerTracker.cs
+          label: TowerTracker.cs
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Tower\TowerTracker.cs
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+            projectPath: Assets\Scripts\Tower\TowerTracker.cs
+            originalPath: 
             indexStatus: 1
             workTreeStatus: 1
-        - path: Assets\Settings
-          label: Settings
-          level: 1
+        - path: Assets\Scripts\Troop
+          label: Troop
+          level: 2
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -770,9 +776,9 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Settings\URP-Balanced.asset
-          label: URP-Balanced.asset
-          level: 2
+        - path: Assets\Scripts\Troop\TroopBase.cs
+          label: TroopBase.cs
+          level: 3
           isFolder: 0
           isContainer: 0
           isCollapsed: 0
@@ -782,25 +788,64 @@ MonoBehaviour:
           checkState: 0
           isLocked: 0
           gitStatusEntry:
-            path: Assets\Settings\URP-Balanced.asset
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Settings\URP-Balanced.asset
-            projectPath: Assets\Settings\URP-Balanced.asset
+            path: Assets\Scripts\Troop\TroopBase.cs
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+            projectPath: Assets\Scripts\Troop\TroopBase.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scripts\Troop\TroopPooler.cs
+          label: TroopPooler.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scripts\Troop\TroopPooler.cs
+            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+            projectPath: Assets\Scripts\Troop\TroopPooler.cs
             originalPath: 
             indexStatus: 0
             workTreeStatus: 3
       folders:
         keys:
         - Assets
+        - Assets\Scenes
         - Assets\Scripts
         - Assets\Scripts\Core
+        - Assets\Scripts\Core\Input
+        - Assets\Scripts\Core\Path
         - Assets\Scripts\Tower
-        - Assets\Settings
+        - Assets\Scripts\Troop
         - UserSettings
         - UserSettings\Layouts
         values:
         - path: Assets
           label: Assets
           level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -852,6 +897,42 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input
+          label: Input
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path
+          label: Path
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
         - path: Assets\Scripts\Tower
           label: Tower
           level: 2
@@ -870,9 +951,9 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\Settings
-          label: Settings
-          level: 1
+        - path: Assets\Scripts\Troop
+          label: Troop
+          level: 2
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -970,9 +1051,27 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Scripts.meta
-        label: Scripts.meta
+      - path: Assets\Scenes
+        label: Scenes
         level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity
+        label: SampleScene.unity
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -982,12 +1081,12 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Scripts.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts.meta
-          projectPath: Assets\Scripts.meta
+          path: Assets\Scenes\SampleScene.unity
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
+          indexStatus: 0
+          workTreeStatus: 3
       - path: Assets\Scripts
         label: Scripts
         level: 1
@@ -1006,24 +1105,6 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Scripts\Core.meta
-        label: Core.meta
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Core.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core.meta
-          projectPath: Assets\Scripts\Core.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
       - path: Assets\Scripts\Core
         label: Core
         level: 2
@@ -1042,11 +1123,11 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Scripts\Core\GameEnums.cs
-        label: GameEnums.cs
+      - path: Assets\Scripts\Core\Input
+        label: Input
         level: 3
-        isFolder: 0
-        isContainer: 1
+        isFolder: 1
+        isContainer: 0
         isCollapsed: 0
         isHidden: 0
         isActive: 0
@@ -1054,14 +1135,14 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Scripts\Core\GameEnums.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
-          projectPath: Assets\Scripts\Core\GameEnums.cs
+          path: 
+          fullPath: 
+          projectPath: 
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Scripts\Core\GameEnums.cs.meta
-        label: GameEnums.cs.meta
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Core\Input\InputManager.cs
+        label: InputManager.cs
         level: 4
         isFolder: 0
         isContainer: 0
@@ -1072,15 +1153,33 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Scripts\Core\GameEnums.cs.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs.meta
-          projectPath: Assets\Scripts\Core\GameEnums.cs.meta
+          path: Assets\Scripts\Core\Input\InputManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+          projectPath: Assets\Scripts\Core\Input\InputManager.cs
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Scripts\Tower.meta
-        label: Tower.meta
-        level: 2
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Core\Path
+        label: Path
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathManager.cs
+        label: PathManager.cs
+        level: 4
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -1090,12 +1189,12 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Scripts\Tower.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower.meta
-          projectPath: Assets\Scripts\Tower.meta
+          path: Assets\Scripts\Core\Path\PathManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+          projectPath: Assets\Scripts\Core\Path\PathManager.cs
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
+          indexStatus: 0
+          workTreeStatus: 3
       - path: Assets\Scripts\Tower
         label: Tower
         level: 2
@@ -1118,7 +1217,7 @@ MonoBehaviour:
         label: TowerBase.cs
         level: 3
         isFolder: 0
-        isContainer: 1
+        isContainer: 0
         isCollapsed: 0
         isHidden: 0
         isActive: 0
@@ -1130,10 +1229,28 @@ MonoBehaviour:
           fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
           projectPath: Assets\Scripts\Tower\TowerBase.cs
           originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Tower\TowerTracker.cs
+        label: TowerTracker.cs
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Tower\TowerTracker.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+          projectPath: Assets\Scripts\Tower\TowerTracker.cs
+          originalPath: 
           indexStatus: 1
           workTreeStatus: 1
-      - path: Assets\Scripts\Tower\TowerBase.cs.meta
-        label: TowerBase.cs.meta
+      - path: Assets\Scripts\Tower\TowerTracker.cs.meta
+        label: TowerTracker.cs.meta
         level: 4
         isFolder: 0
         isContainer: 0
@@ -1144,15 +1261,15 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Scripts\Tower\TowerBase.cs.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs.meta
-          projectPath: Assets\Scripts\Tower\TowerBase.cs.meta
+          path: Assets\Scripts\Tower\TowerTracker.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
+          projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
           originalPath: 
           indexStatus: 1
           workTreeStatus: 1
-      - path: Assets\Settings
-        label: Settings
-        level: 1
+      - path: Assets\Scripts\Troop
+        label: Troop
+        level: 2
         isFolder: 1
         isContainer: 0
         isCollapsed: 0
@@ -1168,9 +1285,9 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\Settings\URP-Balanced.asset
-        label: URP-Balanced.asset
-        level: 2
+      - path: Assets\Scripts\Troop\TroopBase.cs
+        label: TroopBase.cs
+        level: 3
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -1180,9 +1297,27 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: Assets\Settings\URP-Balanced.asset
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Settings\URP-Balanced.asset
-          projectPath: Assets\Settings\URP-Balanced.asset
+          path: Assets\Scripts\Troop\TroopBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+          projectPath: Assets\Scripts\Troop\TroopBase.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scripts\Troop\TroopPooler.cs
+        label: TroopPooler.cs
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scripts\Troop\TroopPooler.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+          projectPath: Assets\Scripts\Troop\TroopPooler.cs
           originalPath: 
           indexStatus: 0
           workTreeStatus: 3
@@ -1238,8 +1373,8 @@ MonoBehaviour:
           fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
           projectPath: UserSettings\Layouts\default-2022.dwlt
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -1260,51 +1395,51 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: Assets\Scripts.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts.meta
-      projectPath: Assets\Scripts.meta
+    - path: Assets\Scenes\SampleScene.unity
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+      projectPath: Assets\Scenes\SampleScene.unity
       originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Core.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core.meta
-      projectPath: Assets\Scripts\Core.meta
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Core\Input\InputManager.cs
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+      projectPath: Assets\Scripts\Core\Input\InputManager.cs
       originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Core\GameEnums.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
-      projectPath: Assets\Scripts\Core\GameEnums.cs
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Core\Path\PathManager.cs
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+      projectPath: Assets\Scripts\Core\Path\PathManager.cs
       originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Core\GameEnums.cs.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs.meta
-      projectPath: Assets\Scripts\Core\GameEnums.cs.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Tower.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower.meta
-      projectPath: Assets\Scripts\Tower.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
+      indexStatus: 0
+      workTreeStatus: 3
     - path: Assets\Scripts\Tower\TowerBase.cs
       fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
       projectPath: Assets\Scripts\Tower\TowerBase.cs
       originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Tower\TowerBase.cs.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs.meta
-      projectPath: Assets\Scripts\Tower\TowerBase.cs.meta
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Tower\TowerTracker.cs
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+      projectPath: Assets\Scripts\Tower\TowerTracker.cs
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
-    - path: Assets\Settings\URP-Balanced.asset
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Settings\URP-Balanced.asset
-      projectPath: Assets\Settings\URP-Balanced.asset
+    - path: Assets\Scripts\Tower\TowerTracker.cs.meta
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
+      projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Scripts\Troop\TroopBase.cs
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+      projectPath: Assets\Scripts\Troop\TroopBase.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scripts\Troop\TroopPooler.cs
+      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+      projectPath: Assets\Scripts\Troop\TroopPooler.cs
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
@@ -1312,14 +1447,14 @@ MonoBehaviour:
       fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
       projectPath: UserSettings\Layouts\default-2022.dwlt
       originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
+      indexStatus: 0
+      workTreeStatus: 3
     changedFilesText: 9 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-03-22T17:59:34.871+05:30
+      updatedTimeString: 2024-03-23T18:37:55.549+05:30
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2024-03-23T18:41:34.125+05:30
       cacheType: 6
     lastLocksChangedEvent:
       updatedTimeString: 0001-01-01T00:00:00.000+00:00
@@ -2239,13 +2374,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-03-22T17:59:34.871+05:30
+    updatedTimeString: 2024-03-23T16:32:49.034+05:30
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 0001-01-01T00:00:00.000+00:00
+    updatedTimeString: 2024-03-23T16:44:06.334+05:30
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 0001-01-01T00:00:00.000+00:00
+    updatedTimeString: 2024-03-23T16:44:06.326+05:30
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -2263,12 +2398,12 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 0.6
+  repositoryProgressValue: 0
   repositoryProgressMessage: 
   appManagerProgressValue: 1
   appManagerProgressMessage: 
   primaryConnectionUsername: 
---- !u!114 &18
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2306,9 +2441,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: c8650000
       m_LastClickedID: 0
-      m_ExpandedIDs: 82f8ffff
+      m_ExpandedIDs: 1afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2324,7 +2459,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 15}
+        m_ClientGUIView: {fileID: 10}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -2332,7 +2467,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: dd019822365b97248a46ac75aadf0e90
---- !u!114 &19
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2367,7 +2502,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &20
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2415,7 +2550,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &21
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2461,7 +2596,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Core
+    - Assets/Scripts/Tower
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2469,16 +2604,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Core
+  - Assets/Scripts/Tower
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dc620000
-    m_LastClickedID: 25308
-    m_ExpandedIDs: 00000000c4600000c0620000
+    m_SelectedIDs: aa650000
+    m_LastClickedID: 26026
+    m_ExpandedIDs: 00000000ba6300009e650000a6650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2494,7 +2629,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 2}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -2506,7 +2641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c4600000
+    m_ExpandedIDs: 00000000ba630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2550,7 +2685,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -2562,7 +2697,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
---- !u!114 &22
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2661,7 +2796,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &23
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2684,8 +2819,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 907
-    height: 452
+    width: 977
+    height: 337
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

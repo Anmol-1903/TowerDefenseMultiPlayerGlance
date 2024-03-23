@@ -1,20 +1,22 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnitySingleton;
+using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Core.Input
 {
-    public class InputManager : MonoSingleton<InputManager>
+    public class InputManager : MonoBehaviour
     {
-        protected override void OnInitialized()
+        [SerializeField] private InputOwner owner;
+
+        private void OnEnable()
         {
             GameManager.Instance.OnGameStart += EnableInputs;
             GameManager.Instance.OnGameStop += (bool b) => DisableInputs();
         }
 
-        public override void ClearSingleton()
+        private void OnDisable()
         {
             GameManager.Instance.OnGameStart -= EnableInputs;
             GameManager.Instance.OnGameStop -= (bool b) => DisableInputs();
