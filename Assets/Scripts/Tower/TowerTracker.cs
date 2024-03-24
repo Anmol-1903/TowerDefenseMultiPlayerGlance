@@ -10,17 +10,51 @@ namespace Tower
 {
     public class TowerTracker : MonoSingleton<TowerTracker>
     {
-        [field: SerializeField] public List<TowerBase> TowerList { get; private set; }
+        [SerializeField] private List<TowerBase> towerList;
+        [SerializeField, LabelByChild("OwnershipType")] private List<TowerByOwner> towersByOwner;
+
+        public List<TowerByOwner> TowersByOwner => towersByOwner;
 
         private void Start()
         {
             GetAllTower();
+            FilterTowerByOwner();
         }
 
-        private void GetAllTower()
+        public List<TowerBase> GetAllTower()
         {
-            TowerList = new();
-            TowerList.AddRange(FindObjectsByType<TowerBase>(FindObjectsSortMode.None).ToList());
+            towerList = new();
+            towerList.AddRange(FindObjectsByType<TowerBase>(FindObjectsSortMode.None).ToList());
+            return towerList;
+        }
+
+        public void FilterTowerByOwner()
+        {
+            towersByOwner = new(5)
+            {
+                new TowerByOwner(OwnershipType.UnConquered,new (GetTowerByOwner(OwnershipType.UnConquered))),
+                new TowerByOwner(OwnershipType.Blue,new (GetTowerByOwner(OwnershipType.Blue))),
+                new TowerByOwner(OwnershipType.Red,new (GetTowerByOwner(OwnershipType.Red))),
+                new TowerByOwner(OwnershipType.Green,new (GetTowerByOwner(OwnershipType.Green))),
+                new TowerByOwner(OwnershipType.Yellow,new (GetTowerByOwner(OwnershipType.Yellow)))
+            };
+        }
+
+        public List<TowerBase> GetTowerByOwner(OwnershipType ownerType)
+        {
+            List<TowerBase> list = new();
+            if (towerList == null || towerList.Count == 0)
+            {
+                GetAllTower();
+            }
+            foreach (var tower in towerList)
+            {
+                if (tower.TowerOwner == ownerType)
+                {
+                    list.Add(tower);
+                }
+            }
+            return list;
         }
     }
 
@@ -29,6 +63,12 @@ namespace Tower
     {
         public OwnershipType OwnershipType;
         public List<TowerBase> Towers;
+
+        public TowerByOwner(OwnershipType ownershipType, List<TowerBase> towers)
+        {
+            OwnershipType = ownershipType;
+            Towers = towers;
+        }
     }
 
     [Serializable]
