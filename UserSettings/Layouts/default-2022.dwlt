@@ -8,6 +8,30 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 222
+    y: 146
+    width: 655
+    height: 601
+  m_ShowMode: 0
+  m_Title: Build Settings
+  m_RootView: {fileID: 4}
+  m_MinSize: {x: 640, y: 601}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_Maximized: 0
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -19,12 +43,62 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Git for Unity
-  m_RootView: {fileID: 6}
+  m_Title: Game
+  m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
---- !u!114 &2
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: BuildPlayerWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 655
+    height: 601
+  m_MinSize: {x: 640, y: 601}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 16}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 3}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 655
+    height: 601
+  m_MinSize: {x: 640, y: 601}
+  m_MaxSize: {x: 4000, y: 4021}
+  vertical: 0
+  controlID: 630
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,12 +119,12 @@ MonoBehaviour:
     height: 661
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 21}
   m_Panes:
-  - {fileID: 17}
+  - {fileID: 21}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &3
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 12}
-  - {fileID: 2}
+  - {fileID: 15}
+  - {fileID: 5}
   m_Position:
     serializedVersion: 2
     x: 978
@@ -74,8 +148,8 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 82
---- !u!114 &4
+  controlID: 49
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,12 +170,12 @@ MonoBehaviour:
     height: 629
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 22}
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 22}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &5
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 10}
-  - {fileID: 4}
+  - {fileID: 13}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -126,7 +200,7 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 25
---- !u!114 &6
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,9 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 7}
-  - {fileID: 8}
-  - {fileID: 9}
+  - {fileID: 10}
+  - {fileID: 11}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -154,7 +228,7 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &7
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &8
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,9 +263,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 5}
-  - {fileID: 3}
-  - {fileID: 11}
+  - {fileID: 8}
+  - {fileID: 6}
+  - {fileID: 14}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -201,8 +275,8 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 134
---- !u!114 &9
+  controlID: 140
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +297,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &10
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,13 +318,13 @@ MonoBehaviour:
     height: 358
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 23}
   m_Panes:
+  - {fileID: 23}
   - {fileID: 19}
-  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &11
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +334,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Window
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -269,15 +343,15 @@ MonoBehaviour:
     y: 0
     width: 465
     height: 987
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 16}
-  - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &12
+  - {fileID: 20}
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,12 +372,68 @@ MonoBehaviour:
     height: 326
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &13
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12043, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 640, y: 580}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Build Settings
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 222
+    y: 146
+    width: 655
+    height: 580
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 0
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,11 +472,11 @@ MonoBehaviour:
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
-  currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 0
-  appManagerProgressHasUpdate: 0
-  changeTab: 3
-  activeTab: 3
+  currentStatusEntriesHasUpdate: 1
+  repositoryProgressHasUpdate: 1
+  appManagerProgressHasUpdate: 1
+  changeTab: 2
+  activeTab: 2
   initProjectView:
     hasCompletedInitialCheck: 1
     isUserDataPresent: 1
@@ -525,450 +655,13 @@ MonoBehaviour:
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys:
-        - 00000000000000001000000000000000
-        - f0642e624e474924a9a00afc648fc056
-        - 99c9720ab356a0642a771bea13969a05
-        - db95578ed663b564ba50df152ae80062
-        - 6eafa3e2aebe37b43bbd2578673282e9
-        - ed2c0aa9cac5c4f4d9694396cedfbbf0
-        - caea55c74d1df2c4f9df536542e67c50
-        - d93dc5d6f18e5914092951b252d68f1b
-        - c529607cf54568443ace475eafc93895
-        - 12fb3183da9774f4c9cfea68d2c7f75f
-        - d28fdae9a63b10c4eb8cba7c0275d58a
-        - e5bb00dd36f96494ea663f23725f81d5
-        - 97be5dff20891f54392dd6824d2c007f
-        - 0dbd3c597d447e940a4a11d3aca60b29
-        - 22a693d517d519a40ac49fae3d5ebe42
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\SampleScene.unity
-          label: SampleScene.unity
-          level: 2
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scenes\SampleScene.unity
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
-            projectPath: Assets\Scenes\SampleScene.unity
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Scripts
-          label: Scripts
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core
-          label: Core
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core\Input
-          label: Input
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core\Input\InputManager.cs
-          label: InputManager.cs
-          level: 4
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Core\Input\InputManager.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
-            projectPath: Assets\Scripts\Core\Input\InputManager.cs
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Scripts\Core\Path
-          label: Path
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core\Path\PathManager.cs
-          label: PathManager.cs
-          level: 4
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Core\Path\PathManager.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
-            projectPath: Assets\Scripts\Core\Path\PathManager.cs
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Scripts\Tower
-          label: Tower
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Tower\TowerBase.cs
-          label: TowerBase.cs
-          level: 3
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Tower\TowerBase.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
-            projectPath: Assets\Scripts\Tower\TowerBase.cs
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Scripts\Tower\TowerTracker.cs
-          label: TowerTracker.cs
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Tower\TowerTracker.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
-            projectPath: Assets\Scripts\Tower\TowerTracker.cs
-            originalPath: 
-            indexStatus: 1
-            workTreeStatus: 1
-        - path: Assets\Scripts\Troop
-          label: Troop
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Troop\TroopBase.cs
-          label: TroopBase.cs
-          level: 3
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Troop\TroopBase.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
-            projectPath: Assets\Scripts\Troop\TroopBase.cs
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
-        - path: Assets\Scripts\Troop\TroopPooler.cs
-          label: TroopPooler.cs
-          level: 3
-          isFolder: 0
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scripts\Troop\TroopPooler.cs
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
-            projectPath: Assets\Scripts\Troop\TroopPooler.cs
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 3
+        keys: []
+        values: []
       folders:
         keys:
-        - Assets
-        - Assets\Scenes
-        - Assets\Scripts
-        - Assets\Scripts\Core
-        - Assets\Scripts\Core\Input
-        - Assets\Scripts\Core\Path
-        - Assets\Scripts\Tower
-        - Assets\Scripts\Troop
         - UserSettings
         - UserSettings\Layouts
         values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts
-          label: Scripts
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core
-          label: Core
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core\Input
-          label: Input
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Core\Path
-          label: Path
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Tower
-          label: Tower
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scripts\Troop
-          label: Troop
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
         - path: UserSettings
           label: UserSettings
           level: 0
@@ -1033,294 +726,6 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets
-        label: Assets
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes
-        label: Scenes
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes\SampleScene.unity
-        label: SampleScene.unity
-        level: 2
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\SampleScene.unity
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
-          projectPath: Assets\Scenes\SampleScene.unity
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Scripts
-        label: Scripts
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Core
-        label: Core
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Core\Input
-        label: Input
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Core\Input\InputManager.cs
-        label: InputManager.cs
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Core\Input\InputManager.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
-          projectPath: Assets\Scripts\Core\Input\InputManager.cs
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Scripts\Core\Path
-        label: Path
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Core\Path\PathManager.cs
-        label: PathManager.cs
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Core\Path\PathManager.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
-          projectPath: Assets\Scripts\Core\Path\PathManager.cs
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Scripts\Tower
-        label: Tower
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Tower\TowerBase.cs
-        label: TowerBase.cs
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Tower\TowerBase.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
-          projectPath: Assets\Scripts\Tower\TowerBase.cs
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Scripts\Tower\TowerTracker.cs
-        label: TowerTracker.cs
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Tower\TowerTracker.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
-          projectPath: Assets\Scripts\Tower\TowerTracker.cs
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Scripts\Tower\TowerTracker.cs.meta
-        label: TowerTracker.cs.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Tower\TowerTracker.cs.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
-          projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
-          originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: Assets\Scripts\Troop
-        label: Troop
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scripts\Troop\TroopBase.cs
-        label: TroopBase.cs
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Troop\TroopBase.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
-          projectPath: Assets\Scripts\Troop\TroopBase.cs
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
-      - path: Assets\Scripts\Troop\TroopPooler.cs
-        label: TroopPooler.cs
-        level: 3
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scripts\Troop\TroopPooler.cs
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
-          projectPath: Assets\Scripts\Troop\TroopPooler.cs
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 3
       - path: UserSettings
         label: UserSettings
         level: 0
@@ -1395,74 +800,1100 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: Assets\Scenes\SampleScene.unity
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
-      projectPath: Assets\Scenes\SampleScene.unity
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Scripts\Core\Input\InputManager.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
-      projectPath: Assets\Scripts\Core\Input\InputManager.cs
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Scripts\Core\Path\PathManager.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
-      projectPath: Assets\Scripts\Core\Path\PathManager.cs
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Scripts\Tower\TowerBase.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
-      projectPath: Assets\Scripts\Tower\TowerBase.cs
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Scripts\Tower\TowerTracker.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
-      projectPath: Assets\Scripts\Tower\TowerTracker.cs
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Tower\TowerTracker.cs.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
-      projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
-      originalPath: 
-      indexStatus: 1
-      workTreeStatus: 1
-    - path: Assets\Scripts\Troop\TroopBase.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
-      projectPath: Assets\Scripts\Troop\TroopBase.cs
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
-    - path: Assets\Scripts\Troop\TroopPooler.cs
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
-      projectPath: Assets\Scripts\Troop\TroopPooler.cs
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 3
     - path: UserSettings\Layouts\default-2022.dwlt
       fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
       projectPath: UserSettings\Layouts\default-2022.dwlt
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
-    changedFilesText: 9 changed files
+    changedFilesText: 1 changed file
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-03-23T18:37:55.549+05:30
+      updatedTimeString: 2024-03-26T19:23:00.786+05:30
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-03-23T18:41:34.125+05:30
+      updatedTimeString: 2024-03-26T19:22:45.393+05:30
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2024-03-26T19:18:13.196+05:30
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
     currentTrackingStatusHasUpdate: 0
     logEntries:
+    - commitID: 217f649b5636ef711f6ab85462b8891abd55adf0
+      mergeA: 
+      mergeB: 
+      authorName: fallenblood7080
+      authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitName: fallenblood7080
+      summary: Added Tower Tracking
+      description: 
+      timeString: 2024-03-24T16:15:54.000+05:30
+      commitTimeString: 2024-03-24T16:15:54.000+05:30
+      changes:
+      - path: Assets\Scenes\SampleScene.unity
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+        projectPath: Assets\Scenes\SampleScene.unity
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerTracker.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+        projectPath: Assets\Scripts\Tower\TowerTracker.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+    - commitID: 6c2f7241bd96eb993bfa7577b6597dd36808f32d
+      mergeA: 
+      mergeB: 
+      authorName: fallenblood7080
+      authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitName: fallenblood7080
+      summary: Update tower base
+      description: 
+      timeString: 2024-03-23T21:36:52.000+05:30
+      commitTimeString: 2024-03-23T21:36:52.000+05:30
+      changes:
+      - path: Assets\Scenes\SampleScene.unity
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+        projectPath: Assets\Scenes\SampleScene.unity
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Input\InputManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+        projectPath: Assets\Scripts\Core\Input\InputManager.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+        projectPath: Assets\Scripts\Core\Path\PathManager.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+        projectPath: Assets\Scripts\Tower\TowerBase.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerTracker.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+        projectPath: Assets\Scripts\Tower\TowerTracker.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerTracker.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
+        projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+        projectPath: Assets\Scripts\Troop\TroopBase.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopPooler.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+        projectPath: Assets\Scripts\Troop\TroopPooler.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2022.dwlt
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
+        projectPath: UserSettings\Layouts\default-2022.dwlt
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+    - commitID: e2ebe0d3170038e813e4af80cb125336a9c659f8
+      mergeA: 
+      mergeB: 
+      authorName: fallenblood7080
+      authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitName: fallenblood7080
+      summary: Added More Stuffs
+      description: 
+      timeString: 2024-03-22T22:42:40.000+05:30
+      commitTimeString: 2024-03-22T22:42:40.000+05:30
+      changes:
+      - path: Assets\Art.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art.meta
+        projectPath: Assets\Art.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Art\Pattern.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern.meta
+        projectPath: Assets\Art\Pattern.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Art\Pattern\arrow.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern\arrow.png
+        projectPath: Assets\Art\Pattern\arrow.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Art\Pattern\arrow.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern\arrow.png.meta
+        projectPath: Assets\Art\Pattern\arrow.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons.meta
+        projectPath: Assets\Editor\FolderIcons.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Black.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Black.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Black.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Black.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Black.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Black.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Cyan.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Cyan.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Cyan.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Default.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Default.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Default.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Default.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Default.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Default.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Green.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Green.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Green.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Green.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Green.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Green.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Grey.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Grey.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Grey.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Grey.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Grey.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Grey.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightBlue.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightBlue.png
+        projectPath: Assets\Editor\FolderIcons\Folder_LightBlue.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightGrey.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightGrey.png
+        projectPath: Assets\Editor\FolderIcons\Folder_LightGrey.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightPink.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightPink.png
+        projectPath: Assets\Editor\FolderIcons\Folder_LightPink.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightRed.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightRed.png
+        projectPath: Assets\Editor\FolderIcons\Folder_LightRed.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Lime.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Lime.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Lime.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Lime.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Lime.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Lime.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Orange.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Orange.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Orange.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Orange.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Orange.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Orange.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Pink.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Pink.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Pink.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Pink.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Pink.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Pink.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Purple.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Purple.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Purple.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Purple.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Purple.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Purple.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Red.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Red.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Red.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Red.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Red.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Red.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_SkyBlue.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_SkyBlue.png
+        projectPath: Assets\Editor\FolderIcons\Folder_SkyBlue.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Turquoise.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Turquoise.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Turquoise.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_White.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_White.png
+        projectPath: Assets\Editor\FolderIcons\Folder_White.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_White.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_White.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_White.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Yellow.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Yellow.png
+        projectPath: Assets\Editor\FolderIcons\Folder_Yellow.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+        projectPath: Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\None.png
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\None.png
+        projectPath: Assets\Editor\FolderIcons\None.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\FolderIcons\None.png.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\None.png.meta
+        projectPath: Assets\Editor\FolderIcons\None.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Editor\ToolboxEditorSettings.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\ToolboxEditorSettings.asset
+        projectPath: Assets\Editor\ToolboxEditorSettings.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Material.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material.meta
+        projectPath: Assets\Material.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path.meta
+        projectPath: Assets\Material\Path.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\HintPathInValid.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathInValid.mat
+        projectPath: Assets\Material\Path\HintPathInValid.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\HintPathInValid.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathInValid.mat.meta
+        projectPath: Assets\Material\Path\HintPathInValid.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\HintPathValid.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathValid.mat
+        projectPath: Assets\Material\Path\HintPathValid.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\HintPathValid.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathValid.mat.meta
+        projectPath: Assets\Material\Path\HintPathValid.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path.mat
+        projectPath: Assets\Material\Path\Path.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path.mat.meta
+        projectPath: Assets\Material\Path\Path.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Blue.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Blue.mat
+        projectPath: Assets\Material\Path\Path_Blue.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Blue.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Blue.mat.meta
+        projectPath: Assets\Material\Path\Path_Blue.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Green.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Green.mat
+        projectPath: Assets\Material\Path\Path_Green.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Green.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Green.mat.meta
+        projectPath: Assets\Material\Path\Path_Green.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Red.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Red.mat
+        projectPath: Assets\Material\Path\Path_Red.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Red.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Red.mat.meta
+        projectPath: Assets\Material\Path\Path_Red.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Yellow.mat
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Yellow.mat
+        projectPath: Assets\Material\Path\Path_Yellow.mat
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Material\Path\Path_Yellow.mat.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Yellow.mat.meta
+        projectPath: Assets\Material\Path\Path_Yellow.mat.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Prefabs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs.meta
+        projectPath: Assets\Prefabs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Prefabs\Path.prefab
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\Path.prefab
+        projectPath: Assets\Prefabs\Path.prefab
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Prefabs\Path.prefab.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\Path.prefab.meta
+        projectPath: Assets\Prefabs\Path.prefab.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Prefabs\PathManager.prefab
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\PathManager.prefab
+        projectPath: Assets\Prefabs\PathManager.prefab
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Prefabs\PathManager.prefab.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\PathManager.prefab.meta
+        projectPath: Assets\Prefabs\PathManager.prefab.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+        projectPath: Assets\Scenes\SampleScene.unity
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameEnums.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+        projectPath: Assets\Scripts\Core\GameEnums.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameManager.cs
+        projectPath: Assets\Scripts\Core\GameManager.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameManager.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameManager.cs.meta
+        projectPath: Assets\Scripts\Core\GameManager.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Input.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input.meta
+        projectPath: Assets\Scripts\Core\Input.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Input\InputManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+        projectPath: Assets\Scripts\Core\Input\InputManager.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Input\InputManager.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs.meta
+        projectPath: Assets\Scripts\Core\Input\InputManager.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\Path.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs
+        projectPath: Assets\Scripts\Core\Path\Path.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+        projectPath: Assets\Scripts\Core\Path\PathManager.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathVisual.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs
+        projectPath: Assets\Scripts\Core\Path\PathVisual.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+        projectPath: Assets\Scripts\Tower\TowerBase.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerConnection.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs
+        projectPath: Assets\Scripts\Tower\TowerConnection.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop.meta
+        projectPath: Assets\Scripts\Troop.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\BruteTroop.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\BruteTroop.cs
+        projectPath: Assets\Scripts\Troop\BruteTroop.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\BruteTroop.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\BruteTroop.cs.meta
+        projectPath: Assets\Scripts\Troop\BruteTroop.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\SoldierTroop.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\SoldierTroop.cs
+        projectPath: Assets\Scripts\Troop\SoldierTroop.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\SoldierTroop.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\SoldierTroop.cs.meta
+        projectPath: Assets\Scripts\Troop\SoldierTroop.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+        projectPath: Assets\Scripts\Troop\TroopBase.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopBase.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs.meta
+        projectPath: Assets\Scripts\Troop\TroopBase.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopPooler.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+        projectPath: Assets\Scripts\Troop\TroopPooler.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Troop\TroopPooler.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs.meta
+        projectPath: Assets\Scripts\Troop\TroopPooler.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Shader.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader.meta
+        projectPath: Assets\Shader.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Shader\PathShader.shadergraph
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader\PathShader.shadergraph
+        projectPath: Assets\Shader\PathShader.shadergraph
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Shader\PathShader.shadergraph.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader\PathShader.shadergraph.meta
+        projectPath: Assets\Shader\PathShader.shadergraph.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\TagManager.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\TagManager.asset
+        projectPath: ProjectSettings\TagManager.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+    - commitID: d1ddc775d127e2b9c829b21787bf41fbc015df76
+      mergeA: 
+      mergeB: 
+      authorName: fallenblood7080
+      authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitName: fallenblood7080
+      summary: Added Path And TowerBase
+      description: 
+      timeString: 2024-03-22T20:38:57.000+05:30
+      commitTimeString: 2024-03-22T20:38:57.000+05:30
+      changes:
+      - path: Assets\Scenes\SampleScene.unity
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+        projectPath: Assets\Scenes\SampleScene.unity
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameEnums.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+        projectPath: Assets\Scripts\Core\GameEnums.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path.meta
+        projectPath: Assets\Scripts\Core\Path.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\Path.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs
+        projectPath: Assets\Scripts\Core\Path\Path.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\Path.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs.meta
+        projectPath: Assets\Scripts\Core\Path\Path.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathManager.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+        projectPath: Assets\Scripts\Core\Path\PathManager.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathManager.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs.meta
+        projectPath: Assets\Scripts\Core\Path\PathManager.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathVisual.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs
+        projectPath: Assets\Scripts\Core\Path\PathVisual.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\Path\PathVisual.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs.meta
+        projectPath: Assets\Scripts\Core\Path\PathVisual.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\ArcheryTower.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\ArcheryTower.cs
+        projectPath: Assets\Scripts\Tower\ArcheryTower.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\ArcheryTower.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\ArcheryTower.cs.meta
+        projectPath: Assets\Scripts\Tower\ArcheryTower.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\BruteTower.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\BruteTower.cs
+        projectPath: Assets\Scripts\Tower\BruteTower.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\BruteTower.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\BruteTower.cs.meta
+        projectPath: Assets\Scripts\Tower\BruteTower.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\FortTower.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\FortTower.cs
+        projectPath: Assets\Scripts\Tower\FortTower.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\FortTower.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\FortTower.cs.meta
+        projectPath: Assets\Scripts\Tower\FortTower.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\SoldierTower.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\SoldierTower.cs
+        projectPath: Assets\Scripts\Tower\SoldierTower.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\SoldierTower.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\SoldierTower.cs.meta
+        projectPath: Assets\Scripts\Tower\SoldierTower.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+        projectPath: Assets\Scripts\Tower\TowerBase.cs
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerConnection.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs
+        projectPath: Assets\Scripts\Tower\TowerConnection.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerConnection.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs.meta
+        projectPath: Assets\Scripts\Tower\TowerConnection.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Util.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util.meta
+        projectPath: Assets\Scripts\Util.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Util\Logger.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util\Logger.cs
+        projectPath: Assets\Scripts\Util\Logger.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Util\Logger.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util\Logger.cs.meta
+        projectPath: Assets\Scripts\Util\Logger.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\EditorSettings.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\EditorSettings.asset
+        projectPath: ProjectSettings\EditorSettings.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: ProjectSettings\TagManager.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\TagManager.asset
+        projectPath: ProjectSettings\TagManager.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+    - commitID: 3bb9fca94273b7ca19f57833d4f61b9df3991c33
+      mergeA: 
+      mergeB: 
+      authorName: fallenblood7080
+      authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+      commitName: fallenblood7080
+      summary: Added Dependency
+      description: 
+      timeString: 2024-03-22T18:23:57.000+05:30
+      commitTimeString: 2024-03-22T18:23:57.000+05:30
+      changes:
+      - path: Assets\LeanTween.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween.meta
+        projectPath: Assets\LeanTween.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework.meta
+        projectPath: Assets\LeanTween\Framework.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTDescr.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescr.cs
+        projectPath: Assets\LeanTween\Framework\LTDescr.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTDescr.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescr.cs.meta
+        projectPath: Assets\LeanTween\Framework\LTDescr.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTDescrOptional.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescrOptional.cs
+        projectPath: Assets\LeanTween\Framework\LTDescrOptional.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+        projectPath: Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTSeq.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTSeq.cs
+        projectPath: Assets\LeanTween\Framework\LTSeq.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LTSeq.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTSeq.cs.meta
+        projectPath: Assets\LeanTween\Framework\LTSeq.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanAudio.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanAudio.cs
+        projectPath: Assets\LeanTween\Framework\LeanAudio.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanAudio.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanAudio.cs.meta
+        projectPath: Assets\LeanTween\Framework\LeanAudio.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanSmooth.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanSmooth.cs
+        projectPath: Assets\LeanTween\Framework\LeanSmooth.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanSmooth.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanSmooth.cs.meta
+        projectPath: Assets\LeanTween\Framework\LeanSmooth.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTest.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTest.cs
+        projectPath: Assets\LeanTween\Framework\LeanTest.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTest.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTest.cs.meta
+        projectPath: Assets\LeanTween\Framework\LeanTest.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTween.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.cs
+        projectPath: Assets\LeanTween\Framework\LeanTween.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTween.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.cs.meta
+        projectPath: Assets\LeanTween\Framework\LeanTween.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTween.dll.zip
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.dll.zip
+        projectPath: Assets\LeanTween\Framework\LeanTween.dll.zip
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+        projectPath: Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTweenExt.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTweenExt.cs
+        projectPath: Assets\LeanTween\Framework\LeanTweenExt.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+        projectPath: Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts.meta
+        projectPath: Assets\Scripts.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core.meta
+        projectPath: Assets\Scripts\Core.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameEnums.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+        projectPath: Assets\Scripts\Core\GameEnums.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Core\GameEnums.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs.meta
+        projectPath: Assets\Scripts\Core\GameEnums.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower.meta
+        projectPath: Assets\Scripts\Tower.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerBase.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+        projectPath: Assets\Scripts\Tower\TowerBase.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\Tower\TowerBase.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs.meta
+        projectPath: Assets\Scripts\Tower\TowerBase.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton.meta
+        projectPath: Assets\Scripts\UnitySingleton.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\ISingleton.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\ISingleton.cs
+        projectPath: Assets\Scripts\UnitySingleton\ISingleton.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+        projectPath: Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\MonoSingleton.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\MonoSingleton.cs
+        projectPath: Assets\Scripts\UnitySingleton\MonoSingleton.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+        projectPath: Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+        projectPath: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+        projectPath: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\Singleton.cs
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\Singleton.cs
+        projectPath: Assets\Scripts\UnitySingleton\Singleton.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\Singleton.cs.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\Singleton.cs.meta
+        projectPath: Assets\Scripts\UnitySingleton\Singleton.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+        projectPath: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+        projectPath: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Settings\URP-Balanced.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Settings\URP-Balanced.asset
+        projectPath: Assets\Settings\URP-Balanced.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Packages\manifest.json
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Packages\manifest.json
+        projectPath: Packages\manifest.json
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: Packages\packages-lock.json
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Packages\packages-lock.json
+        projectPath: Packages\packages-lock.json
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: ProjectSettings\ProjectSettings.asset
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\ProjectSettings.asset
+        projectPath: ProjectSettings\ProjectSettings.asset
+        originalPath: 
+        indexStatus: 3
+        workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2022.dwlt
+        fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
+        projectPath: UserSettings\Layouts\default-2022.dwlt
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
     - commitID: a7e6097c545fa8b8f2454c2ea05ef49fabc54000
       mergeA: 
       mergeB: 
@@ -1837,7 +2268,7 @@ MonoBehaviour:
         workTreeStatus: 0
     statusAhead: 0
     lastLogChangedEvent:
-      updatedTimeString: 2024-03-22T18:00:57.995+05:30
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 3
     lastTrackingStatusChangedEvent:
       updatedTimeString: 0001-01-01T00:00:00.000+00:00
@@ -1845,6 +2276,1080 @@ MonoBehaviour:
     historyControl:
       scroll: {x: 0, y: 0}
       entries:
+      - commitID: 217f649b5636ef711f6ab85462b8891abd55adf0
+        mergeA: 
+        mergeB: 
+        authorName: fallenblood7080
+        authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitName: fallenblood7080
+        summary: Added Tower Tracking
+        description: 
+        timeString: 2024-03-24T16:15:54.000+05:30
+        commitTimeString: 2024-03-24T16:15:54.000+05:30
+        changes:
+        - path: Assets\Scenes\SampleScene.unity
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerTracker.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+          projectPath: Assets\Scripts\Tower\TowerTracker.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+      - commitID: 6c2f7241bd96eb993bfa7577b6597dd36808f32d
+        mergeA: 
+        mergeB: 
+        authorName: fallenblood7080
+        authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitName: fallenblood7080
+        summary: Update tower base
+        description: 
+        timeString: 2024-03-23T21:36:52.000+05:30
+        commitTimeString: 2024-03-23T21:36:52.000+05:30
+        changes:
+        - path: Assets\Scenes\SampleScene.unity
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input\InputManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+          projectPath: Assets\Scripts\Core\Input\InputManager.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+          projectPath: Assets\Scripts\Core\Path\PathManager.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+          projectPath: Assets\Scripts\Tower\TowerBase.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerTracker.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs
+          projectPath: Assets\Scripts\Tower\TowerTracker.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerTracker.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerTracker.cs.meta
+          projectPath: Assets\Scripts\Tower\TowerTracker.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+          projectPath: Assets\Scripts\Troop\TroopBase.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopPooler.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+          projectPath: Assets\Scripts\Troop\TroopPooler.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: UserSettings\Layouts\default-2022.dwlt
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
+          projectPath: UserSettings\Layouts\default-2022.dwlt
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+      - commitID: e2ebe0d3170038e813e4af80cb125336a9c659f8
+        mergeA: 
+        mergeB: 
+        authorName: fallenblood7080
+        authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitName: fallenblood7080
+        summary: Added More Stuffs
+        description: 
+        timeString: 2024-03-22T22:42:40.000+05:30
+        commitTimeString: 2024-03-22T22:42:40.000+05:30
+        changes:
+        - path: Assets\Art.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art.meta
+          projectPath: Assets\Art.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Art\Pattern.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern.meta
+          projectPath: Assets\Art\Pattern.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Art\Pattern\arrow.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern\arrow.png
+          projectPath: Assets\Art\Pattern\arrow.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Art\Pattern\arrow.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Art\Pattern\arrow.png.meta
+          projectPath: Assets\Art\Pattern\arrow.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons.meta
+          projectPath: Assets\Editor\FolderIcons.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Black.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Black.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Black.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Black.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Black.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Black.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Cyan.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Cyan.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Cyan.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Cyan.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Default.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Default.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Default.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Default.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Default.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Default.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Green.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Green.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Green.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Green.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Green.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Green.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Grey.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Grey.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Grey.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Grey.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Grey.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Grey.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightBlue.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightBlue.png
+          projectPath: Assets\Editor\FolderIcons\Folder_LightBlue.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_LightBlue.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightGrey.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightGrey.png
+          projectPath: Assets\Editor\FolderIcons\Folder_LightGrey.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_LightGrey.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightPink.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightPink.png
+          projectPath: Assets\Editor\FolderIcons\Folder_LightPink.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_LightPink.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightRed.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightRed.png
+          projectPath: Assets\Editor\FolderIcons\Folder_LightRed.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_LightRed.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Lime.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Lime.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Lime.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Lime.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Lime.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Lime.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Orange.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Orange.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Orange.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Orange.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Orange.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Orange.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Pink.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Pink.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Pink.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Pink.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Pink.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Pink.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Purple.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Purple.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Purple.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Purple.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Purple.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Purple.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Red.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Red.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Red.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Red.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Red.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Red.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_SkyBlue.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_SkyBlue.png
+          projectPath: Assets\Editor\FolderIcons\Folder_SkyBlue.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_SkyBlue.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Turquoise.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Turquoise.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Turquoise.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Turquoise.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_White.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_White.png
+          projectPath: Assets\Editor\FolderIcons\Folder_White.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_White.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_White.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_White.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Yellow.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Yellow.png
+          projectPath: Assets\Editor\FolderIcons\Folder_Yellow.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+          projectPath: Assets\Editor\FolderIcons\Folder_Yellow.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\None.png
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\None.png
+          projectPath: Assets\Editor\FolderIcons\None.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\FolderIcons\None.png.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\FolderIcons\None.png.meta
+          projectPath: Assets\Editor\FolderIcons\None.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Editor\ToolboxEditorSettings.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Editor\ToolboxEditorSettings.asset
+          projectPath: Assets\Editor\ToolboxEditorSettings.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Material.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material.meta
+          projectPath: Assets\Material.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path.meta
+          projectPath: Assets\Material\Path.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\HintPathInValid.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathInValid.mat
+          projectPath: Assets\Material\Path\HintPathInValid.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\HintPathInValid.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathInValid.mat.meta
+          projectPath: Assets\Material\Path\HintPathInValid.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\HintPathValid.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathValid.mat
+          projectPath: Assets\Material\Path\HintPathValid.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\HintPathValid.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\HintPathValid.mat.meta
+          projectPath: Assets\Material\Path\HintPathValid.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path.mat
+          projectPath: Assets\Material\Path\Path.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path.mat.meta
+          projectPath: Assets\Material\Path\Path.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Blue.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Blue.mat
+          projectPath: Assets\Material\Path\Path_Blue.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Blue.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Blue.mat.meta
+          projectPath: Assets\Material\Path\Path_Blue.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Green.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Green.mat
+          projectPath: Assets\Material\Path\Path_Green.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Green.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Green.mat.meta
+          projectPath: Assets\Material\Path\Path_Green.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Red.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Red.mat
+          projectPath: Assets\Material\Path\Path_Red.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Red.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Red.mat.meta
+          projectPath: Assets\Material\Path\Path_Red.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Yellow.mat
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Yellow.mat
+          projectPath: Assets\Material\Path\Path_Yellow.mat
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Material\Path\Path_Yellow.mat.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Material\Path\Path_Yellow.mat.meta
+          projectPath: Assets\Material\Path\Path_Yellow.mat.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Prefabs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs.meta
+          projectPath: Assets\Prefabs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Prefabs\Path.prefab
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\Path.prefab
+          projectPath: Assets\Prefabs\Path.prefab
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Prefabs\Path.prefab.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\Path.prefab.meta
+          projectPath: Assets\Prefabs\Path.prefab.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Prefabs\PathManager.prefab
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\PathManager.prefab
+          projectPath: Assets\Prefabs\PathManager.prefab
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Prefabs\PathManager.prefab.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Prefabs\PathManager.prefab.meta
+          projectPath: Assets\Prefabs\PathManager.prefab.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameEnums.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+          projectPath: Assets\Scripts\Core\GameEnums.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameManager.cs
+          projectPath: Assets\Scripts\Core\GameManager.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameManager.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameManager.cs.meta
+          projectPath: Assets\Scripts\Core\GameManager.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input.meta
+          projectPath: Assets\Scripts\Core\Input.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input\InputManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs
+          projectPath: Assets\Scripts\Core\Input\InputManager.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Input\InputManager.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Input\InputManager.cs.meta
+          projectPath: Assets\Scripts\Core\Input\InputManager.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\Path.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs
+          projectPath: Assets\Scripts\Core\Path\Path.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+          projectPath: Assets\Scripts\Core\Path\PathManager.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathVisual.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs
+          projectPath: Assets\Scripts\Core\Path\PathVisual.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+          projectPath: Assets\Scripts\Tower\TowerBase.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerConnection.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs
+          projectPath: Assets\Scripts\Tower\TowerConnection.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop.meta
+          projectPath: Assets\Scripts\Troop.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\BruteTroop.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\BruteTroop.cs
+          projectPath: Assets\Scripts\Troop\BruteTroop.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\BruteTroop.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\BruteTroop.cs.meta
+          projectPath: Assets\Scripts\Troop\BruteTroop.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\SoldierTroop.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\SoldierTroop.cs
+          projectPath: Assets\Scripts\Troop\SoldierTroop.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\SoldierTroop.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\SoldierTroop.cs.meta
+          projectPath: Assets\Scripts\Troop\SoldierTroop.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs
+          projectPath: Assets\Scripts\Troop\TroopBase.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopBase.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopBase.cs.meta
+          projectPath: Assets\Scripts\Troop\TroopBase.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopPooler.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs
+          projectPath: Assets\Scripts\Troop\TroopPooler.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Troop\TroopPooler.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Troop\TroopPooler.cs.meta
+          projectPath: Assets\Scripts\Troop\TroopPooler.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Shader.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader.meta
+          projectPath: Assets\Shader.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Shader\PathShader.shadergraph
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader\PathShader.shadergraph
+          projectPath: Assets\Shader\PathShader.shadergraph
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Shader\PathShader.shadergraph.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Shader\PathShader.shadergraph.meta
+          projectPath: Assets\Shader\PathShader.shadergraph.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\TagManager.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\TagManager.asset
+          projectPath: ProjectSettings\TagManager.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+      - commitID: d1ddc775d127e2b9c829b21787bf41fbc015df76
+        mergeA: 
+        mergeB: 
+        authorName: fallenblood7080
+        authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitName: fallenblood7080
+        summary: Added Path And TowerBase
+        description: 
+        timeString: 2024-03-22T20:38:57.000+05:30
+        commitTimeString: 2024-03-22T20:38:57.000+05:30
+        changes:
+        - path: Assets\Scenes\SampleScene.unity
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameEnums.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+          projectPath: Assets\Scripts\Core\GameEnums.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path.meta
+          projectPath: Assets\Scripts\Core\Path.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\Path.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs
+          projectPath: Assets\Scripts\Core\Path\Path.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\Path.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\Path.cs.meta
+          projectPath: Assets\Scripts\Core\Path\Path.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathManager.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs
+          projectPath: Assets\Scripts\Core\Path\PathManager.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathManager.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathManager.cs.meta
+          projectPath: Assets\Scripts\Core\Path\PathManager.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathVisual.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs
+          projectPath: Assets\Scripts\Core\Path\PathVisual.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\Path\PathVisual.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\Path\PathVisual.cs.meta
+          projectPath: Assets\Scripts\Core\Path\PathVisual.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\ArcheryTower.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\ArcheryTower.cs
+          projectPath: Assets\Scripts\Tower\ArcheryTower.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\ArcheryTower.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\ArcheryTower.cs.meta
+          projectPath: Assets\Scripts\Tower\ArcheryTower.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\BruteTower.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\BruteTower.cs
+          projectPath: Assets\Scripts\Tower\BruteTower.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\BruteTower.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\BruteTower.cs.meta
+          projectPath: Assets\Scripts\Tower\BruteTower.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\FortTower.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\FortTower.cs
+          projectPath: Assets\Scripts\Tower\FortTower.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\FortTower.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\FortTower.cs.meta
+          projectPath: Assets\Scripts\Tower\FortTower.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\SoldierTower.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\SoldierTower.cs
+          projectPath: Assets\Scripts\Tower\SoldierTower.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\SoldierTower.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\SoldierTower.cs.meta
+          projectPath: Assets\Scripts\Tower\SoldierTower.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+          projectPath: Assets\Scripts\Tower\TowerBase.cs
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerConnection.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs
+          projectPath: Assets\Scripts\Tower\TowerConnection.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerConnection.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerConnection.cs.meta
+          projectPath: Assets\Scripts\Tower\TowerConnection.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Util.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util.meta
+          projectPath: Assets\Scripts\Util.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Util\Logger.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util\Logger.cs
+          projectPath: Assets\Scripts\Util\Logger.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Util\Logger.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Util\Logger.cs.meta
+          projectPath: Assets\Scripts\Util\Logger.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\EditorSettings.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\EditorSettings.asset
+          projectPath: ProjectSettings\EditorSettings.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: ProjectSettings\TagManager.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\TagManager.asset
+          projectPath: ProjectSettings\TagManager.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+      - commitID: 3bb9fca94273b7ca19f57833d4f61b9df3991c33
+        mergeA: 
+        mergeB: 
+        authorName: fallenblood7080
+        authorEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitEmail: 67326508+fallenblood7080@users.noreply.github.com
+        commitName: fallenblood7080
+        summary: Added Dependency
+        description: 
+        timeString: 2024-03-22T18:23:57.000+05:30
+        commitTimeString: 2024-03-22T18:23:57.000+05:30
+        changes:
+        - path: Assets\LeanTween.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween.meta
+          projectPath: Assets\LeanTween.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework.meta
+          projectPath: Assets\LeanTween\Framework.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTDescr.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescr.cs
+          projectPath: Assets\LeanTween\Framework\LTDescr.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTDescr.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescr.cs.meta
+          projectPath: Assets\LeanTween\Framework\LTDescr.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTDescrOptional.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescrOptional.cs
+          projectPath: Assets\LeanTween\Framework\LTDescrOptional.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+          projectPath: Assets\LeanTween\Framework\LTDescrOptional.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTSeq.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTSeq.cs
+          projectPath: Assets\LeanTween\Framework\LTSeq.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LTSeq.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LTSeq.cs.meta
+          projectPath: Assets\LeanTween\Framework\LTSeq.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanAudio.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanAudio.cs
+          projectPath: Assets\LeanTween\Framework\LeanAudio.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanAudio.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanAudio.cs.meta
+          projectPath: Assets\LeanTween\Framework\LeanAudio.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanSmooth.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanSmooth.cs
+          projectPath: Assets\LeanTween\Framework\LeanSmooth.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanSmooth.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanSmooth.cs.meta
+          projectPath: Assets\LeanTween\Framework\LeanSmooth.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTest.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTest.cs
+          projectPath: Assets\LeanTween\Framework\LeanTest.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTest.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTest.cs.meta
+          projectPath: Assets\LeanTween\Framework\LeanTest.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTween.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.cs
+          projectPath: Assets\LeanTween\Framework\LeanTween.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTween.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.cs.meta
+          projectPath: Assets\LeanTween\Framework\LeanTween.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTween.dll.zip
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.dll.zip
+          projectPath: Assets\LeanTween\Framework\LeanTween.dll.zip
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+          projectPath: Assets\LeanTween\Framework\LeanTween.dll.zip.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTweenExt.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTweenExt.cs
+          projectPath: Assets\LeanTween\Framework\LeanTweenExt.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+          projectPath: Assets\LeanTween\Framework\LeanTweenExt.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts.meta
+          projectPath: Assets\Scripts.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core.meta
+          projectPath: Assets\Scripts\Core.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameEnums.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs
+          projectPath: Assets\Scripts\Core\GameEnums.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Core\GameEnums.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Core\GameEnums.cs.meta
+          projectPath: Assets\Scripts\Core\GameEnums.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower.meta
+          projectPath: Assets\Scripts\Tower.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerBase.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs
+          projectPath: Assets\Scripts\Tower\TowerBase.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\Tower\TowerBase.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\Tower\TowerBase.cs.meta
+          projectPath: Assets\Scripts\Tower\TowerBase.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton.meta
+          projectPath: Assets\Scripts\UnitySingleton.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\ISingleton.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\ISingleton.cs
+          projectPath: Assets\Scripts\UnitySingleton\ISingleton.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+          projectPath: Assets\Scripts\UnitySingleton\ISingleton.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\MonoSingleton.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\MonoSingleton.cs
+          projectPath: Assets\Scripts\UnitySingleton\MonoSingleton.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+          projectPath: Assets\Scripts\UnitySingleton\MonoSingleton.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+          projectPath: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+          projectPath: Assets\Scripts\UnitySingleton\PersistentMonoSingleton.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\Singleton.cs
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\Singleton.cs
+          projectPath: Assets\Scripts\UnitySingleton\Singleton.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\Singleton.cs.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\Singleton.cs.meta
+          projectPath: Assets\Scripts\UnitySingleton\Singleton.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+          projectPath: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+          projectPath: Assets\Scripts\UnitySingleton\UnityCommunity.UnitySingleton.Runtime.asmdef.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Settings\URP-Balanced.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Settings\URP-Balanced.asset
+          projectPath: Assets\Settings\URP-Balanced.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Packages\manifest.json
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Packages\manifest.json
+          projectPath: Packages\manifest.json
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: Packages\packages-lock.json
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Packages\packages-lock.json
+          projectPath: Packages\packages-lock.json
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: ProjectSettings\ProjectSettings.asset
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\ProjectSettings\ProjectSettings.asset
+          projectPath: ProjectSettings\ProjectSettings.asset
+          originalPath: 
+          indexStatus: 3
+          workTreeStatus: 0
+        - path: UserSettings\Layouts\default-2022.dwlt
+          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\Layouts\default-2022.dwlt
+          projectPath: UserSettings\Layouts\default-2022.dwlt
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
       - commitID: a7e6097c545fa8b8f2454c2ea05ef49fabc54000
         mergeA: 
         mergeB: 
@@ -2374,13 +3879,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-03-23T16:32:49.034+05:30
+    updatedTimeString: 2024-03-26T19:23:00.786+05:30
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-03-23T16:44:06.334+05:30
+    updatedTimeString: 2024-03-26T19:24:24.880+05:30
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-03-23T16:44:06.326+05:30
+    updatedTimeString: 2024-03-26T19:58:08.863+05:30
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -2403,7 +3908,7 @@ MonoBehaviour:
   appManagerProgressValue: 1
   appManagerProgressMessage: 
   primaryConnectionUsername: 
---- !u!114 &14
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2441,9 +3946,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8650000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1afbffff
+      m_SelectedIDs: 66630000
+      m_LastClickedID: 25446
+      m_ExpandedIDs: 26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2459,7 +3964,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 10}
+        m_ClientGUIView: {fileID: 13}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -2467,7 +3972,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: dd019822365b97248a46ac75aadf0e90
---- !u!114 &15
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2502,7 +4007,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &16
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2550,7 +4055,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &17
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2596,7 +4101,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tower
+    - Assets/Scripts/Core/Input
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2604,16 +4109,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Tower
+  - Assets/Scripts/Core/Input
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa650000
-    m_LastClickedID: 26026
-    m_ExpandedIDs: 00000000ba6300009e650000a6650000
+    m_SelectedIDs: b4650000
+    m_LastClickedID: 26036
+    m_ExpandedIDs: 00000000c6630000aa650000b2650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2629,7 +4134,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 2}
+      m_ClientGUIView: {fileID: 5}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -2641,7 +4146,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba630000
+    m_ExpandedIDs: 00000000c6630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2685,7 +4190,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 2}
+      m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -2697,7 +4202,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
---- !u!114 &18
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2738,7 +4243,7 @@ MonoBehaviour:
   m_ShowGizmos: 1
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 977, y: 550}
+  m_TargetSize: {x: 977, y: 587}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -2747,7 +4252,7 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 1
   m_Stats: 0
-  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 09000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
@@ -2755,8 +4260,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -488.5
     m_HBaseRangeMax: 488.5
-    m_VBaseRangeMin: -275
-    m_VBaseRangeMax: 275
+    m_VBaseRangeMin: -293.5
+    m_VBaseRangeMax: 293.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2796,7 +4301,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &19
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3153,9 +4658,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: 0.2198647, y: -1.3354552, z: -3.5792367}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 0.2198647, y: -1.3354552, z: -3.5792367}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -3201,13 +4706,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Target: {x: -0.017522307, y: 0.9065823, z: -0.41996524, w: -0.037825525}
     speed: 2
-    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Value: {x: -0.017522307, y: 0.9065823, z: -0.41996524, w: -0.037825525}
   m_Size:
-    m_Target: 10
+    m_Target: 10.198875
     speed: 2
-    m_Value: 10
+    m_Value: 10.198875
   m_Ortho:
     m_Target: 0
     speed: 2

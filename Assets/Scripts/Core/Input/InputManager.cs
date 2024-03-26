@@ -38,9 +38,8 @@ namespace Core.Input
             EnhancedTouchSupport.Disable();
         }
 
-        private void Touch_onFingerUp(Finger finger)
+        private void Touch_onFingerDown(Finger finger)
         {
-            throw new NotImplementedException();
         }
 
         private void Touch_onFingerMove(Finger finger)
@@ -48,7 +47,7 @@ namespace Core.Input
             throw new NotImplementedException();
         }
 
-        private void Touch_onFingerDown(Finger finger)
+        private void Touch_onFingerUp(Finger finger)
         {
             throw new NotImplementedException();
         }

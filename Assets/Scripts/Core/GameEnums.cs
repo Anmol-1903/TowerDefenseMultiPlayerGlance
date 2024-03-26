@@ -18,7 +18,8 @@ namespace Core
             Soldier,
             Brute,
             Archery,
-            Fort
+            Fort,
+            Base
         }
 
         public enum Tier
