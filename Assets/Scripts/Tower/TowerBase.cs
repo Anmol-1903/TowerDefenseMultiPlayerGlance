@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using Core.PathHandler;
+using Troop;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using Tier = Core.GameEnums.Tier;
 using TowerType = Core.GameEnums.TowerType;
