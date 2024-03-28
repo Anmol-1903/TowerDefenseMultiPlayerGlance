@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using UnitySingleton;
-using UnityEngine;
 using System.Linq;
-
+using UnityEngine;
+using UnitySingleton;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 

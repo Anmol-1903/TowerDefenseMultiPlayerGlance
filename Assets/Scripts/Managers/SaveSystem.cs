@@ -12,7 +12,7 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    
+
     public static T Load<T>(string fileName)
     {
         T data;

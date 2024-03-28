@@ -1,8 +1,9 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Events;
 using Core.PathHandler;
+using System.Collections.Generic;
 using Troop;
+
+using UnityEngine;
+using UnityEngine.Events;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using Tier = Core.GameEnums.Tier;
 using TowerType = Core.GameEnums.TowerType;
@@ -95,27 +96,30 @@ namespace Tower
         public void UpdateTowerLevel(TroopBase incomingTroop)
         {
             bool isUpgrading = false;
-            if (incomingTroop.Owner == TowerOwner)
+            if (incomingTroop.EnemyId == TowerID)
             {
-                //! fellow Troop
-                isUpgrading = true;
-                Level += incomingTroop.Level;
-                OnTowerUpgrade_Level?.Invoke();
-            }
-            else
-            {
-                //! !Enemy Attack
-                isUpgrading = false;
-                Level -= incomingTroop.Level;
-                OnTowerDowngrade_Level?.Invoke();
-                if (Level <= 0)
+                if (incomingTroop.Owner == TowerOwner)
                 {
-                    TowerOwner = incomingTroop.Owner;
-                    if (Connections != null && Connections.Count > 0)
+                    //! fellow Troop
+                    isUpgrading = true;
+                    Level += incomingTroop.Level;
+                    OnTowerUpgrade_Level?.Invoke();
+                }
+                else
+                {
+                    //! !Enemy Attack
+                    isUpgrading = false;
+                    Level -= incomingTroop.Level;
+                    OnTowerDowngrade_Level?.Invoke();
+                    if (Level <= 0)
                     {
-                        foreach (var con in Connections)
+                        TowerOwner = incomingTroop.Owner;
+                        if (Connections != null && Connections.Count > 0)
                         {
-                            DisconnectTower(con.Tower);
+                            foreach (var con in Connections)
+                            {
+                                DisconnectTower(con.Tower);
+                            }
                         }
                     }
                 }
@@ -163,5 +167,7 @@ namespace Tower
             CanCreateConnections = usedPaths < maxPaths;
             maxPaths = (int)TowerTier;
         }
+
+        protected abstract void
     }
 }
