@@ -1,8 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using Core.PathHandler;
 using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using Util;
 
 namespace Core.Input
 {
@@ -12,14 +13,17 @@ namespace Core.Input
 
         private void OnEnable()
         {
-            GameManager.Instance.OnGameStart += EnableInputs;
-            GameManager.Instance.OnGameStop += (bool b) => DisableInputs();
+            /*            GameManager.Instance.OnGameStart += EnableInputs;
+                        GameManager.Instance.OnGameStop += (bool b) => DisableInputs();*/
+
+            EnableInputs();
         }
 
         private void OnDisable()
         {
-            GameManager.Instance.OnGameStart -= EnableInputs;
-            GameManager.Instance.OnGameStop -= (bool b) => DisableInputs();
+            /*            GameManager.Instance.OnGameStart -= EnableInputs;
+                        GameManager.Instance.OnGameStop -= (bool b) => DisableInputs();*/
+            DisableInputs();
         }
 
         private void EnableInputs()
@@ -44,12 +48,10 @@ namespace Core.Input
 
         private void Touch_onFingerMove(Finger finger)
         {
-            throw new NotImplementedException();
         }
 
         private void Touch_onFingerUp(Finger finger)
         {
-            throw new NotImplementedException();
         }
     }
 }

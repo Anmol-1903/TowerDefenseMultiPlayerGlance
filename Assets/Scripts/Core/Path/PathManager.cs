@@ -11,7 +11,7 @@ namespace Core.PathHandler
         [SerializeField, PrefabObjectOnly, NotNull] private Path pathRendererPrefab;
         [SerializeField] private float yOffset;
 
-        private LineRenderer hintLine;
+        [SerializeField, NotNull] private LineRenderer hintLine;
         private ObjectPool<Path> lineRendersPool;
 
         [SerializeField, InLineEditor] private Material validMaterial;

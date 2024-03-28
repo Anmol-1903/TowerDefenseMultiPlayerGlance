@@ -26,11 +26,11 @@ namespace Troop
             SoldierPool.Clear();
         }
 
-        public void SpawnSoldierTroop()
+        public void SpawnSoldierTroop(string selfId, string enemyId)
         {
         }
 
-        public void SpawnBruteTroop()
+        public void SpawnBruteTroop(string selfId, string enemyId)
         {
         }
 
