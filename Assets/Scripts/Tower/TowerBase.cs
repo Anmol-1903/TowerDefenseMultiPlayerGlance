@@ -167,7 +167,5 @@ namespace Tower
             CanCreateConnections = usedPaths < maxPaths;
             maxPaths = (int)TowerTier;
         }
-
-        protected abstract void
     }
 }
