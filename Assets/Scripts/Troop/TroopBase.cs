@@ -87,5 +87,15 @@ namespace Troop
         {
             troop.currentHealth -= health;
         }
+
+#if UNITY_EDITOR
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(collisionCheckTransform.position, collidableDist);
+        }
+
+#endif
     }
 }
