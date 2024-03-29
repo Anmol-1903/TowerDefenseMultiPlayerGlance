@@ -1,4 +1,3 @@
-using System;
 using Troop;
 using UnityEngine;
 using TowerType = Core.GameEnums.TowerType;
@@ -19,6 +18,13 @@ namespace Tower
 
         protected override void Spawn()
         {
+            if (Connections.Count > 0)
+            {
+                foreach (var connection in Connections)
+                {
+                    TroopPooler.Instance.SpawnSoldierTroop(TowerID, connection.Tower.TowerID, TowerOwner, transform.position, connection.Tower.transform.position);
+                }
+            }
         }
 
         protected override void Update()

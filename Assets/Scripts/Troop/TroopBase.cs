@@ -15,29 +15,41 @@ namespace Troop
         [SerializeField] protected int health;
         [field: SerializeField] public int Level { get; protected set; }
 
+        private int currentHealth, currentLevel;
+
+        [SerializeField] private float speed;
+
         [Space(5f)]
         [SerializeField, NotNull] protected Transform collisionCheckTransform;
 
         [SerializeField] protected LayerMask collidableLayer;
         [SerializeField] protected float collidableDist;
 
+        private bool isInitialize;
+
         public virtual void InitTroop(TroopOwner owner, string selfId, string enemyid, Vector3 start, Vector3 end)
         {
             Id = selfId;
             EnemyId = EnemyId;
             Owner = owner;
+            currentHealth = health;
+            currentLevel = Level;
             transform.position = start;
             transform.forward = (end - start).normalized;
+            isInitialize = true;
         }
 
         protected virtual void Update()
         {
+            if (!isInitialize) return;
+
             if (health <= 0)
             {
                 OnDeath();
+                isInitialize = false;
                 return;
             }
-
+            transform.Translate(transform.forward * speed * Time.deltaTime);
             CollsionCheck();
         }
 
@@ -73,7 +85,7 @@ namespace Troop
 
         protected virtual void DamageToOtherTroop(TroopBase troop)
         {
-            troop.health -= health;
+            troop.currentHealth -= health;
         }
     }
 }

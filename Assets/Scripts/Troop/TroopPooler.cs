@@ -24,12 +24,16 @@ namespace Troop
             SoldierPool.Clear();
         }
 
-        public void SpawnSoldierTroop(string selfId, string enemyId)
+        public void SpawnSoldierTroop(string selfId, string enemyId, Core.GameEnums.OwnershipType owner, Vector3 startPoint, Vector3 endPoint)
         {
+            var soldier = SoldierPool.Get();
+            soldier.InitTroop(owner, selfId, enemyId, startPoint, endPoint);
         }
 
-        public void SpawnBruteTroop(string selfId, string enemyId)
+        public void SpawnBruteTroop(string selfId, string enemyId, Core.GameEnums.OwnershipType owner, Vector3 startPoint, Vector3 endPoint)
         {
+            var brute = BrutePool.Get();
+            brute.InitTroop(owner, selfId, enemyId, startPoint, endPoint);
         }
 
         private SoldierTroop CreateSoldierPool()
