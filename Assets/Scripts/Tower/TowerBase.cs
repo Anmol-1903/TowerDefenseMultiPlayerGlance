@@ -95,31 +95,33 @@ namespace Tower
 
         public void UpdateTowerLevel(TroopBase incomingTroop)
         {
-            bool isUpgrading = false;
-            if (incomingTroop.EnemyId == TowerID)
+            bool isUpgrading;
+            if (incomingTroop.Owner == TowerOwner)
             {
-                if (incomingTroop.Owner == TowerOwner)
+                //! fellow Troop
+                isUpgrading = true;
+                Level += incomingTroop.Level;
+                if (Level >= maxLevel)
                 {
-                    //! fellow Troop
-                    isUpgrading = true;
-                    Level += incomingTroop.Level;
-                    OnTowerUpgrade_Level?.Invoke();
+                    Level = maxLevel;
+                    RespawnTroop(incomingTroop);
                 }
-                else
+                OnTowerUpgrade_Level?.Invoke();
+            }
+            else
+            {
+                //! !Enemy Attack
+                isUpgrading = false;
+                Level -= incomingTroop.Level;
+                OnTowerDowngrade_Level?.Invoke();
+                if (Level <= 0)
                 {
-                    //! !Enemy Attack
-                    isUpgrading = false;
-                    Level -= incomingTroop.Level;
-                    OnTowerDowngrade_Level?.Invoke();
-                    if (Level <= 0)
+                    TowerOwner = incomingTroop.Owner;
+                    if (Connections != null && Connections.Count > 0)
                     {
-                        TowerOwner = incomingTroop.Owner;
-                        if (Connections != null && Connections.Count > 0)
+                        foreach (var con in Connections)
                         {
-                            foreach (var con in Connections)
-                            {
-                                DisconnectTower(con.Tower);
-                            }
+                            DisconnectTower(con.Tower);
                         }
                     }
                 }
@@ -167,5 +169,19 @@ namespace Tower
             CanCreateConnections = usedPaths < maxPaths;
             maxPaths = (int)TowerTier;
         }
+
+        protected void RespawnTroop(TroopBase troop)
+        {
+            if (!CanCreateConnections) return;
+
+            if (troop is SoldierTroop)
+            {
+            }
+            else if (troop is BruteTroop)
+            {
+            }
+        }
+
+        protected abstract void Spawn();
     }
 }

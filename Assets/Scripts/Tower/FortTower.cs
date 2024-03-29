@@ -9,5 +9,10 @@ namespace Tower
             base.Awake();
             TowerType = TowerType.Fort;
         }
+
+        protected override void Spawn()
+        {
+            return;
+        }
     }
 }

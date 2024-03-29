@@ -1,3 +1,4 @@
+using Tower;
 using UnityEngine;
 using Util;
 using TroopOwner = Core.GameEnums.OwnershipType;
@@ -54,6 +55,14 @@ namespace Troop
                             "Enemy Collided".Log(this);
                             DamageToOtherTroop(enemyTroop);
                             break;
+                        }
+                    }
+                    if (col.TryGetComponent<TowerBase>(out var enemyTower))
+                    {
+                        if (enemyTower.TowerID == EnemyId)
+                        {
+                            "Tower Collider".Log(this);
+                            enemyTower.UpdateTowerLevel(this);
                         }
                     }
                 }
