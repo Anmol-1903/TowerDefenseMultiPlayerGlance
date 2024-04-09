@@ -7,9 +7,14 @@ namespace UI
 {
     public class MainMenuManager : MonoSingleton<MainMenuManager>
     {
+        //Handle Main Menu Logic
         protected override void Awake()
         {
             base.Awake();
+        }
+
+        public void PlayGame()
+        {
         }
     }
 }
