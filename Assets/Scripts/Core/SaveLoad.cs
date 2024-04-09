@@ -6,7 +6,7 @@ using Util;
 
 namespace Core.SaveLoadSystem
 {
-    public static class EncryptionManager
+    public static class SaveLoad
     {
         private const string _fileName = ".insanity";
 
