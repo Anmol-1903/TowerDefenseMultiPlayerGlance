@@ -28,5 +28,12 @@ namespace Core
             Tier2 = 2,
             Tier3 = 3,
         }
+
+        public enum ConnectionStatus
+        {
+            Connected,
+            Disconnected,
+            IDK
+        }
     }
 }

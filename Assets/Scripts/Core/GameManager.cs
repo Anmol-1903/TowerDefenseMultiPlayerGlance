@@ -3,11 +3,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnitySingleton;
+using ConnectionStatus = Core.GameEnums.ConnectionStatus;
 
 namespace Core
 {
     public class GameManager : PersistentMonoSingleton<GameManager>
     {
+        public static string GameVersion { get; private set; }
+
+        public ConnectionStatus ConStatus { get; set; }
+
         public UnityAction OnGameStart { get; set; }
         public UnityAction<bool> OnGameEnd { get; set; }
 
@@ -17,10 +22,26 @@ namespace Core
         {
             base.Awake();
 
-            StartCoroutine(LoadSceneContainer());
+            StartCoroutine(IntializeGame());
+        }
 
-            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-            SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        private IEnumerator IntializeGame()
+        {
+            GameVersion = Application.version;
+            yield return StartCoroutine(LoadSceneContainer());
+            AddSceneEvents();
+
+            //todo Do Photon Init here!!
+            // wait for 10 second to connect
+            // if connection is successfull in 10 second set ConStatus to Connected
+            // if not setConStatus to Disconnected
+
+            while (ConStatus == ConnectionStatus.IDK)
+            {
+                yield return null;
+            }
+
+            AudioManager.CreateInstance();
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)
@@ -47,9 +68,12 @@ namespace Core
             {
                 SceneContainer = request.asset as SceneContainerScriptable;
             }
+        }
 
-            yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene(SceneContainer.MainMenuScene);
+        private void AddSceneEvents()
+        {
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+            SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
         }
     }
 }
