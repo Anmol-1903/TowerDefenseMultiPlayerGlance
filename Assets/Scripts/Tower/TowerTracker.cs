@@ -17,22 +17,22 @@ namespace Tower
         /// <summary>
         /// Index of <br></br>
         /// <br></br>
-        /// <see cref="Core.GameEnums.OwnershipType.UnConquered"/> : <b>0</b><br></br>
-        /// <see cref="Core.GameEnums.OwnershipType.Blue"/> : <b>1</b><br></br>
-        /// <see cref="Core.GameEnums.OwnershipType.Red"/> : <b>2</b><br></br>
-        /// <see cref="Core.GameEnums.OwnershipType.Green"/> : <b>3</b><br></br>
-        /// <see cref="Core.GameEnums.OwnershipType.Yellow"/> : <b>4</b>
+        /// <see cref="OwnershipType.UnConquered"/> : <b>0</b><br></br>
+        /// <see cref="OwnershipType.Blue"/> : <b>1</b><br></br>
+        /// <see cref="OwnershipType.Red"/> : <b>2</b><br></br>
+        /// <see cref="OwnershipType.Green"/> : <b>3</b><br></br>
+        /// <see cref="OwnershipType.Yellow"/> : <b>4</b>
         /// </summary>
         public List<TowerByOwner> TowersByOwner => towersByOwner;
 
         /// <summary>
         /// Index of <br></br>
         /// <br></br>
-        /// <see cref="Core.GameEnums.TowerType.Soldier"/> : <b>0</b><br></br>
-        /// <see cref="Core.GameEnums.TowerType.Brute"/> : <b>1</b><br></br>
-        /// <see cref="Core.GameEnums.TowerType.Archery"/> : <b>2</b><br></br>
-        /// <see cref="Core.GameEnums.TowerType.Fort"/> : <b>3</b><br></br>
-        ///  /// <see cref="Core.GameEnums.TowerType.Base"/> : <b>4</b><br></br>
+        /// <see cref="TowerType.Soldier"/> : <b>0</b><br></br>
+        /// <see cref="TowerType.Brute"/> : <b>1</b><br></br>
+        /// <see cref="TowerType.Archery"/> : <b>2</b><br></br>
+        /// <see cref="TowerType.Fort"/> : <b>3</b><br></br>
+        /// <see cref="TowerType.Base"/> : <b>4</b><br></br>
         /// </summary>
         public List<TowerByType> TowersByType { get => towersByType; }
 

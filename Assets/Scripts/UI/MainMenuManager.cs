@@ -20,7 +20,7 @@ namespace UI
         {
             if (GameManager.Instance.ConStatus == ConnectionStatus.Disconnected)
             {
-                ShowOfflinePopup();
+                ShowPopup("No Internet Connections");
             }
         }
 
@@ -28,7 +28,11 @@ namespace UI
         {
         }
 
-        private void ShowOfflinePopup()
+        /// <summary>
+        /// Call this method to show popup in MainMenu
+        /// </summary>
+        /// <param name="msg">msg in PopUp</param>
+        public void ShowPopup(string msg)
         {
         }
     }

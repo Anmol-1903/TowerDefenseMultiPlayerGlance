@@ -14,7 +14,7 @@ namespace Core
         {
             base.Awake();
 
-            //Load Audio Settings for SaveFiles
+            //todo: Load Audio Settings for SaveFiles or GameManager.Instance.GameSettings
         }
     }
 }

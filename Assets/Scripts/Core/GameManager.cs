@@ -16,7 +16,7 @@ namespace Core
         public UnityAction OnGameStart { get; set; }
         public UnityAction<bool> OnGameEnd { get; set; }
 
-        [field: SerializeField] public SceneContainerScriptable SceneContainer { get; private set; }
+        [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
         //todo Add GameSettings scriptable ref same as SceneContainerScriptable
 
         protected override void Awake()
@@ -45,6 +45,7 @@ namespace Core
             }
 
             AudioManager.CreateInstance();
+            StartCoroutine(LoadMainMenu());
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)
@@ -86,6 +87,15 @@ namespace Core
         {
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
             SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        }
+
+        private IEnumerator LoadMainMenu()
+        {
+            AsyncOperation operation = SceneManager.LoadSceneAsync(SceneContainer.MainMenuScene);
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
         }
     }
 }
