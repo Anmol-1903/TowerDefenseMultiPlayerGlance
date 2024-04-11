@@ -17,6 +17,7 @@ namespace Core
         public UnityAction<bool> OnGameEnd { get; set; }
 
         [field: SerializeField] public SceneContainerScriptable SceneContainer { get; private set; }
+        //todo Add GameSettings scriptable ref same as SceneContainerScriptable
 
         protected override void Awake()
         {
@@ -29,6 +30,8 @@ namespace Core
         {
             GameVersion = Application.version;
             yield return StartCoroutine(LoadSceneContainer());
+            //start corountine for loading GameSettings
+            //yield return StartCorountine(LoadGameSettings());
             AddSceneEvents();
 
             //todo Do Photon Init here!!
@@ -69,6 +72,15 @@ namespace Core
                 SceneContainer = request.asset as SceneContainerScriptable;
             }
         }
+
+        //todo Load the game settings scriptable from Resources
+        // same as LoadSceneContainer()
+        /*
+         private IEnumerator LoadGameSettings()
+         {
+            //After Getting GameSettings
+            //Call public method that load/reload gamesetttings data
+         }*/
 
         private void AddSceneEvents()
         {
