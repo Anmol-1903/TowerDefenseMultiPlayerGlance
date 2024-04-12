@@ -2,6 +2,7 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnitySingleton;
 
 using ConnectionStatus = Core.GameEnums.ConnectionStatus;
@@ -26,6 +27,7 @@ namespace UI
 
         public void PlayGame()
         {
+            GameManager.Instance.PlayGame();
         }
 
         /// <summary>

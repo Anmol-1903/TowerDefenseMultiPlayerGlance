@@ -13,5 +13,9 @@ namespace UI
         {
             MainMenuManager.Instance.PlayGame();
         }
+
+        public void OpenSettings()
+        {
+        }
     }
 }

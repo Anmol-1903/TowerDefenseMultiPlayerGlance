@@ -17,7 +17,8 @@ namespace Core.PathHandler
         [SerializeField, InLineEditor] private Material inValidMaterial;
         [SerializeField, LabelByChild("owner")] private PathVisual[] pathMaterial;
 
-        protected override void OnInitialized()
+        // todo for when playing online we need photon pool maybe? https://doc.photonengine.com/pun/current/gameplay/instantiation
+        protected override void Awake()
         {
             lineRendersPool = new(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
             transform.position = Vector3.zero;

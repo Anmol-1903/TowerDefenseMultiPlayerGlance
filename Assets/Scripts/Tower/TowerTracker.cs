@@ -36,7 +36,7 @@ namespace Tower
         /// </summary>
         public List<TowerByType> TowersByType { get => towersByType; }
 
-        private void Start()
+        public void Init()
         {
             GetAllTower();
             FilterTowerByOwner();
