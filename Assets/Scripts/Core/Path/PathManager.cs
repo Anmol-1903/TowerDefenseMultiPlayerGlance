@@ -11,7 +11,7 @@ namespace Core.PathHandler
         [SerializeField] private float yOffset;
 
         [SerializeField, NotNull] private LineRenderer hintLine;
-        private ObjectPool<Path> lineRendersPool;
+        private IObjectPool<Path> lineRendersPool;
 
         [SerializeField, InLineEditor] private Material validMaterial;
         [SerializeField, InLineEditor] private Material inValidMaterial;
@@ -20,7 +20,7 @@ namespace Core.PathHandler
         // todo for when playing online we need photon pool maybe? https://doc.photonengine.com/pun/current/gameplay/instantiation
         protected override void Awake()
         {
-            lineRendersPool = new(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
+            lineRendersPool = new ObjectPool<Path>(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
             transform.position = Vector3.zero;
             hintLine = transform.GetComponentInChildren<LineRenderer>();
             hintLine.transform.position = Vector3.zero;

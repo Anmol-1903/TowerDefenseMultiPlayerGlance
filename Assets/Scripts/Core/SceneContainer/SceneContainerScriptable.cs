@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core
 {
-    [CreateAssetMenu(menuName = "SceneContainer")]
+    [CreateAssetMenu(menuName = "Game/SceneContainer")]
     public class SceneContainerScriptable : ScriptableObject
     {
         [field: SerializeField, SceneName] public string SplashScene { get; private set; }

@@ -12,18 +12,17 @@ namespace Core
 
         public IEnumerator GetLoadingScreenObject()
         {
-            ResourceRequest request = Resources.LoadAsync("Prefabs/LoadingCanvas");
-            while (!request.isDone)
-            {
-                yield return null;
-            }
+            GameObject loadingScreenPrefab = null;
 
-            if (request.asset == null)
+            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Prefabs/LoadingCanvas", (data) => loadingScreenPrefab = data as GameObject));
+
+            if (loadingScreenPrefab == null)
             {
-                "LoadingScreen is null".Log(Color.red, this);
+                "Loading Screen is null, it is not present at \"Prefabs/LoadingCanvas\"".Log(Color.red, this);
                 yield break;
             }
-            loadingScreen = Instantiate(request.asset) as GameObject;
+
+            loadingScreen = Instantiate(loadingScreenPrefab);
             DontDestroyOnLoad(loadingScreen);
             loadingScreen.SetActive(false);
             yield return null;

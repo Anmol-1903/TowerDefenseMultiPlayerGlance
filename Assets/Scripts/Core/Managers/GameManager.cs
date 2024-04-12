@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,12 +25,12 @@ namespace Core
 
         public void PlayGame()
         {
-            StartCoroutine(LoadTutorialLevel());
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
         }
 
         public void BackToMainMenu()
         {
-            StartCoroutine(LoadMainMenu());
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene));
         }
 
         #endregion PublicMethods
@@ -48,10 +49,10 @@ namespace Core
             LoadingManager.Instance.ShowLoadingScreen();
 
             GameVersion = Application.version;
-            yield return StartCoroutine(LoadSceneContainer());
+            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("SceneContainer", (data) => SceneContainer = data as SceneContainerScriptable));
 
-            //start corountine for loading GameSettings
-            //yield return StartCorountine(LoadGameSettings());
+            //start corountine for loading GameSettings same as above!!
+
             AddSceneEvents();
 
             //todo Do Photon Init here!!
@@ -76,7 +77,7 @@ namespace Core
         {
             if (scene.name == SceneContainer.MainMenuScene)
             {
-                UI.MainMenuManager.CreateInstance();
+                MainMenuManager.CreateInstance();
             }
             if (scene.name != SceneContainer.MainMenuScene && scene.name != SceneContainer.SplashScene) //can be replace by better conditions
             {
@@ -86,29 +87,6 @@ namespace Core
                 StartCoroutine(GameStartCountDown());
             }
         }
-
-        private IEnumerator LoadSceneContainer()
-        {
-            ResourceRequest request = Resources.LoadAsync("SceneContainer");
-            while (!request.isDone)
-            {
-                yield return null;
-            }
-
-            if (request.asset != null)
-            {
-                SceneContainer = request.asset as SceneContainerScriptable;
-            }
-        }
-
-        //todo Load the game settings scriptable from Resources
-        // same as LoadSceneContainer()
-        /*
-         private IEnumerator LoadGameSettings()
-         {
-            //After Getting GameSettings
-            //Call public method that load/reload gamesetttings data
-         }*/
 
         private void AddSceneEvents()
         {
