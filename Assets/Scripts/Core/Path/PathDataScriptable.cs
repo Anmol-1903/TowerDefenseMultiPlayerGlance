@@ -11,8 +11,8 @@ namespace Core.PathHandler
         [field: SerializeField, PrefabObjectOnly, NotNull] public Path PathRendererPrefab { get; private set; }
         [field: SerializeField, PrefabObjectOnly, NotNull] public LineRenderer HintLine { get; private set; }
 
-        [field: SerializeField, InLineEditor, NotNull] public Material ValidHintMaterial { get; private set; }
-        [field: SerializeField, InLineEditor, NotNull] public Material InValidMaterial { get; private set; }
-        [field: SerializeField, LabelByChild("owner")] public PathVisual[] pathMaterial { get; private set; }
+        [field: SerializeField, InLineEditor] public Material ValidHintMaterial { get; private set; }
+        [field: SerializeField, InLineEditor] public Material InValidMaterial { get; private set; }
+        [field: SerializeField, LabelByChild("owner")] public PathVisual[] PathMaterial { get; private set; }
     }
 }

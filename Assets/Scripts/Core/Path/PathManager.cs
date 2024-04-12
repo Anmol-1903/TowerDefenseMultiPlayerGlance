@@ -1,3 +1,4 @@
+using System.Collections;
 using Tower;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -7,23 +8,22 @@ namespace Core.PathHandler
 {
     public class PathManager : MonoSingleton<PathManager>
     {
-        [SerializeField, PrefabObjectOnly, NotNull] private Path pathRendererPrefab;
-        [SerializeField] private float yOffset;
-
-        [SerializeField, NotNull] private LineRenderer hintLine;
         private IObjectPool<Path> lineRendersPool;
 
-        [SerializeField, InLineEditor] private Material validMaterial;
-        [SerializeField, InLineEditor] private Material inValidMaterial;
-        [SerializeField, LabelByChild("owner")] private PathVisual[] pathMaterial;
+        [SerializeField, Disable] private PathDataScriptable pathData;
 
         // todo for when playing online we need photon pool maybe? https://doc.photonengine.com/pun/current/gameplay/instantiation
         protected override void Awake()
         {
             lineRendersPool = new ObjectPool<Path>(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
             transform.position = Vector3.zero;
-            hintLine = transform.GetComponentInChildren<LineRenderer>();
-            hintLine.transform.position = Vector3.zero;
+            pathData.HintLine.transform.position = Vector3.zero;
+        }
+
+        public IEnumerator GetPathData()
+        {
+            yield return StartCoroutine(Util.HelperCoroutine.LoadDataFromResources("Scriptable/PathData",
+                (data) => pathData = data as PathDataScriptable));
         }
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace Core.PathHandler
         /// <param name="origin"> origin of path in world coordinate</param>
         public void GetHintLine(Vector3 origin)
         {
-            hintLine.enabled = true;
-            hintLine.SetPosition(0, origin);
-            hintLine.SetPosition(1, origin);
+            pathData.HintLine.enabled = true;
+            pathData.HintLine.SetPosition(0, origin);
+            pathData.HintLine.SetPosition(1, origin);
         }
 
         /// <summary>
@@ -44,16 +44,16 @@ namespace Core.PathHandler
         /// <param name="isDrawablePath">whether the final path is drawable or not</param>
         public void UpdateHintLine(Vector3 currentPosition, bool isDrawablePath)
         {
-            hintLine.SetPosition(1, currentPosition);
+            pathData.HintLine.SetPosition(1, currentPosition);
             if (isDrawablePath)
             {
                 //TODO: Set the path color to blue
-                hintLine.material = validMaterial;
+                pathData.HintLine.material = pathData.ValidHintMaterial;
             }
             else
             {
                 //TODO: Set the path color to black or red
-                hintLine.material = inValidMaterial;
+                pathData.HintLine.material = pathData.InValidMaterial;
             }
         }
 
@@ -62,9 +62,9 @@ namespace Core.PathHandler
         /// </summary>
         public void RemoveHintLine()
         {
-            hintLine.SetPosition(0, Vector3.zero);
-            hintLine.SetPosition(1, Vector3.zero);
-            hintLine.enabled = false;
+            pathData.HintLine.SetPosition(0, Vector3.zero);
+            pathData.HintLine.SetPosition(1, Vector3.zero);
+            pathData.HintLine.enabled = false;
         }
 
         /// <summary>
@@ -76,17 +76,17 @@ namespace Core.PathHandler
         public Path CreatePath(Vector3 from, Vector3 to, TowerBase tower)
         {
             Path path = lineRendersPool.Get();
-            Material pathMat = validMaterial;
-            for (int i = 0; i < pathMaterial.Length; i++)
+            Material pathMat = pathData.ValidHintMaterial;
+            for (int i = 0; i < pathData.PathMaterial.Length; i++)
             {
-                PathVisual visual = pathMaterial[i];
+                PathVisual visual = pathData.PathMaterial[i];
                 if (visual.owner == tower.TowerOwner)
                 {
                     pathMat = visual.material;
                     break;
                 }
             }
-            path.DrawPath(true, new(to.x, yOffset, to.z), new(from.x, yOffset, from.z), tower, pathMat);
+            path.DrawPath(true, new(to.x, pathData.OffsetY, to.z), new(from.x, pathData.OffsetY, from.z), tower, pathMat);
             return path;
         }
 
@@ -105,7 +105,7 @@ namespace Core.PathHandler
 
         private Path OnCreateRenderers()
         {
-            return Instantiate(pathRendererPrefab, Vector3.zero, Quaternion.identity);
+            return Instantiate(pathData.PathRendererPrefab, Vector3.zero, Quaternion.identity);
         }
 
         private void OnGetRenderers(Path path)

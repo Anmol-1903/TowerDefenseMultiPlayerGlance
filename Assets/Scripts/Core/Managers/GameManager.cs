@@ -25,11 +25,15 @@ namespace Core
 
         public void PlayGame()
         {
+            OnGameStart = null;
+            OnGameEnd = null;
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
         }
 
         public void BackToMainMenu()
         {
+            OnGameStart = null;
+            OnGameEnd = null;
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene));
         }
 
@@ -39,17 +43,18 @@ namespace Core
         {
             base.Awake();
 
-            StartCoroutine(IntializeGame());
+            StartCoroutine(Intialize());
         }
 
-        private IEnumerator IntializeGame()
+        private IEnumerator Intialize()
         {
+            GameVersion = Application.version;
             LoadingManager.CreateInstance();
             yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
             LoadingManager.Instance.ShowLoadingScreen();
 
-            GameVersion = Application.version;
-            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("SceneContainer", (data) => SceneContainer = data as SceneContainerScriptable));
+            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/SceneContainer",
+                (data) => SceneContainer = data as SceneContainerScriptable));
 
             //start corountine for loading GameSettings same as above!!
 
@@ -66,7 +71,7 @@ namespace Core
             }
 
             AudioManager.CreateInstance();
-            StartCoroutine(LoadMainMenu());
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.name, showLoadingScreen: false));
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)
@@ -78,13 +83,13 @@ namespace Core
             if (scene.name == SceneContainer.MainMenuScene)
             {
                 MainMenuManager.CreateInstance();
+                LoadingManager.Instance.HideLoadingScreen();
             }
             if (scene.name != SceneContainer.MainMenuScene && scene.name != SceneContainer.SplashScene) //can be replace by better conditions
             {
                 Tower.TowerTracker.CreateInstance();
-                Tower.TowerTracker.Instance.Init();
                 PathHandler.PathManager.CreateInstance();
-                StartCoroutine(GameStartCountDown());
+                StartCoroutine(GameSceneInit());
             }
         }
 
@@ -94,38 +99,21 @@ namespace Core
             SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
         }
 
-        private IEnumerator LoadMainMenu()
+        private IEnumerator GameSceneInit()
         {
-            LoadingManager.Instance.ShowLoadingScreen();
-            AsyncOperation operation = SceneManager.LoadSceneAsync(SceneContainer.MainMenuScene);
-            while (!operation.isDone)
-            {
-                yield return null;
-            }
+            Tower.TowerTracker.Instance.Init();
+            yield return StartCoroutine(PathHandler.PathManager.Instance.GetPathData());
             LoadingManager.Instance.HideLoadingScreen();
-        }
-
-        private IEnumerator LoadTutorialLevel()
-        {
-            LoadingManager.Instance.ShowLoadingScreen();
-            AsyncOperation operation = SceneManager.LoadSceneAsync(SceneContainer.TutorialLevelScenes[0]);
-            while (!operation.isDone)
+            yield return StartCoroutine(HelperCoroutine.Countdown(3,
+            onTimerUpdate: (val) =>
             {
-                yield return null;
-            }
-            LoadingManager.Instance.HideLoadingScreen();
-        }
-
-        private IEnumerator GameStartCountDown()
-        {
-            float timer = 0;
-            while (timer <= 3)
+                val.Log();
+                //SomeTextEffect?
+            }, onComplete: () =>
             {
-                timer += Time.deltaTime;
-                timer.Log(this);
-                yield return null;
-            }
-            $"GAME START!!  {timer:0}".Log();
+                "GameStart!".Log();
+                OnGameStart?.Invoke();
+            }));
         }
     }
 }

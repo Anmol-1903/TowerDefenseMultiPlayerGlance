@@ -1,7 +1,6 @@
 using Core;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,9 +32,18 @@ namespace Util
                 onLoading?.Invoke();
                 yield return null;
             }
+        }
 
-            if (showLoadingScreen)
-                LoadingManager.Instance.HideLoadingScreen();
+        public static IEnumerator Countdown(float initialtime, Action<float> onTimerUpdate = null, Action onComplete = null)
+        {
+            float timer = initialtime;
+            while (timer >= 0)
+            {
+                timer -= Time.deltaTime;
+                onTimerUpdate?.Invoke(timer);
+                yield return null;
+            }
+            onComplete?.Invoke();
         }
     }
 }

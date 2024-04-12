@@ -3,7 +3,6 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using Core.PathHandler;
 using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
-using Util;
 using Tower;
 
 namespace Core.Input
@@ -12,19 +11,11 @@ namespace Core.Input
     {
         [SerializeField] private InputOwner owner;
         private TowerBase towerBase;
-        private void OnEnable()
-        {
-            /*            GameManager.Instance.OnGameStart += EnableInputs;
-                        GameManager.Instance.OnGameStop += (bool b) => DisableInputs();*/
 
-            EnableInputs();
-        }
-
-        private void OnDisable()
+        private void Start()
         {
-            /*            GameManager.Instance.OnGameStart -= EnableInputs;
-                        GameManager.Instance.OnGameStop -= (bool b) => DisableInputs();*/
-            DisableInputs();
+            GameManager.Instance.OnGameStart += EnableInputs;
+            GameManager.Instance.OnGameEnd += (b) => DisableInputs();
         }
 
         private void EnableInputs()
@@ -54,7 +45,6 @@ namespace Core.Input
                 {
                     Debug.Log("Finger touched a tower!");
                     PathManager.Instance.GetHintLine(towerBase.transform.position);
-
                 }
             }
         }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612374eee24a26e43af12f9482d026ff, type: 3}
+  m_Name: PathData
+  m_EditorClassIdentifier: 
+  <OffsetY>k__BackingField: 0
+  <PathRendererPrefab>k__BackingField: {fileID: 7373259683637888753, guid: fca0101b44f72654c83b5ac4efd10d24,
+    type: 3}
+  <HintLine>k__BackingField: {fileID: 923143856500673876, guid: 6af9b6eaf6526e149a891aa8b41d73d0,
+    type: 3}
+  <ValidHintMaterial>k__BackingField: {fileID: 2100000, guid: 9d36bd9bc267ba34bb3c600226924950,
+    type: 2}
+  <InValidMaterial>k__BackingField: {fileID: 2100000, guid: b52d0367fc14e3b44bbc5653ca67f287,
+    type: 2}
+  <PathMaterial>k__BackingField:
+  - owner: 1
+    material: {fileID: 2100000, guid: 9016da89b9bb25b47a7136af3d6fa4ca, type: 2}
+  - owner: 2
+    material: {fileID: 2100000, guid: 908e5143d78d138438f8b506c52b359e, type: 2}
+  - owner: 3
+    material: {fileID: 2100000, guid: 2ee5533336a997647b1a4923720ee5f1, type: 2}
+  - owner: 4
+    material: {fileID: 2100000, guid: 25ecfb702be54aa42850df2636ad4793, type: 2}
