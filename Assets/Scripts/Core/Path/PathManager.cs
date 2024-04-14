@@ -3,6 +3,7 @@ using Tower;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnitySingleton;
+using Util;
 
 namespace Core.PathHandler
 {
@@ -11,19 +12,26 @@ namespace Core.PathHandler
         private IObjectPool<Path> lineRendersPool;
 
         [SerializeField, Disable] private PathDataScriptable pathData;
+        private LineRenderer hintLine;
 
         // todo for when playing online we need photon pool maybe? https://doc.photonengine.com/pun/current/gameplay/instantiation
-        protected override void Awake()
+        private void Init()
         {
-            lineRendersPool = new ObjectPool<Path>(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, 20, 100);
+            lineRendersPool = new ObjectPool<Path>(OnCreateRenderers, OnGetRenderers, OnReleaseRenderers, OnDestroyRenderers, true, pathData.PoolSize, pathData.MaxPoolSize);
             transform.position = Vector3.zero;
-            pathData.HintLine.transform.position = Vector3.zero;
+            hintLine = Instantiate(pathData.HintLine);
+            hintLine.enabled = false;
+            hintLine.transform.position = Vector3.zero;
         }
 
         public IEnumerator GetPathData()
         {
             yield return StartCoroutine(Util.HelperCoroutine.LoadDataFromResources("Scriptable/PathData",
-                (data) => pathData = data as PathDataScriptable));
+                (data) =>
+                {
+                    pathData = data as PathDataScriptable;
+                    Init();
+                }));
         }
 
         /// <summary>
@@ -32,9 +40,9 @@ namespace Core.PathHandler
         /// <param name="origin"> origin of path in world coordinate</param>
         public void GetHintLine(Vector3 origin)
         {
-            pathData.HintLine.enabled = true;
-            pathData.HintLine.SetPosition(0, origin);
-            pathData.HintLine.SetPosition(1, origin);
+            hintLine.enabled = true;
+            hintLine.SetPosition(0, new(origin.x, pathData.OffsetY, origin.z));
+            hintLine.SetPosition(1, new(origin.x, pathData.OffsetY, origin.z));
         }
 
         /// <summary>
@@ -44,16 +52,16 @@ namespace Core.PathHandler
         /// <param name="isDrawablePath">whether the final path is drawable or not</param>
         public void UpdateHintLine(Vector3 currentPosition, bool isDrawablePath)
         {
-            pathData.HintLine.SetPosition(1, currentPosition);
+            hintLine.SetPosition(1, new(currentPosition.x, pathData.OffsetY, currentPosition.z));
             if (isDrawablePath)
             {
                 //TODO: Set the path color to blue
-                pathData.HintLine.material = pathData.ValidHintMaterial;
+                hintLine.material = pathData.ValidHintMaterial;
             }
             else
             {
                 //TODO: Set the path color to black or red
-                pathData.HintLine.material = pathData.InValidMaterial;
+                hintLine.material = pathData.InValidMaterial;
             }
         }
 
@@ -62,9 +70,9 @@ namespace Core.PathHandler
         /// </summary>
         public void RemoveHintLine()
         {
-            pathData.HintLine.SetPosition(0, Vector3.zero);
-            pathData.HintLine.SetPosition(1, Vector3.zero);
-            pathData.HintLine.enabled = false;
+            hintLine.SetPosition(0, Vector3.zero);
+            hintLine.SetPosition(1, Vector3.zero);
+            hintLine.enabled = false;
         }
 
         /// <summary>
@@ -79,7 +87,7 @@ namespace Core.PathHandler
             Material pathMat = pathData.ValidHintMaterial;
             for (int i = 0; i < pathData.PathMaterial.Length; i++)
             {
-                PathVisual visual = pathData.PathMaterial[i];
+                OwnerVisual visual = pathData.PathMaterial[i];
                 if (visual.owner == tower.TowerOwner)
                 {
                     pathMat = visual.material;

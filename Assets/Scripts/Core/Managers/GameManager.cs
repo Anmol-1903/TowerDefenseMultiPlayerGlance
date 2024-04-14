@@ -71,7 +71,7 @@ namespace Core
             }
 
             AudioManager.CreateInstance();
-            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.name, showLoadingScreen: false));
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)

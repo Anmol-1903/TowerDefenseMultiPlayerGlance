@@ -1,12 +1,14 @@
-using Core.PathHandler;
-using System.Collections.Generic;
+using Util;
 using Troop;
-
 using UnityEngine;
+using Core.PathHandler;
 using UnityEngine.Events;
-using OwnershipType = Core.GameEnums.OwnershipType;
+using System.Collections.Generic;
 using Tier = Core.GameEnums.Tier;
+using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
+using UnityEditor.MemoryProfiler;
+using System;
 
 namespace Tower
 {
@@ -20,7 +22,7 @@ namespace Tower
         [field: SerializeField, ProgressBar("Tower Level", minValue: 0, maxValue: 64, HexColor = "#76ABAE", IsInteractable = true), BeginGroup("Level Settings")] public int Level { get; protected set; }
 
         [SpaceArea]
-        [SerializeField, DisableInPlayMode, BeginHorizontalGroup(labelToWidthRatio: 0.2f),] protected int maxLevel = 64;
+        [SerializeField, DisableInPlayMode, BeginHorizontalGroup] protected int maxLevel = 64;
 
         [field: SerializeField, EndHorizontalGroup, EndGroup] public Tier TowerTier { get; protected set; }
 
@@ -31,16 +33,35 @@ namespace Tower
 
         [field: SerializeField, BeginGroup("Events")] public UnityEvent OnTowerUpgrade_Level { get; protected set; }
         [field: SerializeField] public UnityEvent OnTowerDowngrade_Level { get; protected set; }
+        [field: SerializeField] public UnityEvent<OwnershipType> OnTowerOwnerChange { get; protected set; }
         [field: SerializeField, EndGroup] public UnityEvent<Tier, bool> OnTowerTierChanged { get; protected set; }
+
+        [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner")] public OwnerVisual[] Visual { get; protected set; }
+        [SerializeField, EndGroup] private GameObject[] towerLevelObjects;
 
         protected virtual void Awake()
         {
-            System.Guid guid = System.Guid.NewGuid();
+            Guid guid = Guid.NewGuid();
             TowerID = guid.ToString()[..8];
         }
 
         protected virtual void Start()
         {
+            OnTowerOwnerChange.AddListener(UpdateTowerColor);
+            OnTowerOwnerChange?.Invoke(TowerOwner);
+
+            if (Level >= 30)
+            {
+                TowerTier = Tier.Tier3;
+            }
+            else if (Level >= 20)
+            {
+                TowerTier = Tier.Tier2;
+            }
+            else
+            {
+                TowerTier = Tier.Tier1;
+            }
         }
 
         protected virtual void Update()
@@ -117,6 +138,7 @@ namespace Tower
                 if (Level <= 0)
                 {
                     TowerOwner = incomingTroop.Owner;
+                    OnTowerOwnerChange?.Invoke(incomingTroop.Owner);
                     if (Connections != null && Connections.Count > 0)
                     {
                         foreach (var con in Connections)
@@ -174,14 +196,29 @@ namespace Tower
         {
             if (!CanCreateConnections) return;
 
+            int index = UnityEngine.Random.Range(minInclusive: 0, maxExclusive: Connections.Count);
             if (troop is SoldierTroop)
             {
+                TroopPooler.Instance.SpawnSoldierTroop(TowerID, Connections[index].Tower.TowerID, TowerOwner, transform.position, Connections[index].Tower.transform.position);
             }
             else if (troop is BruteTroop)
             {
+                TroopPooler.Instance.SpawnBruteTroop(TowerID, Connections[index].Tower.TowerID, TowerOwner, transform.position, Connections[index].Tower.transform.position);
             }
         }
 
         protected abstract void Spawn();
+
+        protected void UpdateTowerColor(OwnershipType newOwner)
+        {
+            foreach (var visual in Visual)
+            {
+                if (visual.owner == newOwner)
+                {
+                    GetComponent<MeshRenderer>().material = visual.material;
+                    break;
+                }
+            }
+        }
     }
 }

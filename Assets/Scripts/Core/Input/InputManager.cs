@@ -4,13 +4,16 @@ using Core.PathHandler;
 using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Tower;
+using Util;
 
 namespace Core.Input
 {
     public class InputManager : MonoBehaviour
     {
         [SerializeField] private InputOwner owner;
+        [SerializeField] private LayerMask exlcudedLayer;
         private TowerBase towerBase;
+        private bool isValid;
 
         private void Start()
         {
@@ -36,24 +39,30 @@ namespace Core.Input
 
         private void Touch_onFingerDown(Finger finger)
         {
-            RaycastHit hit;
-            if (RaycastFromFinger(finger, out hit))
+            if (RaycastFromFinger(finger, out RaycastHit hit))
             {
                 // Check if the collider belongs to a GameObject with a TowerBase script
-                towerBase = hit.collider.GetComponent<TowerBase>();
-                if (towerBase != null && towerBase.CanCreateConnections)
+                if (hit.collider.TryGetComponent(out towerBase))
                 {
-                    Debug.Log("Finger touched a tower!");
-                    PathManager.Instance.GetHintLine(towerBase.transform.position);
+                    if (towerBase.TowerOwner == owner && towerBase.CanCreateConnections)
+                    {
+                        $"Finger touch {towerBase.TowerOwner} {towerBase.TowerType}".Log();
+                        PathManager.Instance.GetHintLine(towerBase.transform.position);
+                    }
                 }
             }
         }
 
         private void Touch_onFingerMove(Finger finger)
         {
-            if (towerBase != null)
+            if (towerBase != null && RaycastFromFinger(finger, out RaycastHit hit))
             {
-                PathManager.Instance.UpdateHintLine(Camera.main.ScreenToWorldPoint(finger.screenPosition), true);
+                RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~exlcudedLayer);
+                isValid = hits.Length == 1
+                    && hits[0].transform.GetComponent<TowerBase>() != null
+                    && hit.transform.GetComponent<TowerBase>() != null
+                    && hits[0].transform.GetComponent<TowerBase>().TowerID == hit.transform.GetComponent<TowerBase>().TowerID;
+                PathManager.Instance.UpdateHintLine(hit.point, isValid);
             }
         }
 
@@ -62,13 +71,28 @@ namespace Core.Input
             if (towerBase != null)
             {
                 PathManager.Instance.RemoveHintLine();
+                if (isValid)
+                {
+                    if (RaycastFromFinger(finger, out RaycastHit hit))
+                    {
+                        towerBase.ConnectTo(hit.transform.GetComponent<TowerBase>());
+                    }
+                }
+                towerBase = null;
             }
         }
 
-        public static bool RaycastFromFinger(Finger finger, out RaycastHit hit)
+        public bool RaycastFromFinger(Finger finger, out RaycastHit hit)
         {
             Ray ray = Camera.main.ScreenPointToRay(finger.screenPosition);
-            return Physics.Raycast(ray, out hit);
+            return Physics.Raycast(ray, out hit, Mathf.Infinity);
+        }
+
+        private Vector3 IsoVectorConvertor(Vector3 vector)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 45, 0);
+            Matrix4x4 isoMatrix = Matrix4x4.Rotate(rotation);
+            return isoMatrix.MultiplyPoint3x4(vector);
         }
     }
 }

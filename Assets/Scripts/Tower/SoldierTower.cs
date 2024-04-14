@@ -16,6 +16,12 @@ namespace Tower
             TowerType = TowerType.Soldier;
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            currentSpawnRate = soldierSpawnInterval;
+        }
+
         protected override void Spawn()
         {
             if (Connections.Count > 0)
@@ -33,7 +39,7 @@ namespace Tower
             if (currentSpawnRate < 0)
             {
                 Spawn();
-                soldierSpawnInterval = currentSpawnRate;
+                currentSpawnRate = soldierSpawnInterval;
             }
             else
             {
