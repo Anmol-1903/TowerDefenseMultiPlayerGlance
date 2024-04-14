@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612374eee24a26e43af12f9482d026ff, type: 3}
   m_Name: PathData
   m_EditorClassIdentifier: 
-  <OffsetY>k__BackingField: 0
+  <OffsetY>k__BackingField: 0.1
+  <PoolSize>k__BackingField: 10
+  <MaxPoolSize>k__BackingField: 100
   <PathRendererPrefab>k__BackingField: {fileID: 7373259683637888753, guid: fca0101b44f72654c83b5ac4efd10d24,
     type: 3}
   <HintLine>k__BackingField: {fileID: 923143856500673876, guid: 6af9b6eaf6526e149a891aa8b41d73d0,

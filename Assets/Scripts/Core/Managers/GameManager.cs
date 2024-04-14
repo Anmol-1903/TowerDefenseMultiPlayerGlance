@@ -1,10 +1,10 @@
-using System.Collections;
 using UI;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using UnitySingleton;
 using Util;
+using UnityEngine;
+using UnitySingleton;
+using UnityEngine.Events;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using ConnectionStatus = Core.GameEnums.ConnectionStatus;
 
 namespace Core
@@ -89,6 +89,7 @@ namespace Core
             {
                 Tower.TowerTracker.CreateInstance();
                 PathHandler.PathManager.CreateInstance();
+                Troop.TroopPooler.CreateInstance();
                 StartCoroutine(GameSceneInit());
             }
         }
@@ -103,6 +104,7 @@ namespace Core
         {
             Tower.TowerTracker.Instance.Init();
             yield return StartCoroutine(PathHandler.PathManager.Instance.GetPathData());
+            yield return StartCoroutine(Troop.TroopPooler.Instance.GetTroopPoolData());
             LoadingManager.Instance.HideLoadingScreen();
             yield return StartCoroutine(HelperCoroutine.Countdown(3,
             onTimerUpdate: (val) =>

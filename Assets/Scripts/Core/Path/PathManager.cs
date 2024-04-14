@@ -1,9 +1,8 @@
-using System.Collections;
 using Tower;
 using UnityEngine;
-using UnityEngine.Pool;
 using UnitySingleton;
-using Util;
+using UnityEngine.Pool;
+using System.Collections;
 
 namespace Core.PathHandler
 {
@@ -87,7 +86,7 @@ namespace Core.PathHandler
             Material pathMat = pathData.ValidHintMaterial;
             for (int i = 0; i < pathData.PathMaterial.Length; i++)
             {
-                OwnerVisual visual = pathData.PathMaterial[i];
+                Util.OwnerVisual visual = pathData.PathMaterial[i];
                 if (visual.owner == tower.TowerOwner)
                 {
                     pathMat = visual.material;

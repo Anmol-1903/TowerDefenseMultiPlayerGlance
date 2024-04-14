@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnitySingleton;
@@ -6,17 +7,23 @@ namespace Troop
 {
     public class TroopPooler : MonoSingleton<TroopPooler>
     {
-        [SerializeField, PrefabObjectOnly, NotNull, AssetPreview] private SoldierTroop soldierPrefab;
-        [SerializeField, PrefabObjectOnly, NotNull, AssetPreview] private BruteTroop brutePrefab;
-        [SerializeField] private int poolSize, maxSize;
-
+        [SerializeField, Disable] private TroopDataScriptable troopData;
         public IObjectPool<SoldierTroop> SoldierPool { get; private set; }
         public IObjectPool<BruteTroop> BrutePool { get; private set; }
 
-        protected override void OnInitialized()
+        public IEnumerator GetTroopPoolData()
         {
-            SoldierPool = new ObjectPool<SoldierTroop>(CreateSoldierPool, OnGetSoldier, OnReleaseSoldier, OnDestroySoldier, false, poolSize, maxSize);
-            BrutePool = new ObjectPool<BruteTroop>(CreateBrutePool, OnGetBrute, OnReleaseBrute, OnDestroyBrute, false, poolSize, maxSize);
+            yield return StartCoroutine(Util.HelperCoroutine.LoadDataFromResources("Scriptable/TroopData", (data) =>
+            {
+                troopData = data as TroopDataScriptable;
+                Init();
+            }));
+        }
+
+        private void Init()
+        {
+            SoldierPool = new ObjectPool<SoldierTroop>(CreateSoldierPool, OnGetSoldier, OnReleaseSoldier, OnDestroySoldier, false, troopData.SoldierPoolSize, troopData.SoldierMaxPoolSize);
+            BrutePool = new ObjectPool<BruteTroop>(CreateBrutePool, OnGetBrute, OnReleaseBrute, OnDestroyBrute, false, troopData.BrutePoolSize, troopData.BruteMaxPoolSize);
         }
 
         public override void ClearSingleton()
@@ -38,7 +45,7 @@ namespace Troop
 
         private SoldierTroop CreateSoldierPool()
         {
-            return Instantiate(soldierPrefab);
+            return Instantiate(troopData.SoldierPrefab);
         }
 
         private void OnGetSoldier(SoldierTroop obj)
@@ -58,7 +65,7 @@ namespace Troop
 
         private BruteTroop CreateBrutePool()
         {
-            return Instantiate(brutePrefab);
+            return Instantiate(troopData.BrutePrefab);
         }
 
         private void OnGetBrute(BruteTroop obj)

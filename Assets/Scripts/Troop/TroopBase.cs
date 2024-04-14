@@ -12,10 +12,8 @@ namespace Troop
 
         [field: SerializeField, Disable] public TroopOwner Owner { get; protected set; }
 
-        [SerializeField] protected int health;
-        [field: SerializeField] public int Level { get; protected set; }
-
-        private int currentHealth, currentLevel;
+        protected int currentHealth, currentLevel;
+        protected TroopDataScriptable data;
 
         [SerializeField] private float speed;
 
@@ -27,13 +25,12 @@ namespace Troop
 
         private bool isInitialize;
 
-        public virtual void InitTroop(TroopOwner owner, string selfId, string enemyid, Vector3 start, Vector3 end)
+        public virtual void InitTroop(TroopOwner owner, string selfId, string enemyId, Vector3 start, Vector3 end, TroopDataScriptable troopData)
         {
+            data = troopData;
             Id = selfId;
-            EnemyId = EnemyId;
+            EnemyId = enemyId;
             Owner = owner;
-            currentHealth = health;
-            currentLevel = Level;
             transform.position = start;
             transform.forward = (end - start).normalized;
             isInitialize = true;
@@ -43,14 +40,14 @@ namespace Troop
         {
             if (!isInitialize) return;
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 OnDeath();
                 isInitialize = false;
                 return;
             }
-            transform.Translate(transform.forward * speed * Time.deltaTime);
             CollsionCheck();
+            transform.Translate(transform.forward * speed * Time.deltaTime);
         }
 
         private void CollsionCheck()
@@ -62,9 +59,9 @@ namespace Troop
                 {
                     if (col.TryGetComponent<TroopBase>(out var enemyTroop))
                     {
-                        if (enemyTroop.EnemyId == EnemyId)
+                        if (enemyTroop.Id == EnemyId)
                         {
-                            "Enemy Collided".Log(this);
+                            "Enemy Collided".Log(Color.red, this);
                             DamageToOtherTroop(enemyTroop);
                             break;
                         }
@@ -73,8 +70,9 @@ namespace Troop
                     {
                         if (enemyTower.TowerID == EnemyId)
                         {
-                            "Tower Collider".Log(this);
+                            "Tower Collider".Log(Color.blue, this);
                             enemyTower.UpdateTowerLevel(this);
+                            currentHealth = 0;
                         }
                     }
                 }
@@ -85,7 +83,7 @@ namespace Troop
 
         protected virtual void DamageToOtherTroop(TroopBase troop)
         {
-            troop.currentHealth -= health;
+            troop.currentHealth -= currentLevel;
         }
 
 #if UNITY_EDITOR

@@ -550,7 +550,7 @@ MonoBehaviour:
   - owner: 0
     material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
   towerLevelObjects: []
-  soldierSpawnInterval: 0
+  soldierSpawnInterval: 1
 --- !u!65 &1238059138
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -751,7 +751,7 @@ MonoBehaviour:
   - owner: 0
     material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
   towerLevelObjects: []
-  soldierSpawnInterval: 0
+  soldierSpawnInterval: 1
 --- !u!65 &2027862118
 BoxCollider:
   m_ObjectHideFlags: 0

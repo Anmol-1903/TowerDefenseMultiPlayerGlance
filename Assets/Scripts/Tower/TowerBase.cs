@@ -188,6 +188,7 @@ namespace Tower
 
         protected virtual void ConnectionCheckUpdate()
         {
+            usedPaths = Connections.Count;
             CanCreateConnections = usedPaths < maxPaths;
             maxPaths = (int)TowerTier;
         }
