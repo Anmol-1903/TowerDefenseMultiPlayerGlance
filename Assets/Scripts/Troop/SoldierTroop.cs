@@ -9,7 +9,7 @@ namespace Troop
         {
             base.InitTroop(owner, selfId, enemyId, start, end, troopData);
             currentHealth = data.SoldierHealth;
-            currentLevel = data.SoldierLevel;
+            CurrentLevel = data.SoldierLevel;
         }
 
         protected override void OnDeath()

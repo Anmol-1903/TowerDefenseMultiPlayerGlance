@@ -12,7 +12,9 @@ namespace Troop
 
         [field: SerializeField, Disable] public TroopOwner Owner { get; protected set; }
 
-        protected int currentHealth, currentLevel;
+        [field: SerializeField, Disable] public int CurrentLevel { get; protected set; }
+
+        protected int currentHealth;
         protected TroopDataScriptable data;
 
         [SerializeField] private float speed;
@@ -83,7 +85,7 @@ namespace Troop
 
         protected virtual void DamageToOtherTroop(TroopBase troop)
         {
-            troop.currentHealth -= currentLevel;
+            troop.currentHealth -= CurrentLevel;
         }
 
 #if UNITY_EDITOR

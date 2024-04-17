@@ -121,7 +121,7 @@ namespace Tower
             {
                 //! fellow Troop
                 isUpgrading = true;
-                Level += incomingTroop.Level;
+                Level += incomingTroop.CurrentLevel;
                 if (Level >= maxLevel)
                 {
                     Level = maxLevel;
@@ -133,7 +133,7 @@ namespace Tower
             {
                 //! !Enemy Attack
                 isUpgrading = false;
-                Level -= incomingTroop.Level;
+                Level -= incomingTroop.CurrentLevel;
                 OnTowerDowngrade_Level?.Invoke();
                 if (Level <= 0)
                 {

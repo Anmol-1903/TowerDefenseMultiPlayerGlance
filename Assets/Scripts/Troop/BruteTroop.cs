@@ -1,4 +1,5 @@
 using Core;
+using UnityEngine;
 
 namespace Troop
 {
@@ -8,7 +9,7 @@ namespace Troop
         {
             base.InitTroop(owner, selfId, enemyId, start, end, troopData);
             currentHealth = data.BruteHealth;
-            currentLevel = data.BruteLevel;
+            CurrentLevel = data.BruteLevel;
         }
 
         protected override void OnDeath()

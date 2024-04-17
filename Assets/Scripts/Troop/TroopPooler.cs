@@ -33,14 +33,14 @@ namespace Troop
 
         public void SpawnSoldierTroop(string selfId, string enemyId, Core.GameEnums.OwnershipType owner, Vector3 startPoint, Vector3 endPoint)
         {
-            var soldier = SoldierPool.Get();
-            soldier.InitTroop(owner, selfId, enemyId, startPoint, endPoint);
+            SoldierTroop soldier = SoldierPool.Get();
+            soldier.InitTroop(owner, selfId, enemyId, startPoint, endPoint, troopData);
         }
 
         public void SpawnBruteTroop(string selfId, string enemyId, Core.GameEnums.OwnershipType owner, Vector3 startPoint, Vector3 endPoint)
         {
-            var brute = BrutePool.Get();
-            brute.InitTroop(owner, selfId, enemyId, startPoint, endPoint);
+            BruteTroop brute = BrutePool.Get();
+            brute.InitTroop(owner, selfId, enemyId, startPoint, endPoint, troopData);
         }
 
         private SoldierTroop CreateSoldierPool()
