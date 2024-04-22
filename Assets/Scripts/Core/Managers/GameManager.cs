@@ -19,6 +19,8 @@ namespace Core
         public UnityAction<bool> OnGameEnd { get; set; }
 
         [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
+        public GameSettings GameSettings { get; private set; }
+
         //todo Add GameSettings scriptable ref same as SceneContainerScriptable
 
         #region PublicMethods
@@ -55,16 +57,35 @@ namespace Core
 
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/SceneContainer",
                 (data) => SceneContainer = data as SceneContainerScriptable));
-
+            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/GameSettings",
+                    (data) => GameSettings = data as GameSettings)); // Assuming GameSettingsScriptable is your scriptable object for game settings
             //start corountine for loading GameSettings same as above!!
 
             AddSceneEvents();
 
             //todo Do Photon Init here!!
+            NetworkManager.Instance.InitializePhoton();
+            float startTime = Time.time;
+            float timeoutDuration = 10f; // Timeout duration in seconds
+            bool connected = false;
             // wait for 10 second to connect
-            // if connection is successfull in 10 second set ConStatus to Connected
-            // if not setConStatus to Disconnected
+            while (Time.time - startTime < timeoutDuration && !connected)
+            {
+                connected = NetworkManager.Instance.IsConnected;
 
+                yield return null;
+            }
+            // if connection is successfull in 10 second set ConStatus to Connected
+            if (connected)
+            {
+                ConStatus = ConnectionStatus.Connected;
+            }
+            // if not setConStatus to Disconnected
+            if (!connected)
+            {
+                ConStatus = ConnectionStatus.Disconnected;
+            }
+            // If not connected within timeout duration, set connection status to Disconnected
             while (ConStatus == ConnectionStatus.IDK)
             {
                 yield return null;

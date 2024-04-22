@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.SaveLoadSystem;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Game Setting", menuName = "Scriptable Objects/Networking/Game Setting")]
@@ -20,11 +21,23 @@ public class GameSettings : ScriptableObject
     {
         get
         {
-            int val = Random.Range(0, 9999);
-            return _nickName + val.ToString();
+            _nickName = SaveLoad.Load("NickName", "");
+            // Check if _nickName is null or empty
+            if (string.IsNullOrEmpty(_nickName))
+            {
+                // Generate a new nickname
+                int val = Random.Range(0, 9999);
+                _nickName = "User" + val.ToString();
+                SaveNickName(_nickName);
+            }
+            return _nickName;
         }
     }
-
+    private void SaveNickName(string nickname)
+    {
+        SaveLoad.Save(nickname, "NickName");
+        // Your code to save the nickname to the save data
+    }
     [SerializeField] private int _maxPlayers = 4; //! 3 or 4 need both room size for now leave it!
 
     public int MaxPlayers

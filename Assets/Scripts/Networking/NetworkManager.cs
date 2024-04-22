@@ -12,6 +12,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public static NetworkManager Instance;
     [SerializeField] private GameSettings gameSettings;
     public GameSettings GameSettings { get { return gameSettings; } }
+    [HideInInspector] public bool IsConnected = false;
     [SerializeField] float timerDuration = 15f; // Duration of the timer in seconds
     [SerializeField] private TextMeshProUGUI timerText;
     private bool timerStarted = false;
@@ -24,13 +25,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         else Destroy(gameObject);
         timerText.text = "";
     }
-    private void Start()
+    public void InitializePhoton()
     {
         Debug.Log("Connecting To Server");
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
-
-
     }
 
     #endregion
@@ -42,12 +41,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         // Called when connected to the Photon server
         PhotonNetwork.NickName = gameSettings.GetNickName;
         PhotonNetwork.GameVersion = gameSettings.GetGameVersion;
+        IsConnected = true;
         Debug.Log("Connected To Server with nickname " + PhotonNetwork.LocalPlayer.NickName);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         // Called when disconnected from the Photon server
+        IsConnected = false;
         Debug.Log("You were disconnected due to : " + cause);
     }
 
