@@ -18,7 +18,7 @@ namespace Core
         public UnityAction<bool> OnGameEnd { get; set; } //parm for isWon or not
 
         [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
-        public GameSettings GameSettings { get; private set; }
+        [field: SerializeField, Disable] public GameSettings GameSettings { get; private set; }
 
         //todo Add GameSettings scriptable ref same as SceneContainerScriptable
 

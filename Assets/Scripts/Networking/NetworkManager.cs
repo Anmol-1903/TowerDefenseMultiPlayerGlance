@@ -42,7 +42,7 @@ namespace Networking
         //do we need them?
         [SerializeField] private float timerDuration = 15f; // Duration of the timer in seconds
 
-        [SerializeField] private TextMeshProUGUI timerText;
+        [SerializeField] private TextMeshProUGUI timerText; // just remove it
         private bool timerStarted = false;
         private Coroutine timerCoroutine;
 
@@ -70,7 +70,9 @@ namespace Networking
                     DestroyImmediate(gameObject);
                 }
             }
-            timerText.text = "";
+
+            gameSettings = Core.GameManager.Instance.GameSettings;
+            //timerText.text = "";
         }
 
         public static void CreateInstance()
