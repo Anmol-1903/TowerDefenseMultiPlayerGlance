@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using Core.SaveLoadSystem;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Game Setting", menuName = "Scriptable Objects/Networking/Game Setting")]
+[CreateAssetMenu(fileName = "New Game Setting", menuName = "Game/GameSettings")]
 public class GameSettings : ScriptableObject
 {
-    [SerializeField] private string _gameVersion = "0.0.0"; //todo Use GameManager.Version
-
     public string GetGameVersion
-    { get { return _gameVersion; } }
+    { get { return Application.version; } }
 
     //todo Need a way to generate more unique id and save it for future
     //may be System.Guid help? - we can discuss it later
@@ -33,15 +31,14 @@ public class GameSettings : ScriptableObject
             return _nickName;
         }
     }
+
     private void SaveNickName(string nickname)
     {
         SaveLoad.Save(nickname, "NickName");
         // Your code to save the nickname to the save data
     }
-    [SerializeField] private int _maxPlayers = 4; //! 3 or 4 need both room size for now leave it!
 
-    public int MaxPlayers
-    { get { return _maxPlayers; } }
+    [field: SerializeField] public int MaxPlayers { get; private set; }//! 3 or 4 need both room size for now leave it!
 
     //todo Create a public method to load/reload all gameData for future ref, it can be access through GameManager.Instance.GameSettings
 }

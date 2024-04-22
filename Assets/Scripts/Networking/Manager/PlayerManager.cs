@@ -8,6 +8,5 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        MasterManager.NetworkInstantiate(prefab, transform.position, Quaternion.identity);
     }
 }

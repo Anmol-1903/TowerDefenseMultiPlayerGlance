@@ -17,7 +17,7 @@ namespace Core.Input
 
         private void Start()
         {
-            GameManager.Instance.OnGameStart += EnableInputs;
+            GameManager.Instance.OnGameStart += (i) => EnableInputs();
             GameManager.Instance.OnGameEnd += (b) => DisableInputs();
         }
 

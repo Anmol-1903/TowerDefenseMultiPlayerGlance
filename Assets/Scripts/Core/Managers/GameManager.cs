@@ -2,6 +2,7 @@ using UI;
 using Util;
 using UnityEngine;
 using UnitySingleton;
+using Networking;
 using UnityEngine.Events;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -11,12 +12,10 @@ namespace Core
 {
     public class GameManager : PersistentMonoSingleton<GameManager>
     {
-        public static string GameVersion { get; private set; }
-
         public ConnectionStatus ConStatus { get; set; }
 
-        public UnityAction OnGameStart { get; set; }
-        public UnityAction<bool> OnGameEnd { get; set; }
+        public UnityAction<int> OnGameStart { get; set; }//parm for no of bots
+        public UnityAction<bool> OnGameEnd { get; set; } //parm for isWon or not
 
         [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
         public GameSettings GameSettings { get; private set; }
@@ -50,7 +49,6 @@ namespace Core
 
         private IEnumerator Intialize()
         {
-            GameVersion = Application.version;
             LoadingManager.CreateInstance();
             yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
             LoadingManager.Instance.ShowLoadingScreen();
@@ -64,6 +62,7 @@ namespace Core
             AddSceneEvents();
 
             //todo Do Photon Init here!!
+            NetworkManager.CreateInstance();
             NetworkManager.Instance.InitializePhoton();
             float startTime = Time.time;
             float timeoutDuration = 10f; // Timeout duration in seconds
@@ -106,6 +105,7 @@ namespace Core
                 MainMenuManager.CreateInstance();
                 LoadingManager.Instance.HideLoadingScreen();
             }
+            //gamepaly scene is loaded considering offline for now!
             if (scene.name != SceneContainer.MainMenuScene && scene.name != SceneContainer.SplashScene) //can be replace by better conditions
             {
                 Tower.TowerTracker.CreateInstance();
@@ -135,7 +135,7 @@ namespace Core
             }, onComplete: () =>
             {
                 "GameStart!".Log();
-                OnGameStart?.Invoke();
+                OnGameStart?.Invoke(4);
             }));
         }
     }
