@@ -1,8 +1,8 @@
 using UI;
 using Util;
+using Networking;
 using UnityEngine;
 using UnitySingleton;
-using Networking;
 using UnityEngine.Events;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -53,13 +53,18 @@ namespace Core
             yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
             LoadingManager.Instance.ShowLoadingScreen();
 
+            Audio.AudioManager.CreateInstance();
+
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/SceneContainer",
                 (data) => SceneContainer = data as SceneContainerScriptable));
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/GameSettings",
-                    (data) => GameSettings = data as GameSettings)); // Assuming GameSettingsScriptable is your scriptable object for game settings
-            //start corountine for loading GameSettings same as above!!
+                    (data) => GameSettings = data as GameSettings));
+            yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/AudioContainer",
+                (data) => Audio.AudioManager.Instance.LoadContainer(data as Audio.AudioContainer)));
 
             AddSceneEvents();
+
+            GameSettings.LoadData();
 
             //todo Do Photon Init here!!
             NetworkManager.CreateInstance();
@@ -90,7 +95,6 @@ namespace Core
                 yield return null;
             }
 
-            AudioManager.CreateInstance();
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }
 

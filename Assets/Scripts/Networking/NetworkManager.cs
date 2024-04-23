@@ -5,6 +5,7 @@ using Photon.Pun;
 using System;
 using TMPro;
 using Util;
+using Core;
 
 namespace Networking
 {
@@ -105,7 +106,7 @@ namespace Networking
         {
             // Called when connected to the Photon server
             PhotonNetwork.NickName = gameSettings.GetNickName;
-            PhotonNetwork.GameVersion = gameSettings.GetGameVersion;
+            PhotonNetwork.GameVersion = gameSettings.GameVersion;
             IsConnected = true;
             Debug.Log("Connected To Server with nickname " + PhotonNetwork.LocalPlayer.NickName);
         }
