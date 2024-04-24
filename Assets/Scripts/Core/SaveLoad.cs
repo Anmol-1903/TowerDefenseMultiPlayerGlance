@@ -10,7 +10,7 @@ namespace Core.SaveLoadSystem
     {
         private const string _fileName = ".insanity";
 
-        public static void Save<T>(T objectToSave, string key)
+        public static void Save<T>(string key, T objectToSave)
         {
             string path = Application.persistentDataPath + "/Saved Gamedata/";
             Directory.CreateDirectory(path);

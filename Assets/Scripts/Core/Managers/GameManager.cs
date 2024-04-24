@@ -62,9 +62,9 @@ namespace Core
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/AudioContainer",
                 (data) => Audio.AudioManager.Instance.LoadContainer(data as Audio.AudioContainer)));
 
-            AddSceneEvents();
-
             GameSettings.LoadData();
+
+            AddSceneEvents();
 
             //todo Do Photon Init here!!
             NetworkManager.CreateInstance();
@@ -94,6 +94,8 @@ namespace Core
             {
                 yield return null;
             }
+
+            GameSettings.SaveData();
 
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }

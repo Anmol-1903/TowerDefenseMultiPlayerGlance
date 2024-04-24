@@ -37,7 +37,7 @@ namespace Core
         [field: SerializeField] public int MaxPlayers { get; private set; }//! 3 or 4 need both room size for now leave it!
 
         public string GetNickName => $"{nickname}_{nicknameId}";
-        public string GetDisplayNickName => nickname;
+        public string DisplayNickName { get => nickname; set => nickname = value; }
 
         public void LoadData()
         {
