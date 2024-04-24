@@ -6,6 +6,12 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Tower;
 using Util;
 
+/*
+ * TODO: Change the Script name to better name as it will handle other player stuffs
+ *      - Inputs
+ *      - Tower Changing
+ */
+
 namespace Core.Input
 {
     public class InputManager : MonoBehaviour
@@ -14,6 +20,8 @@ namespace Core.Input
         [SerializeField] private LayerMask exlcudedLayer;
         private TowerBase towerBase;
         private bool isValid;
+
+        private bool canOpenTowerChangeMenu;
 
         private void Start()
         {

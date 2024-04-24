@@ -1,5 +1,6 @@
 using Util;
 using Troop;
+using System;
 using UnityEngine;
 using Core.PathHandler;
 using UnityEngine.Events;
@@ -7,8 +8,7 @@ using System.Collections.Generic;
 using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
-using UnityEditor.MemoryProfiler;
-using System;
+using ChangeableType = Core.GameEnums.TowerChangeability;
 
 namespace Tower
 {
@@ -18,6 +18,10 @@ namespace Tower
 
         [field: SerializeField, Disable, BeginGroup("Readonly Settings")] public string TowerID { get; protected set; }
         [field: SerializeField, Disable, EndGroup] public TowerType TowerType { get; protected set; }
+
+        [field: SerializeField, BeginGroup("Tower Change Settings")] public ChangeableType TowerChangeableType { get; protected set; }
+        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable)] public int minLevelToChange = 5;
+        [field: SerializeField, ShowDisabledIf("TowerChangeableType", ChangeableType.Changeable), EndGroup] public bool IsChangeable { get; protected set; }
 
         [field: SerializeField, ProgressBar("Tower Level", minValue: 0, maxValue: 64, HexColor = "#76ABAE", IsInteractable = true), BeginGroup("Level Settings")] public int Level { get; protected set; }
 
@@ -67,6 +71,7 @@ namespace Tower
         protected virtual void Update()
         {
             ConnectionCheckUpdate();
+            IsChangeable = Level >= minLevelToChange;
             if (Level <= 0)
             {
                 Level = 0;
@@ -220,6 +225,14 @@ namespace Tower
                     break;
                 }
             }
+        }
+
+        public void CopyTowerSettings(TowerBase tower)
+        {
+            TowerOwner = tower.TowerOwner;
+            Level = tower.Level;
+            TowerChangeableType = tower.TowerChangeableType;
+            minLevelToChange = tower.minLevelToChange;
         }
     }
 }

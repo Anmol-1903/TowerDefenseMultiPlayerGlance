@@ -35,5 +35,11 @@ namespace Core
             Disconnected,
             IDK
         }
+
+        public enum TowerChangeability
+        {
+            Changeable,
+            NonChangeable
+        }
     }
 }
