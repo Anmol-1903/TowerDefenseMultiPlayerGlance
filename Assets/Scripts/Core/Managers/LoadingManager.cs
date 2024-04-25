@@ -33,6 +33,8 @@ namespace Core
             if (!loadingScreen.activeInHierarchy)
             {
                 loadingScreen.SetActive(true);
+                loadingScreen.GetComponent<CanvasGroup>().interactable = true;
+                loadingScreen.GetComponent<CanvasGroup>().blocksRaycasts = true;
             }
         }
 
@@ -41,6 +43,8 @@ namespace Core
             if (loadingScreen.activeInHierarchy)
             {
                 loadingScreen.SetActive(false);
+                loadingScreen.GetComponent<CanvasGroup>().interactable = false;
+                loadingScreen.GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
         }
     }

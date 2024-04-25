@@ -20,7 +20,8 @@ namespace Tower
         [field: SerializeField, Disable, EndGroup] public TowerType TowerType { get; protected set; }
 
         [field: SerializeField, BeginGroup("Tower Change Settings")] public ChangeableType TowerChangeableType { get; protected set; }
-        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable)] public int minLevelToChange = 5;
+        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable), PrefabObjectOnly, AssetPreview] private GameObject defaultTowerPrefab;
+        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable)] private int minLevelToChange = 5;
         [field: SerializeField, ShowDisabledIf("TowerChangeableType", ChangeableType.Changeable), EndGroup] public bool IsChangeable { get; protected set; }
 
         [field: SerializeField, ProgressBar("Tower Level", minValue: 0, maxValue: 64, HexColor = "#76ABAE", IsInteractable = true), BeginGroup("Level Settings")] public int Level { get; protected set; }
@@ -150,6 +151,10 @@ namespace Tower
                         {
                             DisconnectTower(con.Tower);
                         }
+                    }
+                    if (IsChangeable)
+                    {
+                        //Spawn Default Tower
                     }
                 }
             }

@@ -21,12 +21,13 @@ namespace Core.Input
         private TowerBase towerBase;
         private bool isValid;
 
-        private bool canOpenTowerChangeMenu;
+        private TowerChangeHandler towerChangeHandler;
 
         private void Start()
         {
             GameManager.Instance.OnGameStart += (i) => EnableInputs();
             GameManager.Instance.OnGameEnd += (b) => DisableInputs();
+            towerChangeHandler = FindFirstObjectByType<TowerChangeHandler>();
         }
 
         private void EnableInputs()
@@ -50,12 +51,20 @@ namespace Core.Input
             if (RaycastFromFinger(finger, out RaycastHit hit))
             {
                 // Check if the collider belongs to a GameObject with a TowerBase script
+
                 if (hit.collider.TryGetComponent(out towerBase))
                 {
-                    if (towerBase.TowerOwner == owner && towerBase.CanCreateConnections)
+                    if (towerBase.TowerOwner == owner)
                     {
-                        $"Finger touch {towerBase.TowerOwner} {towerBase.TowerType}".Log();
-                        PathManager.Instance.GetHintLine(towerBase.transform.position);
+                        if (towerBase.CanCreateConnections)
+                        {
+                            $"Finger touch {towerBase.TowerOwner} {towerBase.TowerType}".Log();
+                            PathManager.Instance.GetHintLine(towerBase.transform.position);
+                        }
+                        if (towerBase.IsChangeable)
+                        {
+                            towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
+                        }
                     }
                 }
             }
@@ -65,6 +74,7 @@ namespace Core.Input
         {
             if (towerBase != null && RaycastFromFinger(finger, out RaycastHit hit))
             {
+                towerChangeHandler.CloseTowerInventory();
                 RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~exlcudedLayer);
                 isValid = hits.Length == 1
                     && hits[0].transform.GetComponent<TowerBase>() != null
@@ -94,13 +104,6 @@ namespace Core.Input
         {
             Ray ray = Camera.main.ScreenPointToRay(finger.screenPosition);
             return Physics.Raycast(ray, out hit, Mathf.Infinity);
-        }
-
-        private Vector3 IsoVectorConvertor(Vector3 vector)
-        {
-            Quaternion rotation = Quaternion.Euler(0, 45, 0);
-            Matrix4x4 isoMatrix = Matrix4x4.Rotate(rotation);
-            return isoMatrix.MultiplyPoint3x4(vector);
         }
     }
 }
