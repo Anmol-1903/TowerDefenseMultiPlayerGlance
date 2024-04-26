@@ -28,6 +28,8 @@ namespace Core
         {
             OnGameStart = null;
             OnGameEnd = null;
+
+            //TODO: Start Matchmaking if internet is there!!!
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
         }
 
