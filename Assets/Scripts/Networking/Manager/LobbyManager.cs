@@ -40,6 +40,7 @@ namespace Networking
         private static void LoadNextScene()
         {
             PhotonNetwork.LoadLevel("MainScene");
+
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)

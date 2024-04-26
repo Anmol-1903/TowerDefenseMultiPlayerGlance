@@ -44,6 +44,7 @@ namespace Networking
         [SerializeField] private float timerDuration = 15f; // Duration of the timer in seconds
 
         [SerializeField] private TextMeshProUGUI timerText; // just remove it
+        [SerializeField] GameObject playerPrefab; public GameObject PlayerPrefab { get { return playerPrefab; } }
         private bool timerStarted = false;
         private Coroutine timerCoroutine;
 
@@ -164,11 +165,29 @@ namespace Networking
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
-            /*            StartCoroutine(HelperCoroutine.Countdown(10,
-                            onTimerUpdate: (float val) => { }, // pass the yield break to break the couroutine in onTimerUpdate if needed
-                            onComplete: () => { } // what to do when timer is completed
-                          ));*/
-            timerCoroutine = StartCoroutine(TimerCoroutine());
+            StartCoroutine(HelperCoroutine.Countdown(10,
+                onTimerUpdate: (float val) =>
+                {
+                    if (timerText != null)
+                    {
+                        int timer = (int)val;
+                        timerText.text = timer.ToString();
+                    }
+                }, // pass the yield break to break the couroutine in onTimerUpdate if needed
+                onComplete: () =>
+                {
+                    if (PhotonNetwork.CurrentRoom.PlayerCount == gameSettings.MaxPlayers)
+                    {
+                        // If player count reaches max within timer duration, stop the timer
+                        OnGameStarted?.Invoke(0);
+                    }
+                    else if (PhotonNetwork.CurrentRoom.PlayerCount < gameSettings.MaxPlayers)
+                    {
+                        int remainingSlots = gameSettings.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
+                        OnGameStarted?.Invoke(remainingSlots);
+                    }
+                } // what to do when timer is completed
+              ));
         }
 
         //todo Manipulate UI from MainMenuManager
