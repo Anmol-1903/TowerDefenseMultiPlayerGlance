@@ -39,6 +39,9 @@ namespace Core
         public string GetNickName => $"{nickname}_{nicknameId}";
         public string DisplayNickName { get => nickname; set => nickname = value; }
 
+        [SerializeField] private Color[] playerColors;
+        public Color[] GetPlayerColors { get { return playerColors; } }
+
         public void LoadData()
         {
             nickname = SaveLoad.Load("Nickname", "Player");
