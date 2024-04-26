@@ -41,8 +41,7 @@ namespace Tower
         [field: SerializeField] public UnityEvent<OwnershipType> OnTowerOwnerChange { get; protected set; }
         [field: SerializeField, EndGroup] public UnityEvent<Tier, bool> OnTowerTierChanged { get; protected set; }
 
-        [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner")] public OwnerVisual[] Visual { get; protected set; }
-        [SerializeField, EndGroup] private GameObject[] towerLevelObjects;
+        [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner"), EndGroup] public OwnerVisual[] Visual { get; protected set; }
 
         protected virtual void Awake()
         {
@@ -52,8 +51,10 @@ namespace Tower
 
         protected virtual void Start()
         {
-            OnTowerOwnerChange.AddListener(UpdateTowerColor);
+            OnTowerOwnerChange.AddListener((type) => UpdateTowerVisual(type, Tier.Tier1));
             OnTowerOwnerChange?.Invoke(TowerOwner);
+
+            OnTowerTierChanged.AddListener((tier, isUpgrading) => UpdateTowerVisual(TowerOwner, tier));
 
             if (Level >= 30)
             {
@@ -67,6 +68,7 @@ namespace Tower
             {
                 TowerTier = Tier.Tier1;
             }
+            OnTowerTierChanged?.Invoke(TowerTier, false);
         }
 
         protected virtual void Update()
@@ -220,13 +222,24 @@ namespace Tower
 
         protected abstract void Spawn();
 
-        protected void UpdateTowerColor(OwnershipType newOwner)
+        protected void UpdateTowerVisual(OwnershipType newOwner, Tier tier)
         {
             foreach (var visual in Visual)
             {
                 if (visual.owner == newOwner)
                 {
-                    GetComponent<MeshRenderer>().material = visual.material;
+                    for (int i = 0; i < visual.tierVisuals.Length; i++)
+                    {
+                        if (tier == visual.tierVisuals[i].towerTier)
+                        {
+                            visual.tierVisuals[i].TowerLevelObject.SetActive(true);
+                            //TODO: Set the metarial of active object
+                        }
+                        else
+                        {
+                            visual.tierVisuals[i].TowerLevelObject.SetActive(false);
+                        }
+                    }
                     break;
                 }
             }

@@ -91,7 +91,7 @@ namespace Core.Input
                 PathManager.Instance.RemoveHintLine();
                 if (isValid)
                 {
-                    if (RaycastFromFinger(finger, out RaycastHit hit))
+                    if (RaycastFromFinger(finger, out RaycastHit hit)) //Use tryget
                     {
                         towerBase.ConnectTo(hit.transform.GetComponent<TowerBase>());
                     }

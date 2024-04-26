@@ -86,7 +86,7 @@ namespace Core.PathHandler
             Material pathMat = pathData.ValidHintMaterial;
             for (int i = 0; i < pathData.PathMaterial.Length; i++)
             {
-                Util.OwnerVisual visual = pathData.PathMaterial[i];
+                Util.PathVisual visual = pathData.PathMaterial[i];
                 if (visual.owner == tower.TowerOwner)
                 {
                     pathMat = visual.material;

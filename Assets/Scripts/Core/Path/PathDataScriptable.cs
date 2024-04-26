@@ -16,6 +16,6 @@ namespace Core.PathHandler
 
         [field: SerializeField, InLineEditor] public Material ValidHintMaterial { get; private set; }
         [field: SerializeField, InLineEditor] public Material InValidMaterial { get; private set; }
-        [field: SerializeField, LabelByChild("owner")] public OwnerVisual[] PathMaterial { get; private set; }
+        [field: SerializeField, LabelByChild("owner")] public PathVisual[] PathMaterial { get; private set; }
     }
 }
