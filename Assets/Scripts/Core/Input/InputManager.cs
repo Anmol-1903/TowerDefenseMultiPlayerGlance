@@ -5,6 +5,7 @@ using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Tower;
 using Util;
+using Photon.Pun;
 
 /*
  * TODO: Change the Script name to better name as it will handle other player stuffs
@@ -23,11 +24,68 @@ namespace Core.Input
 
         private TowerChangeHandler towerChangeHandler;
 
+        private PhotonView photonView;
+
         private void Start()
         {
-            GameManager.Instance.OnGameStart += (i) => EnableInputs();
-            GameManager.Instance.OnGameEnd += (b) => DisableInputs();
+            photonView = GetComponent<PhotonView>();
+            GameManager.Instance.OnGameStart += OnGameStart;
+            GameManager.Instance.OnGameEnd += OnGameEnd;
             towerChangeHandler = FindFirstObjectByType<TowerChangeHandler>();
+        }
+
+        private void OnGameStart()
+        {
+            // Check if this instance is owned by the local player
+            if (photonView.IsMine)
+            {
+                // Get the owner type for this client based on its index
+                int clientIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1; // Subtract 1 to make index zero-based
+                InputOwner clientOwner = GetClientOwnerFromIndex(clientIndex);
+
+                // Spawn the input manager with the appropriate owner for this client
+                photonView.RPC("SpawnInputManager", RpcTarget.AllBuffered, clientOwner);
+            }
+        }
+
+        private void OnGameEnd(bool success)
+        {
+            // Clean up when the game ends
+            if (photonView.IsMine)
+            {
+                // Perform cleanup logic
+            }
+        }
+
+        [PunRPC]
+        private void SpawnInputManager(InputOwner clientOwner)
+        {
+            // Set the owner for this input manager
+            owner = clientOwner;
+
+            // Enable inputs only if this instance is owned by the local player
+            if (photonView.IsMine)
+            {
+                EnableInputs();
+            }
+            else
+            {
+                DisableInputs();
+            }
+        }
+
+        private InputOwner GetClientOwnerFromIndex(int clientIndex)
+        {
+            // Logic to determine owner type based on client index
+            // Example: Assign blue owner to the first client, red to the second, and so on...
+            switch (clientIndex)
+            {
+                case 0: return InputOwner.Blue;
+                case 1: return InputOwner.Red;
+                case 2: return InputOwner.Yellow;
+                case 3: return InputOwner.Green;
+                default: return InputOwner.Blue; // Default to Blue if index is out of range
+            }
         }
 
         private void EnableInputs()

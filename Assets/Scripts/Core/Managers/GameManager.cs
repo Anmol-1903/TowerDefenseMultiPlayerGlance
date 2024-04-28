@@ -14,7 +14,7 @@ namespace Core
     {
         public ConnectionStatus ConStatus { get; set; }
 
-        public UnityAction<int> OnGameStart { get; set; }//parm for no of bots
+        public UnityAction OnGameStart { get; set; }//parm for no of bots
         public UnityAction<bool> OnGameEnd { get; set; } //parm for isWon or not
 
         [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
@@ -30,7 +30,8 @@ namespace Core
             OnGameEnd = null;
 
             //TODO: Start Matchmaking if internet is there!!!
-            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
+            //StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
+            Networking.NetworkManager.Instance.JoinOrCreateRoom();
         }
 
         public void BackToMainMenu()
@@ -143,7 +144,7 @@ namespace Core
             }, onComplete: () =>
             {
                 "GameStart!".Log();
-                OnGameStart?.Invoke(4);
+                OnGameStart?.Invoke();
             }));
         }
     }

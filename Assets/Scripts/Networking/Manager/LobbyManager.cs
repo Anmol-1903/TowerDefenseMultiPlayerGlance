@@ -13,12 +13,12 @@ namespace Networking
 
         public override void OnEnable()
         {
-            NetworkManager.OnGameStarted += StartGame;
+            NetworkManager.OnMatchFound += StartGame;
         }
 
         public override void OnDisable()
         {
-            NetworkManager.OnGameStarted -= StartGame;
+            NetworkManager.OnMatchFound -= StartGame;
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -39,8 +39,7 @@ namespace Networking
 
         private static void LoadNextScene()
         {
-            PhotonNetwork.LoadLevel("MainScene");
-
+            PhotonNetwork.LoadLevel(Core.GameManager.Instance.SceneContainer.TutorialLevelScenes[0]);
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)

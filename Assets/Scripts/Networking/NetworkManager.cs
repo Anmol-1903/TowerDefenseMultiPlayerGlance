@@ -35,20 +35,20 @@ namespace Networking
 
         [SerializeField] private GameSettings gameSettings;
 
-        public GameSettings GameSettings
-        { get { return gameSettings; } }
-
         [HideInInspector] public bool IsConnected = false;
 
         //do we need them?
         [SerializeField] private float timerDuration = 15f; // Duration of the timer in seconds
 
         [SerializeField] private TextMeshProUGUI timerText; // just remove it
-        [SerializeField] GameObject playerPrefab; public GameObject PlayerPrefab { get { return playerPrefab; } }
+
+        [SerializeField] private GameObject playerPrefab; public GameObject PlayerPrefab
+        { get { return playerPrefab; } }
+
         private bool timerStarted = false;
         private Coroutine timerCoroutine;
 
-        public static Action<int> OnGameStarted = delegate { }; //param1 for number of bots
+        public static Action<int> OnMatchFound = delegate { }; //param1 for number of bots
 
         private void Awake()
         {
@@ -73,7 +73,7 @@ namespace Networking
                 }
             }
 
-            gameSettings = Core.GameManager.Instance.GameSettings;
+            gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
         }
 
@@ -134,6 +134,8 @@ namespace Networking
                 {
                     MaxPlayers = gameSettings.MaxPlayers
                 };
+
+                //TODO: Need to way to join random room and if failed one then create new one
                 PhotonNetwork.JoinOrCreateRoom("MyRoom", roomOptions, TypedLobby.Default);
                 StartTimer();
             }
@@ -173,54 +175,23 @@ namespace Networking
                         int timer = (int)val;
                         timerText.text = timer.ToString();
                     }
+                    val.Log(this);
                 }, // pass the yield break to break the couroutine in onTimerUpdate if needed
                 onComplete: () =>
                 {
                     if (PhotonNetwork.CurrentRoom.PlayerCount == gameSettings.MaxPlayers)
                     {
                         // If player count reaches max within timer duration, stop the timer
-                        OnGameStarted?.Invoke(0);
+                        OnMatchFound?.Invoke(0);
                     }
                     else if (PhotonNetwork.CurrentRoom.PlayerCount < gameSettings.MaxPlayers)
                     {
                         int remainingSlots = gameSettings.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
-                        OnGameStarted?.Invoke(remainingSlots);
+                        OnMatchFound?.Invoke(remainingSlots);
+                        $"Going with {remainingSlots} bots".Log();
                     }
                 } // what to do when timer is completed
               ));
-        }
-
-        //todo Manipulate UI from MainMenuManager
-        //todo remove the existence of textmeshpro from here just manipulate values here and pass it on MainmeuManager
-        private IEnumerator TimerCoroutine()
-        {
-            timerStarted = true;
-            float timer = timerDuration;
-
-            while (timer > 0)
-            {
-                yield return new WaitForSeconds(1f);
-                timer--;
-
-                if (PhotonNetwork.CurrentRoom.PlayerCount == gameSettings.MaxPlayers)
-                {
-                    // If player count reaches max within timer duration, stop the timer
-                    timerStarted = false;
-                    OnGameStarted?.Invoke(0);
-                    yield break;
-                }
-                if (timerText != null)
-                {
-                    timerText.text = timer.ToString();
-                }
-            }
-
-            // If player count does not reach max within timer duration, fill remaining positions with bots
-            if (PhotonNetwork.CurrentRoom.PlayerCount < gameSettings.MaxPlayers)
-            {
-                int remainingSlots = gameSettings.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
-                OnGameStarted?.Invoke(remainingSlots);
-            }
         }
     }
 }
