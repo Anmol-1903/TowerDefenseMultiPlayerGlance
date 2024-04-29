@@ -29,8 +29,8 @@ namespace Core.Input
         private void Start()
         {
             photonView = GetComponent<PhotonView>();
-            GameManager.Instance.OnGameStart += OnGameStart;
-            GameManager.Instance.OnGameEnd += OnGameEnd;
+            GameManager.Instance.OnGameStart += EnableInputs;
+            GameManager.Instance.OnGameEnd += (b) => DisableInputs();
             towerChangeHandler = FindFirstObjectByType<TowerChangeHandler>();
         }
 
@@ -106,11 +106,12 @@ namespace Core.Input
 
         private void Touch_onFingerDown(Finger finger)
         {
+            "Inputs".Log();
             if (RaycastFromFinger(finger, out RaycastHit hit))
             {
                 // Check if the collider belongs to a GameObject with a TowerBase script
 
-                if (hit.collider.TryGetComponent(out towerBase))
+                if (hit.collider.transform.root.TryGetComponent(out towerBase))
                 {
                     if (towerBase.TowerOwner == owner)
                     {
@@ -135,9 +136,9 @@ namespace Core.Input
                 towerChangeHandler.CloseTowerInventory();
                 RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~exlcudedLayer);
                 isValid = hits.Length == 1
-                    && hits[0].transform.GetComponent<TowerBase>() != null
-                    && hit.transform.GetComponent<TowerBase>() != null
-                    && hits[0].transform.GetComponent<TowerBase>().TowerID == hit.transform.GetComponent<TowerBase>().TowerID;
+                    && hits[0].transform.root.GetComponent<TowerBase>() != null
+                    && hit.transform.root.GetComponent<TowerBase>() != null
+                    && hits[0].transform.root.GetComponent<TowerBase>().TowerID == hit.transform.root.GetComponent<TowerBase>().TowerID;
                 PathManager.Instance.UpdateHintLine(hit.point, isValid);
             }
         }
@@ -151,7 +152,7 @@ namespace Core.Input
                 {
                     if (RaycastFromFinger(finger, out RaycastHit hit)) //Use tryget
                     {
-                        towerBase.ConnectTo(hit.transform.GetComponent<TowerBase>());
+                        towerBase.ConnectTo(hit.transform.root.GetComponent<TowerBase>());
                     }
                 }
                 towerBase = null;

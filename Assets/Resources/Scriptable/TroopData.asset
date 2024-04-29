@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410c972f108adf046a83c40e79f2863b, type: 3}
   m_Name: TroopData
   m_EditorClassIdentifier: 
+  <OffsetY>k__BackingField: 0
   <SoldierPoolSize>k__BackingField: 100
   <SoldierMaxPoolSize>k__BackingField: 1000
+  <SoldierHealth>k__BackingField: 1
+  <SoldierLevel>k__BackingField: 1
   <SoldierPrefab>k__BackingField: {fileID: 5811692524202268670, guid: 76b474411b0a2584191bb01d813d398e,
     type: 3}
   <SoldierVisual>k__BackingField: []
   <BrutePoolSize>k__BackingField: 100
   <BruteMaxPoolSize>k__BackingField: 1000
+  <BruteHealth>k__BackingField: 2
+  <BruteLevel>k__BackingField: 2
   <BrutePrefab>k__BackingField: {fileID: 6777993478856746237, guid: a03e8ccbf3e86464cb2eb348c90450a5,
     type: 3}
   <BruteVisual>k__BackingField: []

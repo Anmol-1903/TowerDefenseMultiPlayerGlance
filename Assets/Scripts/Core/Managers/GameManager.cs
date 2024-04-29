@@ -30,8 +30,8 @@ namespace Core
             OnGameEnd = null;
 
             //TODO: Start Matchmaking if internet is there!!!
-            //StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
-            Networking.NetworkManager.Instance.JoinOrCreateRoom();
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
+            //Networking.NetworkManager.Instance.JoinOrCreateRoom();
         }
 
         public void BackToMainMenu()

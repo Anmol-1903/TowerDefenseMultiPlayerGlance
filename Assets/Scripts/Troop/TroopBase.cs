@@ -26,6 +26,7 @@ namespace Troop
         [SerializeField] protected float collidableDist;
 
         private bool isInitialize;
+        private Vector3 dir;
 
         public virtual void InitTroop(TroopOwner owner, string selfId, string enemyId, Vector3 start, Vector3 end, TroopDataScriptable troopData)
         {
@@ -35,6 +36,7 @@ namespace Troop
             Owner = owner;
             transform.position = start;
             transform.forward = (end - start).normalized;
+            dir = transform.forward;
             isInitialize = true;
         }
 
@@ -49,7 +51,7 @@ namespace Troop
                 return;
             }
             CollsionCheck();
-            transform.Translate(transform.forward * speed * Time.deltaTime);
+            transform.Translate(dir * speed * Time.deltaTime, Space.World);
         }
 
         private void CollsionCheck()
@@ -68,7 +70,7 @@ namespace Troop
                             break;
                         }
                     }
-                    if (col.TryGetComponent<TowerBase>(out var enemyTower))
+                    if (col.transform.root.TryGetComponent<TowerBase>(out var enemyTower))
                     {
                         if (enemyTower.TowerID == EnemyId)
                         {

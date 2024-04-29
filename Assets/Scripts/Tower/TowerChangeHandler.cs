@@ -55,9 +55,9 @@ namespace Tower
                     if (prevIndex == nextIndex) // Replacing same tower
                         return;
 
-                    //GameObject newTowerObj = Instantiate(towerInventoryItems[nextIndex].Tower.gameObject, towerPosition, Quaternion.identity);
-                    // TowerBase newTower = newTowerObj.GetComponent<TowerBase>();
-                    // newTower.CopyTowerSettings(selectedTower);
+                    GameObject newTowerObj = Instantiate(towerInventoryItems[nextIndex].Tower.gameObject, towerPosition, Quaternion.identity);
+                    TowerBase newTower = newTowerObj.GetComponent<TowerBase>();
+                    newTower.CopyTowerSettings(selectedTower);
 
                     if (towerInventoryItems[prevIndex].IsInfinite == false)
                     {
@@ -68,7 +68,7 @@ namespace Tower
                         towerInventoryItems[nextIndex].NoOfLeft -= 1;
                     }
 
-                    // Destroy(selectedTower.gameObject);
+                    Destroy(selectedTower.gameObject);
                     //Remeber tower.CopyTowerSettings
                     //Replace it here
                 }

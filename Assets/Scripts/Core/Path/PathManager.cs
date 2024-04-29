@@ -84,15 +84,7 @@ namespace Core.PathHandler
         public Path CreatePath(Vector3 from, Vector3 to, TowerBase creatorTower)
         {
             Path path;
-            if (GameManager.Instance.ConStatus == GameEnums.ConnectionStatus.Connected)
-            {
-                GameObject pathObj = PhotonNetwork.Instantiate(pathData.PathRendererPrefab.name, Vector3.zero, Quaternion.identity);
-                path = pathObj.GetComponent<Path>();
-            }
-            else
-            {
-                path = lineRendersPool.Get();
-            }
+            path = lineRendersPool.Get();
             Material pathMat = pathData.ValidHintMaterial;
             for (int i = 0; i < pathData.PathMaterial.Length; i++)
             {
@@ -103,7 +95,7 @@ namespace Core.PathHandler
                     break;
                 }
             }
-            path.DrawPath(true, new(to.x, pathData.OffsetY, to.z), new(from.x, pathData.OffsetY, from.z), creatorTower, pathMat);
+            path.DrawPath(true, new(from.x, pathData.OffsetY, from.z), new(to.x, pathData.OffsetY, to.z), creatorTower, pathMat);
             return path;
         }
 

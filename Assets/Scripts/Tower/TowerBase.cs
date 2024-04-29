@@ -9,6 +9,7 @@ using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
+using TMPro;
 
 namespace Tower
 {
@@ -41,7 +42,8 @@ namespace Tower
         [field: SerializeField] public UnityEvent<OwnershipType> OnTowerOwnerChange { get; protected set; }
         [field: SerializeField, EndGroup] public UnityEvent<Tier, bool> OnTowerTierChanged { get; protected set; }
 
-        [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner"), EndGroup] public OwnerVisual[] Visual { get; protected set; }
+        [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner")] public OwnerVisual[] Visual { get; protected set; }
+        [SerializeField, EndGroup] private TMP_Text levelText;
 
         protected virtual void Awake()
         {
@@ -53,8 +55,6 @@ namespace Tower
         {
             OnTowerOwnerChange.AddListener((type) => UpdateTowerVisual(type, Tier.Tier1));
             OnTowerOwnerChange?.Invoke(TowerOwner);
-
-            OnTowerTierChanged.AddListener((tier, isUpgrading) => UpdateTowerVisual(TowerOwner, tier));
 
             if (Level >= 30)
             {
@@ -68,7 +68,9 @@ namespace Tower
             {
                 TowerTier = Tier.Tier1;
             }
+            OnTowerTierChanged.AddListener((tier, isUpgrading) => UpdateTowerVisual(TowerOwner, tier));
             OnTowerTierChanged?.Invoke(TowerTier, false);
+            levelText.text = Level.ToString();
         }
 
         protected virtual void Update()
@@ -165,7 +167,7 @@ namespace Tower
                 TowerTier = Tier.Tier1;
                 OnTowerTierChanged?.Invoke(Tier.Tier1, isUpgrading);
             }
-            else if (Level == 10)
+            else if (Level == 20)
             {
                 TowerTier = Tier.Tier2;
                 OnTowerTierChanged?.Invoke(Tier.Tier2, isUpgrading);
@@ -175,6 +177,8 @@ namespace Tower
                 TowerTier = Tier.Tier3;
                 OnTowerTierChanged?.Invoke(Tier.Tier3, isUpgrading);
             }
+
+            levelText.text = Level.ToString();
         }
 
         public void UpdateTowerLevel(int amt)
@@ -224,6 +228,7 @@ namespace Tower
 
         protected void UpdateTowerVisual(OwnershipType newOwner, Tier tier)
         {
+            Vector3 uiPos = Vector3.zero;
             foreach (var visual in Visual)
             {
                 if (visual.owner == newOwner)
@@ -233,6 +238,7 @@ namespace Tower
                         if (tier == visual.tierVisuals[i].towerTier)
                         {
                             visual.tierVisuals[i].TowerLevelObject.SetActive(true);
+                            uiPos = visual.tierVisuals[i].TowerLevelObject.transform.GetChild(0).position;
                             //TODO: Set the metarial of active object
                         }
                         else
@@ -243,6 +249,7 @@ namespace Tower
                     break;
                 }
             }
+            levelText.transform.parent.parent.position = uiPos;
         }
 
         public void CopyTowerSettings(TowerBase tower)

@@ -727,10 +727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaa67bc52a8dcb458bc75ba91438ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TowerOwner>k__BackingField: 0
+  <TowerOwner>k__BackingField: 1
   <TowerID>k__BackingField: 
   <TowerType>k__BackingField: 0
-  <TowerChangeableType>k__BackingField: 0
+  <TowerChangeableType>k__BackingField: 1
   defaultTowerPrefab: {fileID: 0}
   minLevelToChange: 5
   <IsChangeable>k__BackingField: 0
@@ -757,34 +757,59 @@ MonoBehaviour:
   - owner: 1
     tierVisuals:
     - towerTier: 1
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 7352718167768402736}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
     - towerTier: 2
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 4968286118523660321}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
     - towerTier: 3
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 2973097348128693742}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
   - owner: 2
     tierVisuals:
     - towerTier: 1
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 7352718167768402736}
+      material: {fileID: 2100000, guid: 5bf10ce09b1a9074dae5634d2cf0c7a3, type: 2}
     - towerTier: 2
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 4968286118523660321}
+      material: {fileID: 2100000, guid: 5bf10ce09b1a9074dae5634d2cf0c7a3, type: 2}
     - towerTier: 3
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+      TowerLevelObject: {fileID: 2973097348128693742}
+      material: {fileID: 2100000, guid: 5bf10ce09b1a9074dae5634d2cf0c7a3, type: 2}
   - owner: 3
-    tierVisuals: []
+    tierVisuals:
+    - towerTier: 1
+      TowerLevelObject: {fileID: 7352718167768402736}
+      material: {fileID: 2100000, guid: 93effb3624cf7da42a59730b6d486b27, type: 2}
+    - towerTier: 2
+      TowerLevelObject: {fileID: 4968286118523660321}
+      material: {fileID: 2100000, guid: 93effb3624cf7da42a59730b6d486b27, type: 2}
+    - towerTier: 3
+      TowerLevelObject: {fileID: 2973097348128693742}
+      material: {fileID: 2100000, guid: 93effb3624cf7da42a59730b6d486b27, type: 2}
   - owner: 4
     tierVisuals:
-    - towerTier: 0
-      TowerLevelObject: {fileID: 0}
-      material: {fileID: 0}
+    - towerTier: 1
+      TowerLevelObject: {fileID: 7352718167768402736}
+      material: {fileID: 2100000, guid: 3d49226572427ce47b85b2ef65006881, type: 2}
+    - towerTier: 2
+      TowerLevelObject: {fileID: 4968286118523660321}
+      material: {fileID: 2100000, guid: 3d49226572427ce47b85b2ef65006881, type: 2}
+    - towerTier: 3
+      TowerLevelObject: {fileID: 2973097348128693742}
+      material: {fileID: 2100000, guid: 3d49226572427ce47b85b2ef65006881, type: 2}
   - owner: 0
-    tierVisuals: []
+    tierVisuals:
+    - towerTier: 1
+      TowerLevelObject: {fileID: 7352718167768402736}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+    - towerTier: 2
+      TowerLevelObject: {fileID: 4968286118523660321}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+    - towerTier: 3
+      TowerLevelObject: {fileID: 2973097348128693742}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+  levelText: {fileID: 5593242711268631990}
   soldierSpawnInterval: 1
 --- !u!1 &9155524916625716265
 GameObject:
