@@ -29,23 +29,20 @@ namespace Core.Input
         private void Start()
         {
             photonView = GetComponent<PhotonView>();
-            GameManager.Instance.OnGameStart += OnGameStart;
+            // GameManager.Instance.OnGameStart += OnGameStart;
             GameManager.Instance.OnGameEnd += OnGameEnd;
             towerChangeHandler = FindFirstObjectByType<TowerChangeHandler>();
         }
 
-        private void OnGameStart()
+        public void SetProperties(int index)
         {
             // Check if this instance is owned by the local player
-            if (photonView.IsMine)
-            {
-                // Get the owner type for this client based on its index
-                int clientIndex = PhotonNetwork.LocalPlayer.ActorNumber - 1; // Subtract 1 to make index zero-based
-                InputOwner clientOwner = GetClientOwnerFromIndex(clientIndex);
+            // Get the owner type for this client based on its index
+            InputOwner clientOwner = GetClientOwnerFromIndex(index - 1);
+            SpawnInputManager(clientOwner);
+            // Spawn the input manager with the appropriate owner for this client
+            // photonView.RPC("SpawnInputManager", RpcTarget.AllBuffered, clientOwner);
 
-                // Spawn the input manager with the appropriate owner for this client
-                photonView.RPC("SpawnInputManager", RpcTarget.AllBuffered, clientOwner);
-            }
         }
 
         private void OnGameEnd(bool success)

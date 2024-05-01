@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a2df3974f20d941a91b21688085671, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  nickname: 
-  nicknameId: 04241940
+  nickname: Player
+  nicknameId: 04250949
   <MaxPlayers>k__BackingField: 4
+  playerColors: []

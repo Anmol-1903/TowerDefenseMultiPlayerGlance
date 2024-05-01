@@ -73,7 +73,7 @@ namespace Networking
                 }
             }
 
-            gameSettings = GameManager.Instance.GameSettings;
+           // gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
         }
 

@@ -39,7 +39,8 @@ namespace Networking
 
         private static void LoadNextScene()
         {
-            PhotonNetwork.LoadLevel(Core.GameManager.Instance.SceneContainer.TutorialLevelScenes[0]);
+            // PhotonNetwork.LoadLevel(Core.GameManager.Instance.SceneContainer.TutorialLevelScenes[0]);
+            PhotonNetwork.LoadLevel("MainScene");
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
