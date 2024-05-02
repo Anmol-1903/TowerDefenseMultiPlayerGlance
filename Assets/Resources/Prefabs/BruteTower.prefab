@@ -27,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955422902345165562}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3083114729817364573}
   m_Father: {fileID: 4482172087375177486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7687051256222161526
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955422902345165562}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 700723785540621448, guid: b8535e1332b325241a698375d092602e, type: 3}
 --- !u!23 &850774455084836782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.9375992, y: 3.1175036, z: 5.9645863}
+  m_Center: {x: -0.007036984, y: -0.0015773777, z: 2.9822931}
 --- !u!1 &1457924621419625257
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +156,8 @@ MonoBehaviour:
   <TowerID>k__BackingField: 
   <TowerType>k__BackingField: 0
   <TowerChangeableType>k__BackingField: 0
-  defaultTowerPrefab: {fileID: 0}
+  defaultTowerPrefab: {fileID: 8234960385028589634, guid: da5ec272c0aa06140b2bfafe7779f4d3,
+    type: 3}
   minLevelToChange: 5
   <IsChangeable>k__BackingField: 0
   <Level>k__BackingField: 0
@@ -178,8 +179,31 @@ MonoBehaviour:
   <OnTowerTierChanged>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  <Visual>k__BackingField: []
-  bruteSpawnInterval: 0
+  <Visual>k__BackingField:
+  - owner: 1
+    tierVisuals:
+    - towerTier: 1
+      TowerLevelObject: {fileID: 7848398554496916936}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
+    - towerTier: 2
+      TowerLevelObject: {fileID: 2559902323494140897}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
+    - towerTier: 3
+      TowerLevelObject: {fileID: 955422902345165562}
+      material: {fileID: 2100000, guid: 2c26c27d5acab424688ab269a84e3b0e, type: 2}
+  - owner: 0
+    tierVisuals:
+    - towerTier: 1
+      TowerLevelObject: {fileID: 7848398554496916936}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+    - towerTier: 2
+      TowerLevelObject: {fileID: 2559902323494140897}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+    - towerTier: 3
+      TowerLevelObject: {fileID: 955422902345165562}
+      material: {fileID: 2100000, guid: 295eee3beed616440b7e79994dd5f8ed, type: 2}
+  levelText: {fileID: 9222924205804699263}
+  bruteSpawnInterval: 1
 --- !u!1 &2559902323494140897
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,14 +231,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2559902323494140897}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5842779892172427239}
   m_Father: {fileID: 4482172087375177486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &205093300543774540
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -222,7 +246,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2559902323494140897}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 5738190322114879164, guid: 9847d65ba1405364eaeeb8dda482a861, type: 3}
 --- !u!23 &974092922861923077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -284,8 +308,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.9235249, y: 3.1175036, z: 5.9645863}
+  m_Center: {x: 0.000000059604645, y: -0.0015773777, z: 2.9822931}
 --- !u!1 &2881587787915874130
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,14 +714,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7848398554496916936}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1903109683179355171}
   m_Father: {fileID: 4482172087375177486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5185623449756338214
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -705,7 +729,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7848398554496916936}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -8883890442412190607, guid: de14bb37affdff1409233b3151a2a643, type: 3}
 --- !u!23 &1070420624647831832
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -767,8 +791,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.9235249, y: 3.1122625, z: 5.9645863}
+  m_Center: {x: 0.000000059604645, y: 0.0010432007, z: 2.9822931}
 --- !u!1 &8391266275393547904
 GameObject:
   m_ObjectHideFlags: 0

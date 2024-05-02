@@ -47,8 +47,11 @@ namespace Tower
 
         protected virtual void Awake()
         {
-            Guid guid = Guid.NewGuid();
-            TowerID = guid.ToString()[..8];
+            if (TowerID == null || TowerID == "")
+            {
+                Guid guid = Guid.NewGuid();
+                TowerID = guid.ToString()[..8];
+            }
         }
 
         protected virtual void Start()
@@ -254,6 +257,7 @@ namespace Tower
 
         public void CopyTowerSettings(TowerBase tower)
         {
+            TowerID = tower.TowerID;
             TowerOwner = tower.TowerOwner;
             Level = tower.Level;
             TowerChangeableType = tower.TowerChangeableType;

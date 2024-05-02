@@ -28,7 +28,18 @@ namespace Tower
             {
                 foreach (var connection in Connections)
                 {
-                    TroopPooler.Instance.SpawnSoldierTroop(TowerID, connection.Tower.TowerID, TowerOwner, transform.position, connection.Tower.transform.position);
+                    TowerBase bse = connection.Tower;
+                    if (bse == null)
+                    {
+                        foreach (TowerBase item in GameObject.FindObjectsByType<TowerBase>(sortMode: FindObjectsSortMode.None))
+                        {
+                            if (item != this)
+                            {
+                                bse = item;
+                            }
+                        }
+                    }
+                    TroopPooler.Instance.SpawnSoldierTroop(TowerID, bse.TowerID, TowerOwner, transform.position, bse.transform.position);
                 }
             }
         }
