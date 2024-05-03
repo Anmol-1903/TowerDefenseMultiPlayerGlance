@@ -33,7 +33,7 @@ namespace Networking
             }
         }
 
-        [SerializeField] private GameSettings gameSettings;
+        private GameSettings gameSettings;
 
         [HideInInspector] public bool IsConnected = false;
 
@@ -72,14 +72,12 @@ namespace Networking
                     DestroyImmediate(gameObject);
                 }
             }
-            InitializePhoton();
+
             // gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
         }
-        private void Start()
-        {
-            maxPlayers = Random.Range(2, gameSettings.MaxPlayers + 1);
-        }
+
+
         public static void CreateInstance()
         {
             DestroyInstance();
@@ -95,8 +93,9 @@ namespace Networking
             instance = default;
         }
 
-        public void InitializePhoton()
+        public void InitializePhoton(GameSettings _gameSettings)
         {
+            gameSettings = _gameSettings;
             Debug.Log("Connecting To Server");
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.ConnectUsingSettings();
@@ -128,6 +127,7 @@ namespace Networking
 
         public void JoinOrCreateRoom()
         {
+            maxPlayers = Random.Range(2, gameSettings.MaxPlayers + 1);
             if (!PhotonNetwork.IsConnected) return;
             // Attempt to join or create a room if connected
             if (PhotonNetwork.IsConnected)

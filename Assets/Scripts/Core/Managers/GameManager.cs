@@ -52,7 +52,7 @@ namespace Core
 
         private IEnumerator Intialize()
         {
-            NetworkManager.CreateInstance();
+
             LoadingManager.CreateInstance();
             yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
             LoadingManager.Instance.ShowLoadingScreen();
@@ -67,7 +67,8 @@ namespace Core
                 (data) => Audio.AudioManager.Instance.LoadContainer(data as Audio.AudioContainer)));
 
             GameSettings.LoadData();
-
+            NetworkManager.CreateInstance();
+            NetworkManager.Instance.InitializePhoton(GameSettings);
             AddSceneEvents();
 
             //todo Do Photon Init here!!
