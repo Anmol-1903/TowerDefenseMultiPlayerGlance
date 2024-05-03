@@ -72,7 +72,7 @@ namespace Networking
                     DestroyImmediate(gameObject);
                 }
             }
-
+            InitializePhoton();
            // gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
         }

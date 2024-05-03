@@ -52,6 +52,7 @@ namespace Core
 
         private IEnumerator Intialize()
         {
+            NetworkManager.CreateInstance();
             LoadingManager.CreateInstance();
             yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
             LoadingManager.Instance.ShowLoadingScreen();
@@ -70,8 +71,8 @@ namespace Core
             AddSceneEvents();
 
             //todo Do Photon Init here!!
-            NetworkManager.CreateInstance();
-            NetworkManager.Instance.InitializePhoton();
+            // NetworkManager.CreateInstance();
+            // NetworkManager.Instance.InitializePhoton();
             float startTime = Time.time;
             float timeoutDuration = 10f; // Timeout duration in seconds
             bool connected = false;

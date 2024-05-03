@@ -1902,7 +1902,7 @@ MonoBehaviour:
   gameSettings: {fileID: 11400000, guid: 40e7999bb3d59914f98dcad4ccc93516, type: 2}
   IsConnected: 0
   timerDuration: 15
-  timerText: {fileID: 0}
+  timerText: {fileID: 38040720}
   playerPrefab: {fileID: 6519759603502763142, guid: 0d19fa5068c698b40afdd67dd2a5ac09,
     type: 3}
 --- !u!1 &934682884
