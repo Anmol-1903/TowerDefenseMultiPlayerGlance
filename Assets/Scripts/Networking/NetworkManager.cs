@@ -6,7 +6,7 @@ using System;
 using TMPro;
 using Util;
 using Core;
-
+using Random = UnityEngine.Random;
 namespace Networking
 {
     public class NetworkManager : MonoBehaviourPunCallbacks
@@ -47,7 +47,7 @@ namespace Networking
 
         private bool timerStarted = false;
         private Coroutine timerCoroutine;
-
+        private int maxPlayers;
         public static Action<int> OnMatchFound = delegate { }; //param1 for number of bots
 
         private void Awake()
@@ -73,10 +73,13 @@ namespace Networking
                 }
             }
             InitializePhoton();
-           // gameSettings = GameManager.Instance.GameSettings;
+            // gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
         }
-
+        private void Start()
+        {
+            maxPlayers = Random.Range(2, gameSettings.MaxPlayers + 1);
+        }
         public static void CreateInstance()
         {
             DestroyInstance();
@@ -132,7 +135,7 @@ namespace Networking
                 // Try to join an existing room
                 RoomOptions roomOptions = new RoomOptions
                 {
-                    MaxPlayers = gameSettings.MaxPlayers
+                    MaxPlayers = maxPlayers
                 };
 
                 //TODO: Need to way to join random room and if failed one then create new one
@@ -144,6 +147,7 @@ namespace Networking
         public override void OnJoinedRoom()
         {
             // Called when successfully joined a room
+            Debug.Log("Total Players = " + PhotonNetwork.CurrentRoom.MaxPlayers);
             Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
         }
 
@@ -179,14 +183,14 @@ namespace Networking
                 }, // pass the yield break to break the couroutine in onTimerUpdate if needed
                 onComplete: () =>
                 {
-                    if (PhotonNetwork.CurrentRoom.PlayerCount == gameSettings.MaxPlayers)
+                    if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers)
                     {
                         // If player count reaches max within timer duration, stop the timer
                         OnMatchFound?.Invoke(0);
                     }
-                    else if (PhotonNetwork.CurrentRoom.PlayerCount < gameSettings.MaxPlayers)
+                    else if (PhotonNetwork.CurrentRoom.PlayerCount < maxPlayers)
                     {
-                        int remainingSlots = gameSettings.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
+                        int remainingSlots = maxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
                         OnMatchFound?.Invoke(remainingSlots);
                         $"Going with {remainingSlots} bots".Log();
                     }
