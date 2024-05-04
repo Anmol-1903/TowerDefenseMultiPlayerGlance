@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 namespace Networking
 {
     public class LobbyManager : MonoBehaviourPunCallbacks
@@ -13,12 +14,12 @@ namespace Networking
 
         public override void OnEnable()
         {
-            NetworkManager.OnMatchFound += StartGame;
+            //NetworkManager.OnMatchFound += StartGame;
         }
 
         public override void OnDisable()
         {
-            NetworkManager.OnMatchFound -= StartGame;
+            // NetworkManager.OnMatchFound -= StartGame;
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -31,7 +32,7 @@ namespace Networking
             Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
         }
 
-        private void StartGame(int botCount)
+        public static void StartGame(int botCount)
         {
             Debug.Log("Number of bots = " + botCount);
             LoadNextScene();
@@ -39,8 +40,9 @@ namespace Networking
 
         private static void LoadNextScene()
         {
+            string sceneToLoad = GameManager.Instance.SceneContainer.GameLevelScenes[Random.Range(0, GameManager.Instance.SceneContainer.GameLevelScenes.Length)];
             // PhotonNetwork.LoadLevel(Core.GameManager.Instance.SceneContainer.TutorialLevelScenes[0]);
-            PhotonNetwork.LoadLevel("MainScene");
+            PhotonNetwork.LoadLevel(sceneToLoad);
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)

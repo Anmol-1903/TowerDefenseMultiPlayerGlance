@@ -31,7 +31,7 @@ namespace Core
 
             //TODO: Start Matchmaking if internet is there!!!
             //StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
-            Networking.NetworkManager.Instance.JoinOrCreateRoom();
+          //  Networking.NetworkManager.Instance.JoinOrCreateRoom();
         }
 
         public void BackToMainMenu()

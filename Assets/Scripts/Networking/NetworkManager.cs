@@ -77,7 +77,10 @@ namespace Networking
             //timerText.text = "";
         }
 
-
+        private void Start()
+        {
+            if (GameManager.Instance.GameSettings != null) gameSettings = GameManager.Instance.GameSettings;
+        }
         public static void CreateInstance()
         {
             DestroyInstance();
@@ -171,7 +174,7 @@ namespace Networking
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
-            StartCoroutine(HelperCoroutine.Countdown(10,
+            StartCoroutine(HelperCoroutine.Countdown(5,
                 onTimerUpdate: (float val) =>
                 {
                     if (timerText != null)
@@ -179,21 +182,24 @@ namespace Networking
                         int timer = (int)val;
                         timerText.text = timer.ToString();
                     }
-                    val.Log(this);
+                    //val.Log(this);
                 }, // pass the yield break to break the couroutine in onTimerUpdate if needed
                 onComplete: () =>
                 {
+                    int remainingSlots = 0;
                     if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers)
                     {
+                        remainingSlots = 0;
                         // If player count reaches max within timer duration, stop the timer
-                        OnMatchFound?.Invoke(0);
                     }
                     else if (PhotonNetwork.CurrentRoom.PlayerCount < maxPlayers)
                     {
-                        int remainingSlots = maxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
+                        remainingSlots = maxPlayers - PhotonNetwork.CurrentRoom.PlayerCount;
                         OnMatchFound?.Invoke(remainingSlots);
                         $"Going with {remainingSlots} bots".Log();
                     }
+                    LobbyManager.StartGame(remainingSlots);
+                    // OnMatchFound?.Invoke(remainingSlots);
                 } // what to do when timer is completed
               ));
         }
