@@ -40,12 +40,12 @@ namespace Core
 
         public void HideLoadingScreen()
         {
-            if (loadingScreen.activeInHierarchy)
-            {
-                loadingScreen.SetActive(false);
-                loadingScreen.GetComponent<CanvasGroup>().interactable = false;
-                loadingScreen.GetComponent<CanvasGroup>().blocksRaycasts = false;
-            }
+            // if (loadingScreen.activeInHierarchy)
+            // {
+            //     loadingScreen.SetActive(false);
+            //     loadingScreen.GetComponent<CanvasGroup>().interactable = false;
+            //     loadingScreen.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            // }
         }
     }
 }

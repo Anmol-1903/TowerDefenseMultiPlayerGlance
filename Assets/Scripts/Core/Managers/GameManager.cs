@@ -53,9 +53,9 @@ namespace Core
         private IEnumerator Intialize()
         {
 
-            LoadingManager.CreateInstance();
-            yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
-            LoadingManager.Instance.ShowLoadingScreen();
+            // LoadingManager.CreateInstance();
+            // yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
+            // LoadingManager.Instance.ShowLoadingScreen();
 
             Audio.AudioManager.CreateInstance();
 
@@ -102,7 +102,7 @@ namespace Core
 
             GameSettings.SaveData();
 
-            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
+          //  StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)

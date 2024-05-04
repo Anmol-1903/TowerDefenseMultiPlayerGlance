@@ -174,7 +174,7 @@ namespace Networking
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
-            StartCoroutine(HelperCoroutine.Countdown(5,
+            StartCoroutine(HelperCoroutine.Countdown(15,
                 onTimerUpdate: (float val) =>
                 {
                     if (timerText != null)
