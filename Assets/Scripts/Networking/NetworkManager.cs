@@ -187,7 +187,7 @@ namespace Networking
                 onComplete: () =>
                 {
                     int remainingSlots = 0;
-                    if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers)
+                    if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers) 
                     {
                         remainingSlots = 0;
                         // If player count reaches max within timer duration, stop the timer

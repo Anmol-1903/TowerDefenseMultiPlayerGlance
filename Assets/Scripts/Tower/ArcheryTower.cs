@@ -24,8 +24,6 @@ namespace Tower
 
         protected override void Update()
         {
-            {
-            }
             base.Update();
             if (currentAttackInterval < 0)
             {

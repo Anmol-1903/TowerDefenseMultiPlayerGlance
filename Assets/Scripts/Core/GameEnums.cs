@@ -19,7 +19,8 @@ namespace Core
             Brute,
             Archery,
             Fort,
-            Base
+            Base,
+            Rocket
         }
 
         public enum Tier
