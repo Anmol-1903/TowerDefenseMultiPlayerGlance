@@ -40,18 +40,21 @@ namespace Core
         public string DisplayNickName { get => nickname; set => nickname = value; }
 
         [SerializeField] private Color[] playerColors;
-        public Color[] GetPlayerColors { get { return playerColors; } }
+
+        public Color[] GetPlayerColors
+        { get { return playerColors; } }
 
         public void LoadData()
         {
             nickname = SaveLoad.Load("Nickname", "Player");
-            nicknameId = SaveLoad.Load("Id", Util.HelperMethods.GenerateUniqueId());
+            //nicknameId = SaveLoad.Load("Id", Util.HelperMethods.GenerateUniqueId());
+            nicknameId = Util.HelperMethods.GenerateUniqueId();
         }
 
         public void SaveData()
         {
             SaveLoad.Save("Nickname", nickname);
-            SaveLoad.Save("Id", nicknameId);
+            // SaveLoad.Save("Id", nicknameId);
         }
     }
 }

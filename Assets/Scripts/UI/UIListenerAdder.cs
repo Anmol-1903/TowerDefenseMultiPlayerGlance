@@ -35,8 +35,8 @@ namespace UI
 
         public void UpdateNickname(string input)
         {
-            GameManager.Instance.GameSettings.DisplayNickName = input;
-            GameManager.Instance.GameSettings.SaveData();
+            GameManager.Instance.GameSetting.DisplayNickName = input;
+            GameManager.Instance.GameSetting.SaveData();
         }
 
         /*

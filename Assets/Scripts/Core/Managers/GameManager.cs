@@ -18,7 +18,7 @@ namespace Core
         public UnityAction<bool> OnGameEnd { get; set; } //parm for isWon or not
 
         [field: SerializeField, Disable] public SceneContainerScriptable SceneContainer { get; private set; }
-        [field: SerializeField, Disable] public GameSettings GameSettings { get; private set; }
+        [field: SerializeField, Disable] public GameSettings GameSetting { get; private set; }
 
         //todo Add GameSettings scriptable ref same as SceneContainerScriptable
 
@@ -61,13 +61,13 @@ namespace Core
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/SceneContainer",
                 (data) => SceneContainer = data as SceneContainerScriptable));
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/GameSettings",
-                    (data) => GameSettings = data as GameSettings));
+                    (data) => GameSetting = data as GameSettings));
             yield return StartCoroutine(HelperCoroutine.LoadDataFromResources("Scriptable/AudioContainer",
                 (data) => Audio.AudioManager.Instance.LoadContainer(data as Audio.AudioContainer)));
 
-            GameSettings.LoadData();
+            GameSetting.LoadData();
             NetworkManager.CreateInstance();
-            NetworkManager.Instance.InitializePhoton(GameSettings);
+            NetworkManager.Instance.InitializePhoton(GameSetting);
             AddSceneEvents();
 
             //todo Do Photon Init here!!
@@ -97,7 +97,7 @@ namespace Core
                 yield return null;
             }
 
-            GameSettings.SaveData();
+            GameSetting.SaveData();
 
             StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }

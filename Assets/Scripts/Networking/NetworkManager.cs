@@ -7,6 +7,7 @@ using TMPro;
 using Util;
 using Core;
 using Random = UnityEngine.Random;
+
 namespace Networking
 {
     public class NetworkManager : MonoBehaviourPunCallbacks
@@ -79,8 +80,9 @@ namespace Networking
 
         private void Start()
         {
-            if (GameManager.Instance.GameSettings != null) gameSettings = GameManager.Instance.GameSettings;
+            if (GameManager.Instance.GameSetting != null) gameSettings = GameManager.Instance.GameSetting;
         }
+
         public static void CreateInstance()
         {
             DestroyInstance();
@@ -187,7 +189,7 @@ namespace Networking
                 onComplete: () =>
                 {
                     int remainingSlots = 0;
-                    if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers) 
+                    if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayers)
                     {
                         remainingSlots = 0;
                         // If player count reaches max within timer duration, stop the timer
