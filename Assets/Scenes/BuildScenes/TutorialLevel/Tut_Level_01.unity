@@ -1543,9 +1543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 1
-  exlcudedLayer:
+  excludedLayer:
     serializedVersion: 2
-    m_Bits: 375
+    m_Bits: 32
 --- !u!4 &1700890869
 Transform:
   m_ObjectHideFlags: 0

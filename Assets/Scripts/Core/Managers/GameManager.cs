@@ -31,7 +31,7 @@ namespace Core
 
             //TODO: Start Matchmaking if internet is there!!!
             //StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.TutorialLevelScenes[0]));
-          //  Networking.NetworkManager.Instance.JoinOrCreateRoom();
+            Networking.NetworkManager.Instance.JoinOrCreateRoom();
         }
 
         public void BackToMainMenu()
@@ -52,10 +52,9 @@ namespace Core
 
         private IEnumerator Intialize()
         {
-
-            // LoadingManager.CreateInstance();
-            // yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
-            // LoadingManager.Instance.ShowLoadingScreen();
+            LoadingManager.CreateInstance();
+            yield return StartCoroutine(LoadingManager.Instance.GetLoadingScreenObject());
+            LoadingManager.Instance.ShowLoadingScreen();
 
             Audio.AudioManager.CreateInstance();
 
@@ -72,8 +71,6 @@ namespace Core
             AddSceneEvents();
 
             //todo Do Photon Init here!!
-            // NetworkManager.CreateInstance();
-            // NetworkManager.Instance.InitializePhoton();
             float startTime = Time.time;
             float timeoutDuration = 10f; // Timeout duration in seconds
             bool connected = false;
@@ -102,7 +99,7 @@ namespace Core
 
             GameSettings.SaveData();
 
-          //  StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
+            StartCoroutine(HelperCoroutine.LoadScene(SceneContainer.MainMenuScene, showLoadingScreen: false));
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)
