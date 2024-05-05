@@ -113,16 +113,6 @@ namespace Networking
 
         #region Connection Callbacks
 
-        private void Update()
-        {
-            Debug.Log($"{PhotonNetwork.CountOfPlayersOnMaster}____{PhotonNetwork.CountOfPlayers}");
-        }
-
-        public override void OnRoomListUpdate(List<RoomInfo> roomList)
-        {
-            base.OnRoomListUpdate(roomList);
-        }
-
         public override void OnConnectedToMaster()
         {
             // Called when connected to the Photon server
