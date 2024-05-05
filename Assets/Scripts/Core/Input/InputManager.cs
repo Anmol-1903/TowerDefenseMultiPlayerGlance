@@ -52,7 +52,7 @@ namespace Core.Input
             // Enable inputs only if this instance is owned by the local player
             if (photonView.IsMine)
             {
-                SetNickName(PhotonNetwork.LocalPlayer.NickName);
+                photonView.RPC(nameof(SetNickNameRPC), RpcTarget.All, PhotonNetwork.LocalPlayer.NickName);
                 EnableInputs();
             }
             else
@@ -64,9 +64,13 @@ namespace Core.Input
         // Set player nickname in UI
         public void SetNickName(string name)
         {
+            photonView.RPC(nameof(SetNickNameRPC), RpcTarget.All, name);
+        }
+        [PunRPC]
+        private void SetNickNameRPC(string name)
+        {
             playerUIHandler.SetPlayerName(name);
         }
-
         // Map client index to ownership type
         private InputOwner GetClientOwnerFromIndex(int clientIndex)
         {

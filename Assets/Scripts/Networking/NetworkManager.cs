@@ -15,25 +15,10 @@ namespace Networking
     {
         #region Initialization
 
-        private static NetworkManager instance;
+        // private static NetworkManager instance;
 
-        public static NetworkManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = FindObjectOfType<NetworkManager>();
-                    if (instance == null)
-                    {
-                        GameObject obj = new GameObject();
-                        obj.name = typeof(NetworkManager).Name;
-                        instance = obj.AddComponent<NetworkManager>();
-                    }
-                }
-                return instance;
-            }
-        }
+        public static NetworkManager Instance;
+
 
         private GameSettings gameSettings;
 
@@ -53,29 +38,28 @@ namespace Networking
         public static Action<int> OnMatchFound = delegate { }; //param1 for number of bots
 
         private RoomOptions roomOptions = new RoomOptions();
-
+        private PhotonView _photonView;
         private void Awake()
         {
-            if (instance == null)
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
+            if (Application.isPlaying)
             {
-                instance = this;
-                if (Application.isPlaying)
-                {
-                    DontDestroyOnLoad(gameObject);
-                }
+                DontDestroyOnLoad(gameObject);
             }
-            else
-            {
-                // Destory duplicates
-                if (Application.isPlaying)
-                {
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    DestroyImmediate(gameObject);
-                }
-            }
+            InitializePhoton(GameManager.Instance.GameSetting);
+            // else
+            // {
+            //     // Destory duplicates
+            //     if (Application.isPlaying)
+            //     {
+            //         Destroy(gameObject);
+            //     }
+            //     else
+            //     {
+            //         DestroyImmediate(gameObject);
+            //     }
+            // }
 
             // gameSettings = GameManager.Instance.GameSettings;
             //timerText.text = "";
@@ -84,21 +68,22 @@ namespace Networking
         private void Start()
         {
             if (GameManager.Instance.GameSetting != null) gameSettings = GameManager.Instance.GameSetting;
+            _photonView = GetComponent<PhotonView>();
         }
 
         public static void CreateInstance()
         {
             DestroyInstance();
-            instance = Instance;
+            // instance = Instance;
         }
 
         public static void DestroyInstance()
         {
-            if (instance == null)
-            {
-                return;
-            }
-            instance = default;
+            // if (instance == null)
+            // {
+            //     return;
+            // }
+            // instance = default;
         }
 
         public void InitializePhoton(GameSettings _gameSettings)
@@ -136,7 +121,6 @@ namespace Networking
         public void JoinOrCreateRoom()
         {
             maxPlayers = gameSettings.MaxPlayers;
-            if (!PhotonNetwork.IsConnected) return;
             // Attempt to join or create a room if connected
             if (PhotonNetwork.IsConnected)
             {
@@ -145,8 +129,8 @@ namespace Networking
                 //TODO: Need to way to join random room and if failed one then create new one
                 //PhotonNetwork.JoinOrCreateRoom($"{guid}", roomOptions, TypedLobby.Default);
                 Debug.Log("Joining!");
-                PhotonNetwork.JoinRandomRoom();
-                StartTimer();
+                PhotonNetwork.JoinOrCreateRoom("MyRoom", roomOptions, TypedLobby.Default);
+
             }
         }
 
@@ -155,6 +139,9 @@ namespace Networking
             // Called when successfully joined a room
             Debug.Log("Total Players = " + PhotonNetwork.CurrentRoom.MaxPlayers);
             Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
+            if (PhotonNetwork.IsMasterClient)
+                _photonView.RPC("StartTimer", RpcTarget.AllBuffered);
+            // StartTimer();
             /*      LobbyManager.StartGame(PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount);*/
         }
 
@@ -176,10 +163,11 @@ namespace Networking
         }
 
         #endregion Room Management
-
+        [PunRPC]
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
+            Debug.Log("Timer Started");
             StartCoroutine(HelperCoroutine.Countdown(10,
                 onTimerUpdate: (float val) =>
                 {

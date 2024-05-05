@@ -41,6 +41,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - LoadNextScene
   - SpawnInputManager
+  - SetNickNameRPC
+  - StartTimer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

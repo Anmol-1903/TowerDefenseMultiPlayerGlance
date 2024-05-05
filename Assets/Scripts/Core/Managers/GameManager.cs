@@ -66,8 +66,8 @@ namespace Core
                 (data) => Audio.AudioManager.Instance.LoadContainer(data as Audio.AudioContainer)));
 
             GameSetting.LoadData();
-            NetworkManager.CreateInstance();
-            NetworkManager.Instance.InitializePhoton(GameSetting);
+            // NetworkManager.CreateInstance();
+            // NetworkManager.Instance.InitializePhoton(GameSetting);
             AddSceneEvents();
 
             //todo Do Photon Init here!!
@@ -77,7 +77,7 @@ namespace Core
             // wait for 10 second to connect
             while (Time.time - startTime < timeoutDuration && !connected)
             {
-                connected = NetworkManager.Instance.IsConnected;
+              //  connected = NetworkManager.Instance.IsConnected;
 
                 yield return null;
             }
