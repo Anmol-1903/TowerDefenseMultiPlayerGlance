@@ -8,6 +8,7 @@ using Util;
 using Core;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Networking
 {
@@ -141,6 +142,7 @@ namespace Networking
             Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
             if (PhotonNetwork.IsMasterClient)
                 _photonView.RPC("StartTimer", RpcTarget.AllBuffered);
+
             // StartTimer();
             /*      LobbyManager.StartGame(PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount);*/
         }

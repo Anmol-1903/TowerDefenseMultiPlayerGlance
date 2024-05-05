@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Core;
 using Photon.Pun;
 using Photon.Realtime;
@@ -43,6 +44,7 @@ namespace Networking
             string sceneToLoad = GameManager.Instance.SceneContainer.GameLevelScenes[Random.Range(0, GameManager.Instance.SceneContainer.GameLevelScenes.Length)];
             // PhotonNetwork.LoadLevel(Core.GameManager.Instance.SceneContainer.TutorialLevelScenes[0]);
             PhotonNetwork.LoadLevel(sceneToLoad);
+            DontDestroyOnLoad(PhotonNetwork.Instantiate(Path.Combine("Prefabs", "InputManager"), Vector3.zero, Quaternion.identity));
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
