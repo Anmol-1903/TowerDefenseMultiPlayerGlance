@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   nickname: Player
-  nicknameId: 04250949
+  nicknameId: 
   <MaxPlayers>k__BackingField: 4
   playerColors: []

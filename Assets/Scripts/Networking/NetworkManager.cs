@@ -7,6 +7,7 @@ using TMPro;
 using Util;
 using Core;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
 namespace Networking
 {
@@ -50,6 +51,8 @@ namespace Networking
         private Coroutine timerCoroutine;
         private int maxPlayers;
         public static Action<int> OnMatchFound = delegate { }; //param1 for number of bots
+
+        private RoomOptions roomOptions = new RoomOptions();
 
         private void Awake()
         {
@@ -110,6 +113,16 @@ namespace Networking
 
         #region Connection Callbacks
 
+        private void Update()
+        {
+            Debug.Log($"{PhotonNetwork.CountOfPlayersOnMaster}____{PhotonNetwork.CountOfPlayers}");
+        }
+
+        public override void OnRoomListUpdate(List<RoomInfo> roomList)
+        {
+            base.OnRoomListUpdate(roomList);
+        }
+
         public override void OnConnectedToMaster()
         {
             // Called when connected to the Photon server
@@ -132,19 +145,17 @@ namespace Networking
 
         public void JoinOrCreateRoom()
         {
-            maxPlayers = Random.Range(2, gameSettings.MaxPlayers + 1);
+            maxPlayers = gameSettings.MaxPlayers;
             if (!PhotonNetwork.IsConnected) return;
             // Attempt to join or create a room if connected
             if (PhotonNetwork.IsConnected)
             {
-                // Try to join an existing room
-                RoomOptions roomOptions = new RoomOptions
-                {
-                    MaxPlayers = maxPlayers
-                };
+                // Try to join an existing roo
 
                 //TODO: Need to way to join random room and if failed one then create new one
-                PhotonNetwork.JoinOrCreateRoom("MyRoom", roomOptions, TypedLobby.Default);
+                //PhotonNetwork.JoinOrCreateRoom($"{guid}", roomOptions, TypedLobby.Default);
+                Debug.Log("Joining!");
+                PhotonNetwork.JoinRandomRoom();
                 StartTimer();
             }
         }
@@ -154,15 +165,18 @@ namespace Networking
             // Called when successfully joined a room
             Debug.Log("Total Players = " + PhotonNetwork.CurrentRoom.MaxPlayers);
             Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
+            /*      LobbyManager.StartGame(PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount);*/
         }
 
-        public override void OnJoinRoomFailed(short returnCode, string message)
+        public override void OnJoinRandomFailed(short returnCode, string message)
         {
             // Called when failed to join a room, creating a new room
-            Debug.Log("Failed to join room. Creating a new room.");
-
-            RoomOptions roomOptions = new RoomOptions();
-            PhotonNetwork.CreateRoom("MyRoom", roomOptions, TypedLobby.Default);
+            Debug.Log($"Failed to join room. Creating a new room.{message} ");
+            roomOptions.MaxPlayers = maxPlayers;
+            roomOptions.IsOpen = true;
+            roomOptions.IsVisible = true;
+            Guid guid = Guid.NewGuid();
+            PhotonNetwork.CreateRoom(guid.ToString(), roomOptions, TypedLobby.Default);
         }
 
         public override void OnCreatedRoom()
@@ -176,7 +190,7 @@ namespace Networking
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
-            StartCoroutine(HelperCoroutine.Countdown(15,
+            StartCoroutine(HelperCoroutine.Countdown(10,
                 onTimerUpdate: (float val) =>
                 {
                     if (timerText != null)
@@ -201,7 +215,7 @@ namespace Networking
                         $"Going with {remainingSlots} bots".Log();
                     }
                     LobbyManager.StartGame(remainingSlots);
-                    // OnMatchFound?.Invoke(remainingSlots);
+                    OnMatchFound?.Invoke(remainingSlots);
                 } // what to do when timer is completed
               ));
         }

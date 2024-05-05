@@ -138,7 +138,6 @@ namespace Core
             yield return StartCoroutine(HelperCoroutine.Countdown(3,
             onTimerUpdate: (val) =>
             {
-                val.Log();
                 //SomeTextEffect?
             }, onComplete: () =>
             {

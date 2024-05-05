@@ -11,7 +11,7 @@ namespace Util
         {
             DateTime now = DateTime.Now;
             Guid guid = Guid.NewGuid();
-            string uniqueId = $"{now:MMddHHmm}{guid:N}"[..8];
+            string uniqueId = $"{now:MMddHHmmss}{guid:N}"[..16];
 
             return uniqueId;
         }
