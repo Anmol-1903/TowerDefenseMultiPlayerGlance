@@ -77,7 +77,7 @@ namespace Core
             // wait for 10 second to connect
             while (Time.time - startTime < timeoutDuration && !connected)
             {
-              //  connected = NetworkManager.Instance.IsConnected;
+                //  connected = NetworkManager.Instance.IsConnected;
 
                 yield return null;
             }
@@ -135,15 +135,6 @@ namespace Core
             yield return StartCoroutine(PathHandler.PathManager.Instance.GetPathData());
             yield return StartCoroutine(Troop.TroopPooler.Instance.GetTroopPoolData());
             LoadingManager.Instance.HideLoadingScreen();
-            yield return StartCoroutine(HelperCoroutine.Countdown(3,
-            onTimerUpdate: (val) =>
-            {
-                //SomeTextEffect?
-            }, onComplete: () =>
-            {
-                "GameStart!".Log();
-                OnGameStart?.Invoke();
-            }));
         }
     }
 }

@@ -24,69 +24,38 @@ namespace Core.Input
 
         private TowerChangeHandler towerChangeHandler; // Reference to the TowerChangeHandler
 
-        private PhotonView photonView; // Reference to the PhotonView component
-        private PlayerUIHandler playerUIHandler; // Reference to the PlayerUIHandler
-
         private void Start()
         {
-            photonView = GetComponent<PhotonView>();
-            playerUIHandler = GetComponent<PlayerUIHandler>();
+            GameManager.Instance.OnGameStart += EnableInputs;
             GameManager.Instance.OnGameEnd += OnGameEnd;
             towerChangeHandler = FindFirstObjectByType<TowerChangeHandler>();
-            playerUIHandler.SetPlayerName("");
+            //playerUIHandler.SetPlayerName("");
         }
 
         // Set properties for the input manager based on the index
-        public void SetProperties(int index)
+        public void SetOwner(int index)
         {
-            InputOwner clientOwner = GetClientOwnerFromIndex(index - 1);
-            photonView.RPC("SpawnInputManager", RpcTarget.AllBuffered, clientOwner);
+            owner = GetClientOwnerFromIndex(index - 1);
+            owner.Log();
         }
 
-        // RPC method to spawn input manager with the given owner
-        [PunRPC]
-        private void SpawnInputManager(InputOwner clientOwner)
-        {
-            owner = clientOwner;
-
-            // Enable inputs only if this instance is owned by the local player
-            if (photonView.IsMine)
-            {
-                photonView.RPC(nameof(SetNickNameRPC), RpcTarget.All, PhotonNetwork.LocalPlayer.NickName);
-                EnableInputs();
-            }
-            else
-            {
-                DisableInputs();
-            }
-        }
-
-        // Set player nickname in UI
-        public void SetNickName(string name)
-        {
-            photonView.RPC(nameof(SetNickNameRPC), RpcTarget.All, name);
-        }
-        [PunRPC]
-        private void SetNickNameRPC(string name)
-        {
-            playerUIHandler.SetPlayerName(name);
-        }
         // Map client index to ownership type
         private InputOwner GetClientOwnerFromIndex(int clientIndex)
         {
-            switch (clientIndex)
+            return clientIndex switch
             {
-                case 0: return InputOwner.Blue;
-                case 1: return InputOwner.Red;
-                case 2: return InputOwner.Yellow;
-                case 3: return InputOwner.Green;
-                default: return InputOwner.Blue;
-            }
+                0 => InputOwner.Blue,
+                1 => InputOwner.Red,
+                2 => InputOwner.Yellow,
+                3 => InputOwner.Green,
+                _ => InputOwner.Blue,
+            };
         }
 
         // Enable touch inputs
         private void EnableInputs()
         {
+            TouchSimulation.Enable();
             EnhancedTouchSupport.Enable();
             Touch.onFingerDown += Touch_onFingerDown;
             Touch.onFingerMove += Touch_onFingerMove;
@@ -100,15 +69,13 @@ namespace Core.Input
             Touch.onFingerMove -= Touch_onFingerMove;
             Touch.onFingerUp -= Touch_onFingerUp;
             EnhancedTouchSupport.Disable();
+            TouchSimulation.Disable();
         }
 
         // Handle cleanup when the game ends
         private void OnGameEnd(bool success)
         {
-            if (photonView.IsMine)
-            {
-                // Perform cleanup logic
-            }
+            DisableInputs();
         }
 
         // Handle touch down event
@@ -116,7 +83,7 @@ namespace Core.Input
         {
             if (RaycastFromFinger(finger, out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out towerBase))
+                if (hit.collider.transform.root.TryGetComponent(out towerBase))
                 {
                     if (towerBase.TowerOwner == owner)
                     {
@@ -141,9 +108,9 @@ namespace Core.Input
                 towerChangeHandler.CloseTowerInventory();
                 RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~excludedLayer);
                 isValid = hits.Length == 1
-                    && hits[0].transform.GetComponent<TowerBase>() != null
-                    && hit.transform.GetComponent<TowerBase>() != null
-                    && hits[0].transform.GetComponent<TowerBase>().TowerID == hit.transform.GetComponent<TowerBase>().TowerID;
+                    && hits[0].transform.root.GetComponent<TowerBase>() != null
+                    && hit.transform.root.GetComponent<TowerBase>() != null
+                    && hits[0].transform.root.GetComponent<TowerBase>().TowerID == hit.transform.transform.root.GetComponent<TowerBase>().TowerID;
                 PathManager.Instance.UpdateHintLine(hit.point, isValid);
             }
         }
@@ -158,7 +125,7 @@ namespace Core.Input
                 {
                     if (RaycastFromFinger(finger, out RaycastHit hit))
                     {
-                        towerBase.ConnectTo(hit.transform.GetComponent<TowerBase>());
+                        towerBase.ConnectTo(hit.transform.root.GetComponent<TowerBase>());
                     }
                 }
                 towerBase = null;

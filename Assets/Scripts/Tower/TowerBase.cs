@@ -233,7 +233,7 @@ namespace Tower
                         if (tier == visual.tierVisuals[i].towerTier)
                         {
                             visual.tierVisuals[i].TowerLevelObject.SetActive(true);
-                            //TODO: Set the metarial of active object
+                            visual.tierVisuals[i].TowerLevelObject.GetComponent<MeshRenderer>().material = visual.tierVisuals[i].material;
                         }
                         else
                         {
