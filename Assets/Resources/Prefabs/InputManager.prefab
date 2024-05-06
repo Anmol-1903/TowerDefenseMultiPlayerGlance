@@ -48,3 +48,8 @@ MonoBehaviour:
   excludedLayer:
     serializedVersion: 2
     m_Bits: 544
+  pathLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  raycastLength: 20
+  pathwidth: 0.25
