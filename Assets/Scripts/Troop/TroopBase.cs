@@ -68,7 +68,7 @@ namespace Troop
                             break;
                         }
                     }
-                    if (col.TryGetComponent<TowerBase>(out var enemyTower))
+                    if (col.transform.root.TryGetComponent<TowerBase>(out var enemyTower))
                     {
                         if (enemyTower.TowerID == EnemyId)
                         {
