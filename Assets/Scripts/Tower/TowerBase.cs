@@ -9,7 +9,6 @@ using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
-using UnityEditor.MemoryProfiler;
 
 namespace Tower
 {
@@ -129,7 +128,8 @@ namespace Tower
             if (TowerOwner == owner)
             {
                 Path towerPath = PathManager.Instance.RemovePath(path);
-                int pathIndex = FindTowerInConnection(towerPath.TowerPathOwner);
+                int pathIndex = FindTowerInConnectionByPath(towerPath);
+                pathIndex.Log(this, "#ff0000", 18);
                 if (pathIndex != -1)
                 {
                     Connections.RemoveAt(pathIndex);
@@ -213,6 +213,11 @@ namespace Tower
         private int FindTowerInConnection(TowerBase tower)
         {
             return Connections.FindIndex(connection => connection.Tower.TowerID == tower.TowerID);
+        }
+
+        private int FindTowerInConnectionByPath(Path path)
+        {
+            return Connections.FindIndex(connection => connection.TowerPath.ID == path.ID);
         }
 
         protected virtual void ConnectionCheckUpdate()

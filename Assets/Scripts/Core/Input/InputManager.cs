@@ -159,8 +159,8 @@ namespace Core.Input
                             {
                                 path.TowerPathOwner.DisconnectTower(path, owner);
                                 startCoordinateInWorld = currentPositoninWorld;
+                                "Path is Removal".Log(Color.cyan);
                             }
-                            "Path is Removal".Log(Color.cyan);
                         }
                     }
                 }

@@ -4,6 +4,7 @@ using UnitySingleton;
 using UnityEngine.Pool;
 using System.Collections;
 using Photon.Pun;
+using Util;
 
 namespace Core.PathHandler
 {
@@ -84,10 +85,11 @@ namespace Core.PathHandler
         public Path CreatePath(Vector3 from, Vector3 to, TowerBase creatorTower)
         {
             Path path;
-            if (GameManager.Instance.ConStatus == GameEnums.ConnectionStatus.Connected)
+            if (PhotonNetwork.IsConnected)
             {
-                GameObject pathObj = PhotonNetwork.Instantiate(pathData.PathRendererPrefab.name, Vector3.zero, Quaternion.identity);
+                GameObject pathObj = PhotonNetwork.Instantiate("Prefabs/Path", Vector3.zero, Quaternion.identity);
                 path = pathObj.GetComponent<Path>();
+                "Path Spawn in Network".Log();
             }
             else
             {
