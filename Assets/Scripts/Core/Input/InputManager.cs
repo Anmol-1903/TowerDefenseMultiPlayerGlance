@@ -23,6 +23,23 @@ namespace Core.Input
         private bool isValid; // Flag to check if current tower interaction is valid
 
         private TowerChangeHandler towerChangeHandler; // Reference to the TowerChangeHandler
+        private Vector3 startCoordinateInWorld;
+        private Vector3 currentPositoninWorld;
+
+        /// <summary>
+        /// The layer mask for the path.
+        /// </summary>
+        [SerializeField] private LayerMask pathLayer;
+
+        /// <summary>
+        /// The length of the raycast.
+        /// </summary>
+        [SerializeField] private float raycastLength = 20f;
+
+        /// <summary>
+        /// The width of the path.
+        /// </summary>
+        [SerializeField] private float pathwidth = 0.25f;
 
         private void Start()
         {
@@ -93,9 +110,16 @@ namespace Core.Input
                         }
                         if (towerBase.IsChangeable)
                         {
-                            towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
+                            //towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
                         }
                     }
+                }
+            }
+            else
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(finger.currentTouch.screenPosition), out RaycastHit hitinfo))
+                {
+                    startCoordinateInWorld = new(hitinfo.point.x, 0.1f, hitinfo.point.z);
                 }
             }
         }
@@ -103,15 +127,47 @@ namespace Core.Input
         // Handle touch move event
         private void Touch_onFingerMove(Finger finger)
         {
-            if (towerBase != null && RaycastFromFinger(finger, out RaycastHit hit))
+            if (towerBase != null)
             {
-                towerChangeHandler.CloseTowerInventory();
-                RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~excludedLayer);
-                isValid = hits.Length == 1
-                    && hits[0].transform.root.GetComponent<TowerBase>() != null
-                    && hit.transform.root.GetComponent<TowerBase>() != null
-                    && hits[0].transform.root.GetComponent<TowerBase>().TowerID == hit.transform.transform.root.GetComponent<TowerBase>().TowerID;
-                PathManager.Instance.UpdateHintLine(hit.point, isValid);
+                if (RaycastFromFinger(finger, out RaycastHit hit))
+                {
+                    //towerChangeHandler.CloseTowerInventory();
+                    RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~excludedLayer);
+                    isValid = hits.Length == 1
+                        && hits[0].transform.root.GetComponent<TowerBase>() != null
+                        && hit.transform.root.GetComponent<TowerBase>() != null
+                        && hits[0].transform.root.GetComponent<TowerBase>().TowerID == hit.transform.transform.root.GetComponent<TowerBase>().TowerID;
+                    PathManager.Instance.UpdateHintLine(hit.point, isValid);
+                }
+            }
+            else
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(finger.currentTouch.screenPosition), out RaycastHit hit))
+                {
+                    currentPositoninWorld = new(hit.point.x, 0.1f, hit.point.z);
+                }
+                //inputTrail.position = currentPositoninWorld;
+                Vector3 dir = currentPositoninWorld - startCoordinateInWorld;
+
+                if (dir.magnitude < raycastLength)
+                {
+                    if (Physics.Raycast(startCoordinateInWorld, dir.normalized, out RaycastHit pathHit, 10f, pathLayer))
+                    {
+                        if (dir.magnitude > pathHit.distance + pathwidth)
+                        {
+                            if (pathHit.transform.parent.TryGetComponent(out Path path))
+                            {
+                                path.TowerPathOwner.DisconnectTower(path, owner);
+                                startCoordinateInWorld = currentPositoninWorld;
+                            }
+                            "Path is Removal".Log(Color.cyan);
+                        }
+                    }
+                }
+                else
+                {
+                    startCoordinateInWorld = currentPositoninWorld;
+                }
             }
         }
 
