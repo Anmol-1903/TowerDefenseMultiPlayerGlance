@@ -7,6 +7,7 @@ namespace Troop
 {
     public class TroopPooler : MonoSingleton<TroopPooler>
     {
+
         [SerializeField, Disable] private TroopDataScriptable troopData;
         public IObjectPool<SoldierTroop> SoldierPool { get; private set; }
         public IObjectPool<BruteTroop> BrutePool { get; private set; }
@@ -30,7 +31,6 @@ namespace Troop
         {
             SoldierPool.Clear();
         }
-
         public void SpawnSoldierTroop(string selfId, string enemyId, Core.GameEnums.OwnershipType owner, Vector3 startPoint, Vector3 endPoint)
         {
             SoldierTroop soldier = SoldierPool.Get();

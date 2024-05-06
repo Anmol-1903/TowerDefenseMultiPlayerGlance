@@ -6,7 +6,7 @@ namespace Troop
 {
     public class BruteTroop : TroopBase
     {
-        private PhotonView pv;
+        [HideInInspector] public PhotonView pv;
 
         public override void InitTroop(GameEnums.OwnershipType owner, string selfId, string enemyId, Vector3 start, Vector3 end, TroopDataScriptable troopData)
         {

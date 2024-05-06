@@ -45,6 +45,7 @@ MonoBehaviour:
   - StartTimer
   - Countdown
   - OnDeathRPC
+  - InitTroopRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
