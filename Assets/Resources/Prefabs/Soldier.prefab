@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 6675137621730272696}
   - component: {fileID: 866603687912436518}
   - component: {fileID: 4155335585273248986}
-  - component: {fileID: 6777993478856746237}
+  - component: {fileID: 5811692524202268670}
+  - component: {fileID: -6983877541434622613}
   m_Layer: 6
-  m_Name: Brute
+  m_Name: Soldier
   m_TagString: Troop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +96,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dd435bac5c04854c9ea2e8373edb381, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,7 +141,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6777993478856746237
+--- !u!114 &5811692524202268670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,16 +150,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 7939972431911361564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5484f22f76495854b97ef26445b3350d, type: 3}
+  m_Script: {fileID: 11500000, guid: e1d51935d084e884bad0380779c05dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Id>k__BackingField: 
   <EnemyId>k__BackingField: 
   <Owner>k__BackingField: 0
   <CurrentLevel>k__BackingField: 0
-  speed: 3
+  speed: 5
   collisionCheckTransform: {fileID: 5736337494697218021}
   collidableLayer:
     serializedVersion: 2
     m_Bits: 72
   collidableDist: 1
+--- !u!114 &-6983877541434622613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939972431911361564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
