@@ -14,18 +14,18 @@ namespace Troop
             currentHealth = data.BruteHealth;
             CurrentLevel = data.BruteLevel;
             isInitialize = true;
-            pv = GetComponent<PhotonView>();
+            //pv = GetComponent<PhotonView>();
         }
 
         [PunRPC]
         private void OnDeathRPC()
         {
-            TroopPooler.Instance.BrutePool.Release(this);
         }
 
         protected override void OnDeath()
         {
-            pv.RPC("OnDeathRPC", RpcTarget.All);
+            TroopPooler.Instance.BrutePool.Release(this);
+            //pv.RPC("OnDeathRPC", RpcTarget.All);
         }
     }
 }
