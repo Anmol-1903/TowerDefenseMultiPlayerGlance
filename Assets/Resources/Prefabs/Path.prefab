@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 6742683933050450270}
   - component: {fileID: 2833016424281638023}
   - component: {fileID: 7373259683637888753}
+  - component: {fileID: 1658794809186209533}
   - component: {fileID: -7661114323165427922}
   m_Layer: 7
   m_Name: Path
@@ -206,6 +207,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ID>k__BackingField: 
   <TowerPathOwner>k__BackingField: {fileID: 0}
+--- !u!114 &1658794809186209533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262815218773881273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!114 &-7661114323165427922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +243,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7373259683637888753}
+  - {fileID: 1658794809186209533}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.PathHandler
 {
-    public class Path : MonoBehaviourPunCallbacks, IPunObservable
+    public class Path : MonoBehaviourPunCallbacks,IPunObservable
     {
         private LineRenderer lineRenderer;
         [field: SerializeField, Disable] public string ID { get; private set; }
@@ -46,12 +46,21 @@ namespace Core.PathHandler
 
         public void DrawPath(bool useWorldSpace, Vector3 start, Vector3 end, TowerBase pathCreatorTower, Material pathMat)
         {
+            Debug.Log("Start : " + start + " End : " + end + " Creator : " + pathCreatorTower);
+            photonView.RPC("RPC_DrawPath", RpcTarget.All, useWorldSpace, start, end, pathCreatorTower.gameObject.GetPhotonView().ViewID,
+             new Vector3(pathMat.GetColor("_MainColor").r, pathMat.GetColor("_MainColor").g, pathMat.GetColor("_MainColor").b));
+            // RPC_DrawPath(useWorldSpace, start, end, pathCreatorTower, pathMat);
+        }
+        [PunRPC]
+        private void RPC_DrawPath(bool useWorldSpace, Vector3 start, Vector3 end, int pathCreatorTower, Vector3 pathMat)
+        {
             lineRenderer.useWorldSpace = useWorldSpace;
             lineRenderer.SetPosition(0, start);
             lineRenderer.SetPosition(1, end);
             GenerateCollider(start, end);
-            TowerPathOwner = pathCreatorTower;
-            lineRenderer.material = pathMat;
+            TowerPathOwner = PhotonView.Find(pathCreatorTower).GetComponent<TowerBase>();
+            Color color = new Color(pathMat.x, pathMat.y, pathMat.z);
+            lineRenderer.material.SetColor("_BaseColor", color);
         }
 
         private void GenerateCollider(Vector3 from, Vector3 to)
@@ -65,20 +74,25 @@ namespace Core.PathHandler
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            if (stream.IsWriting)
-            {
-                stream.SendNext(new Data(true, lineRenderer.GetPosition(0), lineRenderer.GetPosition(1), TowerPathOwner, lineRenderer.material));
-            }
-            else
-            {
-                Data data = (Data)stream.ReceiveNext();
-                this.lineRenderer.useWorldSpace = data.useWorldSpace;
-                this.lineRenderer.SetPosition(0, data.start);
-                this.lineRenderer.SetPosition(1, data.end);
-                this.TowerPathOwner = data.creatorTower;
-                this.lineRenderer.material = data.pathMat;
-            }
+            // throw new NotImplementedException();
         }
+
+        // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        // {
+        //     if (stream.IsWriting)
+        //     {
+        //         stream.SendNext(new Data(true, lineRenderer.GetPosition(0), lineRenderer.GetPosition(1), TowerPathOwner, lineRenderer.material));
+        //     }
+        //     else
+        //     {
+        //         Data data = (Data)stream.ReceiveNext();
+        //         this.lineRenderer.useWorldSpace = data.useWorldSpace;
+        //         this.lineRenderer.SetPosition(0, data.start);
+        //         this.lineRenderer.SetPosition(1, data.end);
+        //         this.TowerPathOwner = data.creatorTower;
+        //         this.lineRenderer.material = data.pathMat;
+        //     }
+        // }
 
         /*    private void Update()
             {
