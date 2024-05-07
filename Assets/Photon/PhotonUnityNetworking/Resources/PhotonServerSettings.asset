@@ -44,6 +44,8 @@ MonoBehaviour:
   - SetNickNameRPC
   - StartTimer
   - Countdown
+  - OnDeathRPC
+  - InitTroopRPC
   - RPC_DrawPath
   DisableAutoOpenWizard: 1
   ShowSettings: 1

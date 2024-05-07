@@ -74,7 +74,20 @@ namespace Core.PathHandler
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            // throw new NotImplementedException();
+  
+            /*            if (stream.IsWriting)
+                        {
+                            stream.SendNext(new Data(true, lineRenderer.GetPosition(0), lineRenderer.GetPosition(1), TowerPathOwner, lineRenderer.material));
+                        }
+                        else
+                        {
+                            Data data = (Data)stream.ReceiveNext();
+                            this.lineRenderer.useWorldSpace = data.useWorldSpace;
+                            this.lineRenderer.SetPosition(0, data.start);
+                            this.lineRenderer.SetPosition(1, data.end);
+                            this.TowerPathOwner = data.creatorTower;
+                            this.lineRenderer.material = data.pathMat;
+                        }*/
         }
 
         // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
