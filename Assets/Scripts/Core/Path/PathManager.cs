@@ -117,9 +117,14 @@ namespace Core.PathHandler
         public Path RemovePath(Path path)
         {
             lineRendersPool.Release(path);
+            StartCoroutine(DelayDestroyPath(path));
             return path;
         }
-
+        private IEnumerator DelayDestroyPath(Path path)
+        {
+            yield return new WaitForSeconds(0.5f);
+            PhotonNetwork.Destroy(path.photonView);
+        }
         #region ObjectPoolingMethods
 
         private Path OnCreateRenderers()
