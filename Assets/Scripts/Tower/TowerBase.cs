@@ -154,7 +154,8 @@ namespace Tower
                 if (Level >= maxLevel)
                 {
                     Level = maxLevel;
-                    RespawnTroop(incomingTroop);
+                    if (Connections.Count > 0)
+                        RespawnTroop(incomingTroop);
                 }
                 OnTowerUpgrade_Level?.Invoke();
             }
@@ -236,6 +237,10 @@ namespace Tower
             if (!CanCreateConnections) return;
 
             int index = UnityEngine.Random.Range(minInclusive: 0, maxExclusive: Connections.Count);
+            if (Connections.Count == 1)
+            {
+                index = 0;
+            }
             if (troop is SoldierTroop)
             {
                 TroopPooler.Instance.SpawnSoldierTroop(TowerID, Connections[index].Tower.TowerID, TowerOwner, transform.position, Connections[index].Tower.transform.position);
