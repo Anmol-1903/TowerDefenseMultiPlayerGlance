@@ -64,9 +64,8 @@ namespace Troop
                 {
                     if (col.TryGetComponent<TroopBase>(out var enemyTroop))
                     {
-                        if (enemyTroop.Id == EnemyId)
+                        if (enemyTroop.Id == EnemyId && enemyTroop.Owner != Owner)
                         {
-                            "Enemy Collided".Log(Color.red, this);
                             DamageToOtherTroop(enemyTroop);
                             break;
                         }
@@ -75,7 +74,6 @@ namespace Troop
                     {
                         if (enemyTower.TowerID == EnemyId)
                         {
-                            "Tower Collider".Log(Color.blue, this);
                             enemyTower.UpdateTowerLevel(this);
                             currentHealth = 0;
                         }
