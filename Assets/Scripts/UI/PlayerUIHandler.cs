@@ -11,9 +11,6 @@ public class PlayerUIHandler : MonoBehaviour
     // Method to set the player name in the UI
     public void SetPlayerName(string name)
     {
-        // Log the player name for debugging
-        Debug.LogWarning("Name = " + name);
-        
         // Set the player name in the UI
         playerNameText.text = name;
     }

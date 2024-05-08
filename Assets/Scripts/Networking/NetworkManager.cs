@@ -20,7 +20,6 @@ namespace Networking
 
         public static NetworkManager Instance;
 
-
         private GameSettings gameSettings;
 
         [HideInInspector] public bool IsConnected = false;
@@ -40,6 +39,7 @@ namespace Networking
 
         private RoomOptions roomOptions = new RoomOptions();
         private PhotonView _photonView;
+
         private void Awake()
         {
             if (Instance == null) Instance = this;
@@ -131,7 +131,6 @@ namespace Networking
                 //PhotonNetwork.JoinOrCreateRoom($"{guid}", roomOptions, TypedLobby.Default);
                 Debug.Log("Joining!");
                 PhotonNetwork.JoinOrCreateRoom("MyRoom", roomOptions, TypedLobby.Default);
-
             }
         }
 
@@ -165,11 +164,11 @@ namespace Networking
         }
 
         #endregion Room Management
+
         [PunRPC]
         private void StartTimer()
         {
             //todo Use Countdown Helper Coroutine
-            Debug.Log("Timer Started");
             StartCoroutine(HelperCoroutine.Countdown(10,
                 onTimerUpdate: (float val) =>
                 {

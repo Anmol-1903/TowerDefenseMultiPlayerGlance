@@ -1,3 +1,4 @@
+using UI;
 using Util;
 using Troop;
 using System;
@@ -31,8 +32,8 @@ namespace Tower
 
         [field: SerializeField, EndHorizontalGroup, EndGroup] public Tier TowerTier { get; protected set; }
 
-        [SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] protected int usedPaths = 0;
-        [SerializeField, DisableInPlayMode] protected int maxPaths = 3;
+        [field: SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] public int UsedPaths { get; protected set; }
+        [field: SerializeField, DisableInPlayMode] public int MaxPaths { get; protected set; }
         [field: SerializeField, Disable] public bool CanCreateConnections { get; protected set; }
         [field: SerializeField, LabelByChild("Name"), Disable, EndGroup] public List<TowerConnection> Connections { get; protected set; }
 
@@ -43,10 +44,13 @@ namespace Tower
 
         [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner"), EndGroup] public OwnerVisual[] Visual { get; protected set; }
 
+        private TowerUIHandler uiHandler;
+
         protected virtual void Awake()
         {
             Guid guid = Guid.NewGuid();
             TowerID = guid.ToString()[..8];
+            uiHandler = GetComponentInChildren<TowerUIHandler>();
         }
 
         protected virtual void Start()
@@ -182,7 +186,7 @@ namespace Tower
                 TowerTier = Tier.Tier1;
                 OnTowerTierChanged?.Invoke(Tier.Tier1, isUpgrading);
             }
-            else if (Level == 10)
+            else if (Level == 20)
             {
                 TowerTier = Tier.Tier2;
                 OnTowerTierChanged?.Invoke(Tier.Tier2, isUpgrading);
@@ -222,9 +226,9 @@ namespace Tower
 
         protected virtual void ConnectionCheckUpdate()
         {
-            usedPaths = Connections.Count;
-            CanCreateConnections = usedPaths < maxPaths;
-            maxPaths = (int)TowerTier;
+            UsedPaths = Connections.Count;
+            CanCreateConnections = UsedPaths < MaxPaths;
+            MaxPaths = (int)TowerTier;
         }
 
         protected void RespawnTroop(TroopBase troop)
@@ -256,6 +260,7 @@ namespace Tower
                         {
                             visual.tierVisuals[i].TowerLevelObject.SetActive(true);
                             visual.tierVisuals[i].TowerLevelObject.GetComponent<MeshRenderer>().material = visual.tierVisuals[i].material;
+                            uiHandler.UpdateUIPosition(visual.tierVisuals[i].TowerLevelObject.transform.GetChild(0));
                         }
                         else
                         {
