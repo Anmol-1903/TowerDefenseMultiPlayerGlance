@@ -9,6 +9,7 @@ using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
+using TMPro;
 
 namespace Tower
 {
