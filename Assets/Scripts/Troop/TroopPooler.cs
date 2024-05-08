@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnitySingleton;
@@ -45,7 +46,8 @@ namespace Troop
 
         private SoldierTroop CreateSoldierPool()
         {
-            return Instantiate(troopData.SoldierPrefab);
+            GameObject troop = PhotonNetwork.Instantiate("SoldierTroop", Vector3.zero, Quaternion.identity);
+            return troop.GetComponent<SoldierTroop>();
         }
 
         private void OnGetSoldier(SoldierTroop obj)
