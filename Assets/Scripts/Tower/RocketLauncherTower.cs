@@ -21,7 +21,7 @@ namespace Tower
             base.Awake();
             TowerType = TowerType.Rocket;
             CanCreateConnections = false;
-            usedPaths = maxPaths = 0;
+            UsedPaths = MaxPaths = 0;
         }
         protected override void Update()
         {

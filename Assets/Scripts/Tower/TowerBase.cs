@@ -1,3 +1,4 @@
+using UI;
 using Util;
 using Troop;
 using System;
@@ -9,8 +10,6 @@ using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
-using TMPro;
-using UI;
 
 namespace Tower
 {
@@ -33,8 +32,8 @@ namespace Tower
 
         [field: SerializeField, EndHorizontalGroup, EndGroup] public Tier TowerTier { get; protected set; }
 
-        [SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] protected int usedPaths = 0;
-        [SerializeField, DisableInPlayMode] protected int maxPaths = 3;
+        [field: SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] public int UsedPaths { get; protected set; }
+        [field: SerializeField, DisableInPlayMode] public int MaxPaths { get; protected set; }
         [field: SerializeField, Disable] public bool CanCreateConnections { get; protected set; }
         [field: SerializeField, LabelByChild("Name"), Disable, EndGroup] public List<TowerConnection> Connections { get; protected set; }
 
@@ -227,9 +226,9 @@ namespace Tower
 
         protected virtual void ConnectionCheckUpdate()
         {
-            usedPaths = Connections.Count;
-            CanCreateConnections = usedPaths < maxPaths;
-            maxPaths = (int)TowerTier;
+            UsedPaths = Connections.Count;
+            CanCreateConnections = UsedPaths < MaxPaths;
+            MaxPaths = (int)TowerTier;
         }
 
         protected void RespawnTroop(TroopBase troop)
