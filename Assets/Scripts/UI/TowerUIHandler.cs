@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Tower;
 using UnityEngine;
@@ -23,6 +21,11 @@ namespace UI
         private void Update()
         {
             levelText.text = tower.Level.ToString();
+        }
+
+        public void UpdateUIPosition(Transform pos)
+        {
+            transform.position = pos.position;
         }
     }
 }

@@ -10,6 +10,7 @@ using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
 using TMPro;
+using UI;
 
 namespace Tower
 {
@@ -44,10 +45,13 @@ namespace Tower
 
         [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner"), EndGroup] public OwnerVisual[] Visual { get; protected set; }
 
+        private TowerUIHandler uiHandler;
+
         protected virtual void Awake()
         {
             Guid guid = Guid.NewGuid();
             TowerID = guid.ToString()[..8];
+            uiHandler = GetComponentInChildren<TowerUIHandler>();
         }
 
         protected virtual void Start()
@@ -183,7 +187,7 @@ namespace Tower
                 TowerTier = Tier.Tier1;
                 OnTowerTierChanged?.Invoke(Tier.Tier1, isUpgrading);
             }
-            else if (Level == 10)
+            else if (Level == 20)
             {
                 TowerTier = Tier.Tier2;
                 OnTowerTierChanged?.Invoke(Tier.Tier2, isUpgrading);
@@ -257,6 +261,7 @@ namespace Tower
                         {
                             visual.tierVisuals[i].TowerLevelObject.SetActive(true);
                             visual.tierVisuals[i].TowerLevelObject.GetComponent<MeshRenderer>().material = visual.tierVisuals[i].material;
+                            uiHandler.UpdateUIPosition(visual.tierVisuals[i].TowerLevelObject.transform.GetChild(0));
                         }
                         else
                         {
