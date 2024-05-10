@@ -54,6 +54,7 @@ namespace Core.Input
         {
             owner = GetClientOwnerFromIndex(index - 1);
             owner.Log();
+            FindFirstObjectByType<GameOver>().SetOwner(owner);
         }
 
         // Map client index to ownership type

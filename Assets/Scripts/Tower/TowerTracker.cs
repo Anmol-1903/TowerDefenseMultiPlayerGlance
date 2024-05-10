@@ -10,9 +10,11 @@ namespace Tower
 {
     public class TowerTracker : MonoSingleton<TowerTracker>
     {
-        [SerializeField] private List<TowerBase> towerList;
+        [field: SerializeField] public List<TowerBase> TowerList { get; private set; }
         [SerializeField, LabelByChild("OwnershipType")] private List<TowerByOwner> towersByOwner;
         [SerializeField, LabelByChild("Type")] private List<TowerByType> towersByType;
+
+        public Action OnTowerUpdateInScene;
 
         /// <summary>
         /// Index of <br></br>
@@ -36,6 +38,12 @@ namespace Tower
         /// </summary>
         public List<TowerByType> TowersByType { get => towersByType; }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            OnTowerUpdateInScene += Init;
+        }
+
         public void Init()
         {
             GetAllTower();
@@ -45,9 +53,9 @@ namespace Tower
 
         public List<TowerBase> GetAllTower()
         {
-            towerList = new();
-            towerList.AddRange(FindObjectsByType<TowerBase>(FindObjectsSortMode.None).ToList());
-            return towerList;
+            TowerList = new();
+            TowerList.AddRange(FindObjectsByType<TowerBase>(FindObjectsSortMode.None).ToList());
+            return TowerList;
         }
 
         public void FilterTowerByOwner()
@@ -77,11 +85,11 @@ namespace Tower
         public List<TowerBase> GetTowerByOwner(OwnershipType ownerType)
         {
             List<TowerBase> list = new();
-            if (towerList == null || towerList.Count == 0)
+            if (TowerList == null || TowerList.Count == 0)
             {
                 GetAllTower();
             }
-            foreach (var tower in towerList)
+            foreach (var tower in TowerList)
             {
                 if (tower.TowerOwner == ownerType)
                 {
@@ -94,11 +102,11 @@ namespace Tower
         public List<TowerBase> GetTowerByType(TowerType type)
         {
             List<TowerBase> lst = new();
-            if (towerList == null || towerList.Count == 0)
+            if (TowerList == null || TowerList.Count == 0)
             {
                 GetAllTower();
             }
-            foreach (var tower in towerList)
+            foreach (var tower in TowerList)
             {
                 if (tower.TowerType == type)
                 {
