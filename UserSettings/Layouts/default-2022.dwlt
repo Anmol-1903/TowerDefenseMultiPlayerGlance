@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 549
     height: 987
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 463
+  controlID: 136
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,8 +167,8 @@ MonoBehaviour:
     y: 0
     width: 515
     height: 987
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 415
     height: 435
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: Window
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -272,14 +272,14 @@ MonoBehaviour:
     y: 0
     width: 441
     height: 987
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,8 +300,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1479
-    y: 73
+    x: -30521
+    y: -31970
     width: 440
     height: 966
   m_SerializedDataModeController:
@@ -314,13 +314,13 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  progressMessageClearTime: 333.5507768
+  progressMessageClearTime: -1
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
-  currentTrackingStatusHasUpdate: 1
-  currentStatusEntriesHasUpdate: 1
-  repositoryProgressHasUpdate: 1
+  currentTrackingStatusHasUpdate: 0
+  currentStatusEntriesHasUpdate: 0
+  repositoryProgressHasUpdate: 0
   appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
@@ -566,231 +566,21 @@ MonoBehaviour:
       tracking: '[None]'
   changesView:
     currentBranchHasUpdate: 0
-    currentStatusEntriesHasUpdate: 1
-    currentLocksHasUpdate: 1
+    currentStatusEntriesHasUpdate: 0
+    currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
     currentBranch: master
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys:
-        - 00000000000000001000000000000000
-        - f0642e624e474924a9a00afc648fc056
-        - 05778440f5a244042b5e60a27ae249ff
-        - 123ed20cfc1459c4580a5183c02e1acd
-        - 9f2164b8bd2c6524b88a1b77cd3b5c0e
-        - 8d5e04fe24622144ba789dcb8c61214a
-        - f641cedbae6b425418e3c22a59702d74
-        values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\BuildScenes
-          label: BuildScenes
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\BuildScenes\GameLevel
-          label: GameLevel
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-          label: MainSceneTest 2.unity
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest
-              2.unity
-            projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 5
-        - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-          label: MainSceneTest.unity
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-            projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 5
-        - path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-          label: SomeRandom.unity
-          level: 4
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-            fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-            projectPath: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 5
+        keys: []
+        values: []
       folders:
         keys:
-        - Assets
-        - Assets\Scenes
-        - Assets\Scenes\BuildScenes
-        - Assets\Scenes\BuildScenes\GameLevel
         - UserSettings
         - UserSettings\Layouts
         values:
-        - path: Assets
-          label: Assets
-          level: 0
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes
-          label: Scenes
-          level: 1
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\BuildScenes
-          label: BuildScenes
-          level: 2
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
-        - path: Assets\Scenes\BuildScenes\GameLevel
-          label: GameLevel
-          level: 3
-          isFolder: 1
-          isContainer: 0
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: 
-            fullPath: 
-            projectPath: 
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 0
         - path: UserSettings
           label: UserSettings
           level: 0
@@ -855,188 +645,6 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets
-        label: Assets
-        level: 0
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes
-        label: Scenes
-        level: 1
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes\BuildScenes
-        label: BuildScenes
-        level: 2
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes\BuildScenes\GameLevel
-        label: GameLevel
-        level: 3
-        isFolder: 1
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: 
-          fullPath: 
-          projectPath: 
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 0
-      - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-        label: MainSceneTest 2.unity
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest
-            2.unity
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity.meta
-        label: MainSceneTest 2.unity.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest
-            2.unity.meta
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-        label: MainSceneTest.unity
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-        label: MainSceneTest.unity.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-        label: SomeRandom.unity
-        level: 4
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-        label: SomeRandom.unity.meta
-        level: 5
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-          fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-          projectPath: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
       - path: UserSettings
         label: UserSettings
         level: 0
@@ -1129,44 +737,6 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest
-        2.unity
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest
-        2.unity.meta
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest 2.unity.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\MainSceneTest.unity.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-      fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-      projectPath: Assets\Scenes\BuildScenes\GameLevel\SomeRandom.unity.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
     - path: UserSettings\EditorUserSettings.asset
       fullPath: E:\UNITY(PROJECT FILE)\TowerDefenseMultiPlayerGlance\UserSettings\EditorUserSettings.asset
       projectPath: UserSettings\EditorUserSettings.asset
@@ -1179,15 +749,15 @@ MonoBehaviour:
       originalPath: 
       indexStatus: 0
       workTreeStatus: 3
-    changedFilesText: 8 changed files
+    changedFilesText: 2 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2024-05-09T12:08:31.520+05:30
+      updatedTimeString: 2024-05-13T15:16:11.763+05:30
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2024-05-09T12:16:20.378+05:30
+      updatedTimeString: 2024-05-13T15:16:18.950+05:30
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2024-05-09T12:16:20.479+05:30
+      updatedTimeString: 2024-05-13T15:16:13.546+05:30
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -27290,13 +26860,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2024-05-09T12:08:31.520+05:30
+    updatedTimeString: 2024-05-13T15:16:11.763+05:30
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2024-05-09T12:16:20.393+05:30
+    updatedTimeString: 2024-05-13T15:16:11.953+05:30
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2024-05-09T12:16:20.378+05:30
+    updatedTimeString: 2024-05-13T15:16:18.950+05:30
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -27314,7 +26884,7 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 0.9898305
+  repositoryProgressValue: 0
   repositoryProgressMessage: 
   appManagerProgressValue: 1
   appManagerProgressMessage: 
@@ -27663,9 +27233,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.1225796, y: 3.6011233, z: -18.43499}
+    m_Target: {x: 266, y: 472.5, z: 0}
     speed: 2
-    m_Value: {x: 4.1225796, y: 3.6011233, z: -18.43499}
+    m_Value: {x: 266, y: 472.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -27715,9 +27285,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.17555158, y: 0.7487968, z: -0.21891846, w: -0.60046625}
   m_Size:
-    m_Target: 4.0409026
+    m_Target: 542.22894
     speed: 2
-    m_Value: 4.231312
+    m_Value: 542.22894
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -28777,9 +28347,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9c700000
-      m_LastClickedID: 28828
-      m_ExpandedIDs: ecdbffffeadcffffa4ddffff20fbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -28864,9 +28434,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fe660000
-    m_LastClickedID: 26366
-    m_ExpandedIDs: 00000000f6660000f8660000fa660000fc660000fe66000000670000026700000467000008690000
+    m_SelectedIDs: f6660000
+    m_LastClickedID: 26358
+    m_ExpandedIDs: 00000000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc66000000690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -28894,7 +28464,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f6660000f8660000fa660000fc660000fe660000006700000267000004670000
+    m_ExpandedIDs: 00000000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -28921,7 +28491,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SplashScene>k__BackingField: SplashScreen
   <MainMenuScene>k__BackingField: MainMenu
-  <TutorialLevelScenes>k__BackingField:
-  - Tut_Level_01
+  <TutorialLevelScenes>k__BackingField: []
   <GameLevelScenes>k__BackingField:
   - MainSceneTest 1
