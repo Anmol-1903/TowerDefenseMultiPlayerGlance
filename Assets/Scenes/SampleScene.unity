@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 1051492726}
   - component: {fileID: 1051492725}
   - component: {fileID: 1051492724}
+  - component: {fileID: 1051492728}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -532,6 +533,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051492728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051492723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a7b7ad7deea9f4f97ea0bf095afc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TowerOwner>k__BackingField: 0
+  <TowerID>k__BackingField: 
+  <TowerType>k__BackingField: 0
+  <TowerChangeableType>k__BackingField: 0
+  defaultTowerPrefab: {fileID: 0}
+  minLevelToChange: 5
+  <IsChangeable>k__BackingField: 0
+  <Level>k__BackingField: 0
+  maxLevel: 64
+  <TowerTier>k__BackingField: 0
+  <UsedPaths>k__BackingField: 0
+  <MaxPaths>k__BackingField: 0
+  <CanCreateConnections>k__BackingField: 0
+  <Connections>k__BackingField: []
+  <OnTowerUpgrade_Level>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnTowerDowngrade_Level>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnTowerOwnerChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnTowerTierChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <Visual>k__BackingField: []
+  startingPoint: {fileID: 1171464223}
+  target: {fileID: 1787906568}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1091347108
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +686,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1171464222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171464223}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171464223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171464222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.93, y: 1.1837139, z: -1.530242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1787906567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1787906568}
+  m_Layer: 0
+  m_Name: GameObject_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1787906568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787906567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.481682, y: 3.31, z: -1.530242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -647,3 +757,5 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1091347112}
   - {fileID: 1051492727}
+  - {fileID: 1171464223}
+  - {fileID: 1787906568}
