@@ -64,10 +64,14 @@ namespace Tower
         }
 
         
-
+        /// <summary>
+        /// Base Testing code for syncing 
+        /// </summary>
+        /// <returns></returns>
         IEnumerator UpdateLevelData()
         {
-            Debug.Log(" UpdateLevelData = " + PhotonNetwork.IsConnected);
+          //  Debug.Log(" UpdateLevelData = " + PhotonNetwork.IsConnected);
+            Debug.Log(" [BaseTest] Get Towerower type" + TowerOwner);
             while (PhotonNetwork.IsConnected)
             {
                 yield return new WaitForSeconds(.1f);
@@ -78,7 +82,7 @@ namespace Tower
         public void SendTowerValue(int currentlevel, PhotonMessageInfo info)
         {
 
-            Debug.Log(info.Sender + ", CurrentLevel: " + currentlevel + ", SenderphotonID " + info.photonView.ViewID + "  ,My photon ID" + photonview.ViewID);
+           // Debug.Log(info.Sender + ", CurrentLevel: " + currentlevel + ", SenderphotonID " + info.photonView.ViewID + "  ,My photon ID" + photonview.ViewID);
             if (photonview.IsMine)
             {
                 if (info.photonView.ViewID == GetComponent<PhotonView>().ViewID)
