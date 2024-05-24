@@ -180,6 +180,8 @@ namespace Tower
                     {
                         //Spawn Default Tower
                     }
+
+                    TowerTracker.Instance.OnTowerUpdateInScene?.Invoke();
                 }
             }
             if (Level == 0)

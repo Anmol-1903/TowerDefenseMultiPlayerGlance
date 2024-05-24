@@ -13,6 +13,8 @@ namespace Tower
         [SerializeField, NotNull] private GameObject holder;
         [SerializeField, LabelByChild("Type")] private TowerInventory[] towerInventoryItems;
 
+        private Action onTowerChange;
+
         private TowerBase selectedTower;
         private Vector3 towerPosition;
 
@@ -27,12 +29,14 @@ namespace Tower
             selectedTower = tower;
             towerPosition = position;
             holder.SetActive(true);
+            onTowerChange += TowerTracker.Instance.Init;
         }
 
         public void CloseTowerInventory()
         {
             selectedTower = null;
             towerPosition = Vector3.zero;
+            onTowerChange -= TowerTracker.Instance.Init;
             holder.SetActive(false);
         }
 
@@ -71,6 +75,8 @@ namespace Tower
                     // Destroy(selectedTower.gameObject);
                     //Remeber tower.CopyTowerSettings
                     //Replace it here
+
+                    onTowerChange?.Invoke();
                 }
                 else
                 {

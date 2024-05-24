@@ -5,8 +5,6 @@ using InputOwner = Core.GameEnums.OwnershipType;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Tower;
 using Util;
-using Photon.Pun;
-using Photon.Pun.Demo.PunBasics;
 
 /*
  * This script handles input management for players.
@@ -54,6 +52,7 @@ namespace Core.Input
         {
             owner = GetClientOwnerFromIndex(index - 1);
             owner.Log();
+            //FindFirstObjectByType<GameOver>().SetOwner(owner);
         }
 
         // Map client index to ownership type

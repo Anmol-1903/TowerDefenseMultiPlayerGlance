@@ -131,7 +131,7 @@ namespace Core
 
         private IEnumerator GameSceneInit()
         {
-            Tower.TowerTracker.Instance.Init();
+            Tower.TowerTracker.Instance.OnTowerUpdateInScene?.Invoke();
             yield return StartCoroutine(PathHandler.PathManager.Instance.GetPathData());
             yield return StartCoroutine(Troop.TroopPooler.Instance.GetTroopPoolData());
             LoadingManager.Instance.HideLoadingScreen();
