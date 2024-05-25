@@ -1,7 +1,4 @@
-using Photon.Pun;
-using System.Collections;
 using Troop;
-using UI;
 using UnityEngine;
 using TowerType = Core.GameEnums.TowerType;
 
@@ -13,9 +10,6 @@ namespace Tower
 
         private float currentSpawnRate;
 
-
-        PhotonView photonview;
-       
         protected override void Awake()
         {
             base.Awake();
@@ -26,10 +20,6 @@ namespace Tower
         {
             base.Start();
             currentSpawnRate = soldierSpawnInterval;
-            photonview = GetComponent<PhotonView>();
-
-            StartCoroutine(UpdateLevelData());
-
         }
 
         protected override void Spawn()
@@ -55,42 +45,6 @@ namespace Tower
             {
                 currentSpawnRate -= Time.deltaTime;
             }
-
-           if (Input.GetKeyDown(KeyCode.L))
-           {
-               Debug.Log("photonview ");
-               UPdateTowerLevel();
-           }
-        }
-
-        
-
-        IEnumerator UpdateLevelData()
-        {
-            Debug.Log(" UpdateLevelData = " + PhotonNetwork.IsConnected);
-            while (PhotonNetwork.IsConnected)
-            {
-                yield return new WaitForSeconds(.1f);
-                UPdateTowerLevel();
-            }
-        }
-        [PunRPC]
-        public void SendTowerValue(int currentlevel, PhotonMessageInfo info)
-        {
-
-            Debug.Log(info.Sender + ", CurrentLevel: " + currentlevel + ", SenderphotonID " + info.photonView.ViewID + "  ,My photon ID" + photonview.ViewID);
-            if (photonview.IsMine)
-            {
-                if (info.photonView.ViewID == GetComponent<PhotonView>().ViewID)
-                {
-                    Level = currentlevel;
-                }
-            }
-
-            }
-            public void UPdateTowerLevel()
-        {
-            this.gameObject.GetComponent<PhotonView>().RPC("SendTowerValue", RpcTarget.All,Level);
         }
     }
 }
