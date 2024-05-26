@@ -165,6 +165,7 @@ MonoBehaviour:
     m_Bits: 72
   collidableDist: 1
   pv: {fileID: 0}
+  meshRenderer: {fileID: 866603687912436518}
 --- !u!114 &-6983877541434622613
 MonoBehaviour:
   m_ObjectHideFlags: 0

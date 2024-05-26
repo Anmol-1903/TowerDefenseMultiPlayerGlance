@@ -2,7 +2,7 @@ using Tower;
 using UnityEngine;
 using Util;
 using TroopOwner = Core.GameEnums.OwnershipType;
-
+using Photon.Pun;
 namespace Troop
 {
     public abstract class TroopBase : MonoBehaviour
@@ -24,7 +24,8 @@ namespace Troop
 
         [SerializeField] protected LayerMask collidableLayer;
         [SerializeField] protected float collidableDist;
-
+       
+     
         private Vector3 startPos, endPos;
 
         protected bool isInitialize;
@@ -40,7 +41,7 @@ namespace Troop
             transform.position = start;
             transform.forward = (end - start).normalized;
         }
-
+        
         protected virtual void Update()
         {
             if (!isInitialize) return;
