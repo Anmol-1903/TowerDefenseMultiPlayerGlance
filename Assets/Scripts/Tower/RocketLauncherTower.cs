@@ -15,7 +15,7 @@ namespace Tower
         [SerializeField] private Transform target;
         [SerializeField] private AnimationCurve curve;
         [SerializeField] private GameObject bulletPrefab;
-        [SerializeField] private float fireRate = 5f;
+        [SerializeField] private float fireInterval = 5f;
 
         private List<Vector3> points = new List<Vector3>();
 

@@ -516,7 +516,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -873,21 +873,21 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 1.9962405
-      outSlope: 1.9962405
+      value: 1.5
+      inSlope: 0.97993094
+      outSlope: 0.97993094
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.49906892
+      outWeight: 0.5016885
     - serializedVersion: 3
       time: 1
-      value: 0.25
-      inSlope: -1.9950154
-      outSlope: -1.9950154
+      value: 0.5
+      inSlope: -2.9933486
+      outSlope: -2.9933486
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.5
+      inWeight: 0.49831152
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
