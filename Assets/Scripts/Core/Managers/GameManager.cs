@@ -116,7 +116,6 @@ namespace Core
             //gamepaly scene is loaded considering offline for now!
             if (scene.name != SceneContainer.MainMenuScene && scene.name != SceneContainer.SplashScene) //can be replace by better conditions
             {
-                Tower.TowerTracker.CreateInstance();
                 PathHandler.PathManager.CreateInstance();
                 Troop.TroopPooler.CreateInstance();
                 StartCoroutine(GameSceneInit());

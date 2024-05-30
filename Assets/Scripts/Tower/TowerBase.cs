@@ -10,6 +10,7 @@ using Tier = Core.GameEnums.Tier;
 using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
+using Photon.Pun;
 
 namespace Tower
 {
@@ -45,20 +46,22 @@ namespace Tower
         [field: SerializeField, BeginGroup("Visual"), LabelByChild("owner"), EndGroup] public OwnerVisual[] Visual { get; protected set; }
 
         private TowerUIHandler uiHandler;
+        private PhotonView photonView;
 
         protected virtual void Awake()
         {
             Guid guid = Guid.NewGuid();
             TowerID = guid.ToString()[..8];
             uiHandler = GetComponentInChildren<TowerUIHandler>();
+            photonView = GetComponent<PhotonView>();
         }
 
         protected virtual void Start()
         {
-            OnTowerOwnerChange.AddListener((type) => UpdateTowerVisual(type, Tier.Tier1));
+            OnTowerOwnerChange.AddListener((type) => photonView.RPC("UpdateTowerVisualRPC", RpcTarget.All, type, Tier.Tier1));
             OnTowerOwnerChange?.Invoke(TowerOwner);
 
-            OnTowerTierChanged.AddListener((tier, isUpgrading) => UpdateTowerVisual(TowerOwner, tier));
+            OnTowerTierChanged.AddListener((tier, isUpgrading) => photonView.RPC("UpdateTowerVisualRPC", RpcTarget.All, TowerOwner, tier));
 
             if (Level >= 30)
             {
@@ -150,7 +153,8 @@ namespace Tower
             {
                 //! fellow Troop
                 isUpgrading = true;
-                Level += incomingTroop.CurrentLevel;
+                int level = incomingTroop.CurrentLevel;
+                photonView.RPC("IncreaseLevelRPC", RpcTarget.AllBuffered, level);
                 if (Level >= maxLevel)
                 {
                     Level = maxLevel;
@@ -163,12 +167,11 @@ namespace Tower
             {
                 //! !Enemy Attack
                 isUpgrading = false;
-                Level -= incomingTroop.CurrentLevel;
-                OnTowerDowngrade_Level?.Invoke();
+                int level = incomingTroop.CurrentLevel;
+                photonView.RPC("ReduceLevelRPC", RpcTarget.AllBuffered, level);
                 if (Level <= 0)
                 {
-                    TowerOwner = incomingTroop.Owner;
-                    OnTowerOwnerChange?.Invoke(incomingTroop.Owner);
+                    photonView.RPC("TransferTowerOwnerShipRPC", RpcTarget.AllBuffered, incomingTroop.Owner);
                     if (Connections != null && Connections.Count > 0)
                     {
                         foreach (var con in Connections)
@@ -180,8 +183,7 @@ namespace Tower
                     {
                         //Spawn Default Tower
                     }
-
-                    TowerTracker.Instance.OnTowerUpdateInScene?.Invoke();
+                    photonView.RPC("InformTowerUpdate", RpcTarget.AllBuffered);
                 }
             }
             if (Level == 0)
@@ -200,7 +202,28 @@ namespace Tower
                 OnTowerTierChanged?.Invoke(Tier.Tier3, isUpgrading);
             }
         }
-
+        [PunRPC]
+        public void InformTowerUpdate()
+        {
+            TowerTracker.Instance.OnTowerUpdateInScene?.Invoke();
+        }
+        [PunRPC]
+        public void TransferTowerOwnerShipRPC(OwnershipType ownershipType)
+        {
+            TowerOwner = ownershipType;
+            OnTowerOwnerChange?.Invoke(ownershipType);
+        }
+        [PunRPC]
+        public void ReduceLevelRPC(int currLevel)
+        {
+            Level -= currLevel;
+            OnTowerDowngrade_Level?.Invoke();
+        }
+        [PunRPC]
+        public void IncreaseLevelRPC(int currLevel)
+        {
+            Level += currLevel;
+        }
         public void UpdateTowerLevel(int amt)
         {
             if (amt == 0) return;
@@ -254,7 +277,11 @@ namespace Tower
         }
 
         protected abstract void Spawn();
-
+        [PunRPC]
+        protected void UpdateTowerVisualRPC(OwnershipType newOwner, Tier tier)
+        {
+            UpdateTowerVisual(newOwner, tier);
+        }
         protected void UpdateTowerVisual(OwnershipType newOwner, Tier tier)
         {
             foreach (var visual in Visual)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 using UnitySingleton;
 using OwnershipType = Core.GameEnums.OwnershipType;
@@ -8,13 +9,15 @@ using TowerType = Core.GameEnums.TowerType;
 
 namespace Tower
 {
-    public class TowerTracker : MonoSingleton<TowerTracker>
+    public class TowerTracker : MonoBehaviourPunCallbacks
     {
+        public static TowerTracker Instance;
         [field: SerializeField] public List<TowerBase> TowerList { get; private set; }
         [SerializeField, LabelByChild("OwnershipType")] private List<TowerByOwner> towersByOwner;
         [SerializeField, LabelByChild("Type")] private List<TowerByType> towersByType;
-
+        public Action OnTowerLost;
         public Action OnTowerUpdateInScene;
+
 
         /// <summary>
         /// Index of <br></br>
@@ -38,13 +41,19 @@ namespace Tower
         /// </summary>
         public List<TowerByType> TowersByType { get => towersByType; }
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
             OnTowerUpdateInScene += Init;
         }
 
         public void Init()
+        {
+            photonView.RPC("InitRPC", RpcTarget.AllBuffered);
+        }
+        [PunRPC]
+        public void InitRPC()
         {
             GetAllTower();
             FilterTowerByOwner();

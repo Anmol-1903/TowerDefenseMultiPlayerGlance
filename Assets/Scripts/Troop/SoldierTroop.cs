@@ -17,9 +17,7 @@ namespace Troop
         {
             pv = GetComponent<PhotonView>();
             //pv.RPC("InitTroopRPC", RpcTarget.All, owner,  selfId,  enemyId,  start,  end,  troopData);
-            pv.RPC("ManageMesh", RpcTarget.AllBuffered, false);
             base.InitTroop(owner, selfId, enemyId, start, end, troopData);
-            pv.RPC("ManageMesh", RpcTarget.AllBuffered, true);
             currentHealth = data.SoldierHealth;
             CurrentLevel = data.SoldierLevel;
             isInitialize = true;

@@ -49,6 +49,16 @@ MonoBehaviour:
   - RPC_DrawPath
   - SendTowerValue
   - ManageMesh
+  - ShowGameOverScreen
+  - ShowGameWinScreen
+  - UpdateTowerVisualRPC
+  - FilterTowerByOwnerRPC
+  - InitRPC
+  - ReduceLevelRPC
+  - TransferTowerOwnerShipRPC
+  - IncreaseLevelRPC
+  - InformTowerUpdata
+  - InformTowerUpdate
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

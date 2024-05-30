@@ -140,7 +140,7 @@ namespace Networking
             Debug.Log("Total Players = " + PhotonNetwork.CurrentRoom.MaxPlayers);
             Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
             if (PhotonNetwork.IsMasterClient)
-                _photonView.RPC("StartTimer", RpcTarget.AllBuffered);
+                _photonView.RPC("StartTimer", RpcTarget.AllBufferedViaServer);
 
             // StartTimer();
             /*      LobbyManager.StartGame(PhotonNetwork.CurrentRoom.MaxPlayers - PhotonNetwork.CurrentRoom.PlayerCount);*/
