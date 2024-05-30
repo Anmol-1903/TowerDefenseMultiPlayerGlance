@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnitySingleton;
 using UnityEngine;
-
 namespace UnitySingleton
 {
     /// <summary>

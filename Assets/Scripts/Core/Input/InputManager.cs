@@ -52,6 +52,7 @@ namespace Core.Input
         {
             owner = GetClientOwnerFromIndex(index - 1);
             owner.Log();
+            GameOver.Instance.SetOwner(owner);
             //FindFirstObjectByType<GameOver>().SetOwner(owner);
         }
 

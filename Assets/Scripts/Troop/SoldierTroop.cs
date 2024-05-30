@@ -7,10 +7,15 @@ namespace Troop
     public class SoldierTroop : TroopBase
     {
         [HideInInspector] public PhotonView pv;
-
+        [SerializeField] private MeshRenderer meshRenderer;
+        [PunRPC]
+        private void ManageMesh(bool state)
+        {
+            meshRenderer.enabled = state;
+        }
         public override void InitTroop(GameEnums.OwnershipType owner, string selfId, string enemyId, Vector3 start, Vector3 end, TroopDataScriptable troopData)
         {
-            //pv = GetComponent<PhotonView>();
+            pv = GetComponent<PhotonView>();
             //pv.RPC("InitTroopRPC", RpcTarget.All, owner,  selfId,  enemyId,  start,  end,  troopData);
             base.InitTroop(owner, selfId, enemyId, start, end, troopData);
             currentHealth = data.SoldierHealth;
