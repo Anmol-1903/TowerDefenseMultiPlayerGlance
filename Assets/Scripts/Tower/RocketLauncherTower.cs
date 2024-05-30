@@ -16,6 +16,7 @@ namespace Tower
         [SerializeField] private AnimationCurve curve;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private float fireRate = 5f;
+        private LineRenderer lineRenderer;
 
         private List<Vector3> points = new List<Vector3>();
 
@@ -29,18 +30,9 @@ namespace Tower
 
         protected override void Start()
         {
-            startingPoint = this.transform;
             base.Start();
-            GenerateParabolicPoints(startingPoint.position, target.position, 16);
-            StartCoroutine(FireBulletRoutine());
-
-            for (int i = 0; i < points.Count; i++)
-            {
-                if (i == points.Count - 1)
-                    break;
-
-                Debug.DrawLine(points[i], points[i + 1], Color.red, 10f);
-            }
+            lineRenderer = GetComponent<LineRenderer>();
+            Retarget(target.position);
         }
 
         private void GenerateParabolicPoints(Vector3 start, Vector3 end, int numberOfPoints)
@@ -95,6 +87,17 @@ namespace Tower
 
         public void Retarget(Vector3 pos)
         {
+            GenerateParabolicPoints(startingPoint.position, pos, 16);
+            StartCoroutine(FireBulletRoutine());
+            lineRenderer.SetPositions(points.ToArray());
+
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (i == points.Count - 1)
+                    break;
+
+                Debug.DrawLine(points[i], points[i + 1], Color.red, 10f);
+            }
         }
 
         protected override void Spawn()
