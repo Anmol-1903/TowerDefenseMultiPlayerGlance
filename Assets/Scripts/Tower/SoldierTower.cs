@@ -13,9 +13,8 @@ namespace Tower
 
         private float currentSpawnRate;
 
+        private PhotonView photonview;
 
-        PhotonView photonview;
-       
         protected override void Awake()
         {
             base.Awake();
@@ -29,7 +28,6 @@ namespace Tower
             photonview = GetComponent<PhotonView>();
 
             StartCoroutine(UpdateLevelData());
-
         }
 
         protected override void Spawn()
@@ -38,6 +36,8 @@ namespace Tower
             {
                 foreach (var connection in Connections)
                 {
+                    if (connection.Tower == null)
+                        return;
                     TroopPooler.Instance.SpawnSoldierTroop(TowerID, connection.Tower.TowerID, TowerOwner, transform.position, connection.Tower.transform.position);
                 }
             }
@@ -55,22 +55,15 @@ namespace Tower
             {
                 currentSpawnRate -= Time.deltaTime;
             }
-
-           if (Input.GetKeyDown(KeyCode.L))
-           {
-               Debug.Log("photonview ");
-               UPdateTowerLevel();
-           }
         }
 
-        
         /// <summary>
-        /// Base Testing code for syncing 
+        /// Base Testing code for syncing
         /// </summary>
         /// <returns></returns>
-        IEnumerator UpdateLevelData()
+        private IEnumerator UpdateLevelData()
         {
-          //  Debug.Log(" UpdateLevelData = " + PhotonNetwork.IsConnected);
+            //  Debug.Log(" UpdateLevelData = " + PhotonNetwork.IsConnected);
             Debug.Log(" [BaseTest] Get Towerower type" + TowerOwner);
             while (PhotonNetwork.IsConnected)
             {
@@ -78,11 +71,11 @@ namespace Tower
                 UPdateTowerLevel();
             }
         }
+
         [PunRPC]
         public void SendTowerValue(int currentlevel, PhotonMessageInfo info)
         {
-
-           // Debug.Log(info.Sender + ", CurrentLevel: " + currentlevel + ", SenderphotonID " + info.photonView.ViewID + "  ,My photon ID" + photonview.ViewID);
+            // Debug.Log(info.Sender + ", CurrentLevel: " + currentlevel + ", SenderphotonID " + info.photonView.ViewID + "  ,My photon ID" + photonview.ViewID);
             if (photonview.IsMine)
             {
                 if (info.photonView.ViewID == GetComponent<PhotonView>().ViewID)
@@ -90,11 +83,11 @@ namespace Tower
                     Level = currentlevel;
                 }
             }
+        }
 
-            }
-            public void UPdateTowerLevel()
+        public void UPdateTowerLevel()
         {
-            this.gameObject.GetComponent<PhotonView>().RPC("SendTowerValue", RpcTarget.All,Level);
+            this.gameObject.GetComponent<PhotonView>().RPC("SendTowerValue", RpcTarget.All, Level);
         }
     }
 }

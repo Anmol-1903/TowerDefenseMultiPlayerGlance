@@ -110,7 +110,7 @@ namespace Core.Input
                         }
                         if (towerBase.IsChangeable)
                         {
-                            //towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
+                            towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
                         }
                     }
                 }
@@ -131,7 +131,7 @@ namespace Core.Input
             {
                 if (RaycastFromFinger(finger, out RaycastHit hit))
                 {
-                    //towerChangeHandler.CloseTowerInventory();
+                    towerChangeHandler.CloseTowerInventory();
                     RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~excludedLayer);
                     isValid = hits.Length == 1
                         && hits[0].transform.root.GetComponent<TowerBase>() != null

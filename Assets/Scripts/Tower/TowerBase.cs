@@ -11,6 +11,7 @@ using OwnershipType = Core.GameEnums.OwnershipType;
 using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
 using Photon.Pun;
+using System.Linq;
 
 namespace Tower
 {
@@ -36,7 +37,8 @@ namespace Tower
         [field: SerializeField, BeginGroup("Connetions or Path"), DisableInPlayMode] public int UsedPaths { get; protected set; }
         [field: SerializeField, DisableInPlayMode] public int MaxPaths { get; protected set; }
         [field: SerializeField, Disable] public bool CanCreateConnections { get; protected set; }
-        [field: SerializeField, LabelByChild("Name"), Disable, EndGroup] public List<TowerConnection> Connections { get; protected set; }
+        [field: SerializeField, LabelByChild("Name"), Disable] public List<TowerConnection> Connections { get; protected set; }
+        [field: SerializeField, LabelByChild("Name"), Disable, EndGroup] public List<TowerConnection> TowerConnectedToMe { get; protected set; }
 
         [field: SerializeField, BeginGroup("Events")] public UnityEvent OnTowerUpgrade_Level { get; protected set; }
         [field: SerializeField] public UnityEvent OnTowerDowngrade_Level { get; protected set; }
@@ -102,6 +104,7 @@ namespace Tower
                 //! Tower is not connected yet
                 Path path = PathManager.Instance.CreatePath(transform.position, tower.transform.position, this);
                 Connections.Add(new(tower, path));
+                tower.TowerConnectedToMe.Add(new(this, path));
                 if (tower.TowerOwner == TowerOwner)
                 {
                     int selfIndexInOtherTower = tower.FindTowerInConnection(this);
@@ -202,28 +205,33 @@ namespace Tower
                 OnTowerTierChanged?.Invoke(Tier.Tier3, isUpgrading);
             }
         }
+
         [PunRPC]
         public void InformTowerUpdate()
         {
             TowerTracker.Instance.OnTowerUpdateInScene?.Invoke();
         }
+
         [PunRPC]
         public void TransferTowerOwnerShipRPC(OwnershipType ownershipType)
         {
             TowerOwner = ownershipType;
             OnTowerOwnerChange?.Invoke(ownershipType);
         }
+
         [PunRPC]
         public void ReduceLevelRPC(int currLevel)
         {
             Level -= currLevel;
             OnTowerDowngrade_Level?.Invoke();
         }
+
         [PunRPC]
         public void IncreaseLevelRPC(int currLevel)
         {
             Level += currLevel;
         }
+
         public void UpdateTowerLevel(int amt)
         {
             if (amt == 0) return;
@@ -255,6 +263,14 @@ namespace Tower
             UsedPaths = Connections.Count;
             CanCreateConnections = UsedPaths < MaxPaths;
             MaxPaths = (int)TowerTier;
+            for (int i = 0; i < Connections.Count; i++)
+            {
+                if (Connections[i].Tower == null)
+                {
+                    Connections.Remove(Connections[i]);
+                    break;
+                }
+            }
         }
 
         protected void RespawnTroop(TroopBase troop)
@@ -277,11 +293,13 @@ namespace Tower
         }
 
         protected abstract void Spawn();
+
         [PunRPC]
         protected void UpdateTowerVisualRPC(OwnershipType newOwner, Tier tier)
         {
             UpdateTowerVisual(newOwner, tier);
         }
+
         protected void UpdateTowerVisual(OwnershipType newOwner, Tier tier)
         {
             foreach (var visual in Visual)
@@ -308,10 +326,17 @@ namespace Tower
 
         public void CopyTowerSettings(TowerBase tower)
         {
+            TowerID = tower.TowerID;
             TowerOwner = tower.TowerOwner;
             Level = tower.Level;
             TowerChangeableType = tower.TowerChangeableType;
             minLevelToChange = tower.minLevelToChange;
+            TowerConnectedToMe = tower.TowerConnectedToMe.ToList();
+            for (int i = 0; i < TowerConnectedToMe.Count; i++)
+            {
+                //recreate connection
+                TowerConnectedToMe[i].Tower.ConnectTo(this);
+            }
         }
     }
 }
