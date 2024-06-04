@@ -35,6 +35,8 @@ namespace Tower
             {
                 foreach (var connection in Connections)
                 {
+                    if (connection.Tower == null)
+                        return;
                     TroopPooler.Instance.SpawnBruteTroop(TowerID, connection.Tower.TowerID, TowerOwner, transform.position, connection.Tower.transform.position);
                 }
             }

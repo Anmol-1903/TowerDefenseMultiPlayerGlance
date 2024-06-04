@@ -109,7 +109,7 @@ namespace Core.Input
                         {
                             PathManager.Instance.GetHintLine(towerBase.transform.position);
                         }
-
+                       
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace Core.Input
                 canOpenTowerInventory = false;
                 if (RaycastFromFinger(finger, out RaycastHit hit))
                 {
-                    //towerChangeHandler.CloseTowerInventory();
+                    towerChangeHandler.CloseTowerInventory();
                     RaycastHit[] hits = Physics.RaycastAll(towerBase.transform.position, hit.point - towerBase.transform.position, Mathf.Infinity, ~excludedLayer);
                     isValid = hits.Length == 1
                         && hits[0].transform.root.GetComponent<TowerBase>() != null
