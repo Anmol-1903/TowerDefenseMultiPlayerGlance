@@ -24,6 +24,6 @@ MonoBehaviour:
   <BruteMaxPoolSize>k__BackingField: 1000
   <BruteHealth>k__BackingField: 2
   <BruteLevel>k__BackingField: 2
-  <BrutePrefab>k__BackingField: {fileID: 6777993478856746237, guid: a03e8ccbf3e86464cb2eb348c90450a5,
+  <BrutePrefab>k__BackingField: {fileID: 3668521377005645916, guid: e2f92578c4e15c748854d3ade3c2f674,
     type: 3}
   <BruteVisual>k__BackingField: []

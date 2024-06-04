@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using Util;
@@ -59,9 +60,9 @@ namespace Tower
                     if (prevIndex == nextIndex) // Replacing same tower
                         return;
 
-                    //GameObject newTowerObj = Instantiate(towerInventoryItems[nextIndex].Tower.gameObject, towerPosition, Quaternion.identity);
-                    // TowerBase newTower = newTowerObj.GetComponent<TowerBase>();
-                    // newTower.CopyTowerSettings(selectedTower);
+                    GameObject newTowerObj = PhotonNetwork.Instantiate(towerInventoryItems[nextIndex].Tower.gameObject.name, towerPosition, Quaternion.identity);
+                    TowerBase newTower = newTowerObj.GetComponent<TowerBase>();
+                    newTower.CopyTowerSettingsRPC(selectedTower.TowerOwner,selectedTower.Level,selectedTower.TowerChangeableType,selectedTower.minLevelToChange);
 
                     if (towerInventoryItems[prevIndex].IsInfinite == false)
                     {
@@ -72,7 +73,7 @@ namespace Tower
                         towerInventoryItems[nextIndex].NoOfLeft -= 1;
                     }
 
-                    // Destroy(selectedTower.gameObject);
+                    Destroy(selectedTower.gameObject);
                     //Remeber tower.CopyTowerSettings
                     //Replace it here
 

@@ -23,7 +23,7 @@ namespace Tower
 
         [field: SerializeField, BeginGroup("Tower Change Settings")] public ChangeableType TowerChangeableType { get; protected set; }
         [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable), PrefabObjectOnly, AssetPreview] private GameObject defaultTowerPrefab;
-        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable)] private int minLevelToChange = 5;
+        [SerializeField, ShowIf("TowerChangeableType", ChangeableType.Changeable)] public int minLevelToChange = 5;
         [field: SerializeField, ShowDisabledIf("TowerChangeableType", ChangeableType.Changeable), EndGroup] public bool IsChangeable { get; protected set; }
 
         [field: SerializeField, ProgressBar("Tower Level", minValue: 0, maxValue: 64, HexColor = "#76ABAE", IsInteractable = true), BeginGroup("Level Settings")] public int Level { get; protected set; }
@@ -306,12 +306,18 @@ namespace Tower
             }
         }
 
-        public void CopyTowerSettings(TowerBase tower)
+        public void CopyTowerSettingsRPC(OwnershipType ownershipType, int level, ChangeableType changeableType, int minLevelToChange)
         {
-            TowerOwner = tower.TowerOwner;
-            Level = tower.Level;
-            TowerChangeableType = tower.TowerChangeableType;
-            minLevelToChange = tower.minLevelToChange;
+            photonView.RPC("CopyTowerSettings", RpcTarget.AllBuffered, ownershipType, level, changeableType, minLevelToChange);
+        }
+        [PunRPC]
+        public void CopyTowerSettings(OwnershipType ownershipType, int level, ChangeableType changeableType, int minLevelToChang)
+        {
+            TowerOwner = ownershipType;
+            Level = level;
+            TowerChangeableType = changeableType;
+            minLevelToChange = minLevelToChang;
+            OnTowerOwnerChange?.Invoke(TowerOwner);
         }
     }
 }

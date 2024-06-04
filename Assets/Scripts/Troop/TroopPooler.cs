@@ -67,7 +67,8 @@ namespace Troop
 
         private BruteTroop CreateBrutePool()
         {
-            return Instantiate(troopData.BrutePrefab);
+            GameObject troop = PhotonNetwork.Instantiate("BruteTroop", Vector3.zero, Quaternion.identity);
+            return troop.GetComponent<BruteTroop>();
         }
 
         private void OnGetBrute(BruteTroop obj)

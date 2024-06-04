@@ -38,7 +38,7 @@ namespace Core.Input
         /// The width of the path.
         /// </summary>
         [SerializeField] private float pathwidth = 0.25f;
-
+        private bool canOpenTowerInventory;
         private void Start()
         {
             GameManager.Instance.OnGameStart += EnableInputs;
@@ -104,14 +104,12 @@ namespace Core.Input
                 {
                     if (towerBase.TowerOwner == owner)
                     {
+                        canOpenTowerInventory = true;
                         if (towerBase.CanCreateConnections)
                         {
                             PathManager.Instance.GetHintLine(towerBase.transform.position);
                         }
-                        if (towerBase.IsChangeable)
-                        {
-                            //towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
-                        }
+
                     }
                 }
             }
@@ -129,6 +127,7 @@ namespace Core.Input
         {
             if (towerBase != null)
             {
+                canOpenTowerInventory = false;
                 if (RaycastFromFinger(finger, out RaycastHit hit))
                 {
                     //towerChangeHandler.CloseTowerInventory();
@@ -176,6 +175,10 @@ namespace Core.Input
         {
             if (towerBase != null)
             {
+                if (canOpenTowerInventory && towerBase.IsChangeable)
+                {
+                    towerChangeHandler.OpenTowerInventory(towerBase, towerBase.transform.position);
+                }
                 PathManager.Instance.RemoveHintLine();
                 if (isValid)
                 {
