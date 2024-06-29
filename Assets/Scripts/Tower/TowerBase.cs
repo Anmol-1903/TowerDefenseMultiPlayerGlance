@@ -12,6 +12,7 @@ using TowerType = Core.GameEnums.TowerType;
 using ChangeableType = Core.GameEnums.TowerChangeability;
 using Photon.Pun;
 using System.Linq;
+using Core.Input;
 
 namespace Tower
 {
@@ -148,7 +149,15 @@ namespace Tower
             }
             return isDisconnected;
         }
+        public void RemoveAllPaths()
+        {
+            if (Connections.Count > 0)
+                for (int i = 0; i < Connections.Count; i++)
+                {
+                    PathManager.Instance.RemovePath(Connections[i].TowerPath);
+                }
 
+        }
         public void UpdateTowerLevel(TroopBase incomingTroop)
         {
             bool isUpgrading;
@@ -336,6 +345,7 @@ namespace Tower
             TowerChangeableType = changeableType;
             minLevelToChange = minLevelToChang;
             OnTowerOwnerChange?.Invoke(TowerOwner);
+            RemoveAllPaths();
         }
     }
 }

@@ -40,10 +40,10 @@ namespace AI
 
         public void InitAI()
         {
-            /*        selfTower = new();
-                    TowerTracker.Instance.OnTowerUpdate += GetSelfTower;
-                    canStart = true;
-                    nextTimeToAttack = attackInterval;*/
+            selfTower = new();
+            //TowerTracker.Instance.OnTowerUpdate += GetSelfTower;
+            canStart = true;
+            nextTimeToAttack = attackInterval;
         }
 
         private void Update()

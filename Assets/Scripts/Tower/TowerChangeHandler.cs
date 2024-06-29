@@ -62,7 +62,7 @@ namespace Tower
 
                     GameObject newTowerObj = PhotonNetwork.Instantiate(towerInventoryItems[nextIndex].Tower.gameObject.name, towerPosition, Quaternion.identity);
                     TowerBase newTower = newTowerObj.GetComponent<TowerBase>();
-                    newTower.CopyTowerSettingsRPC(selectedTower.TowerOwner,selectedTower.Level,selectedTower.TowerChangeableType,selectedTower.minLevelToChange);
+                    newTower.CopyTowerSettingsRPC(selectedTower.TowerOwner, selectedTower.Level, selectedTower.TowerChangeableType, selectedTower.minLevelToChange);
 
                     if (towerInventoryItems[prevIndex].IsInfinite == false)
                     {
@@ -72,7 +72,7 @@ namespace Tower
                     {
                         towerInventoryItems[nextIndex].NoOfLeft -= 1;
                     }
-
+                    selectedTower.RemoveAllPaths();
                     Destroy(selectedTower.gameObject);
                     //Remeber tower.CopyTowerSettings
                     //Replace it here

@@ -168,6 +168,7 @@ MonoBehaviour:
   <MaxPaths>k__BackingField: 0
   <CanCreateConnections>k__BackingField: 0
   <Connections>k__BackingField: []
+  <TowerConnectedToMe>k__BackingField: []
   <OnTowerUpgrade_Level>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
